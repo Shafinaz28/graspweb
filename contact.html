@@ -298,6 +298,26 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   display: block;
   border: 0;
 }
+.scroll-reveal-img { overflow: hidden; }
+.wa-float-btn {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 9998;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s ease, background 0.25s ease;
+  text-decoration: none;
+}
+.wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
   </style>
 </head>
 <body class="inner-page bg-white font-sansBrand">
@@ -337,9 +357,9 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       </div>
     </div>
 
-    <section class="page-section">
+    <section class="page-section" id="contact-section">
       <div class="site-shell contact-grid">
-        <div>
+        <div class="scroll-reveal-left">
           <div class="contact-info-card mb-6">
             <h2 class="mb-6">Get In Touch</h2>
             <ul class="list-none p-0">
@@ -381,7 +401,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form scroll-reveal-right" id="contactForm" novalidate>
           <h2 class="section-title text-2xl md:text-3xl mb-6">Send A <em>Message</em></h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4">
             <div>
@@ -413,8 +433,8 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
         </form>
       </div>
 
-      <div class="site-shell">
-        <div class="map-embed">
+      <div class="site-shell" id="contact-map">
+        <div class="map-embed scroll-reveal-up">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.941015493023!2d77.53174143919502!3d12.975624482274497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ddd2c902815%3A0x827aea324d5b628b!2sNagarabhavi%20Main%20Rd%20%26%204th%20Main%20Rd%2C%20Govindaraja%20Nagar%20Ward%2C%20Govindaraja%20Nagar%2C%20Vijayanagar%2C%20Bengaluru%2C%20Karnataka%20560040!5e0!3m2!1sen!2sin!4v1780303971582!5m2!1sen!2sin"
             width="600"
@@ -610,6 +630,63 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       this.reset();
     });
   </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+(function () {
+  function initScrollAnimations() {
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    var toggle = "play reverse play reverse";
+    var start = "top 80%";
+
+    function fromLeft(target, trigger) {
+      gsap.fromTo(target, { x: -100, opacity: 0 }, {
+        x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
+      });
+    }
+
+    function fromRight(target, trigger) {
+      gsap.fromTo(target, { x: 100, opacity: 0 }, {
+        x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
+      });
+    }
+
+    function staggerUp(target, trigger) {
+      gsap.fromTo(target, { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
+        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
+      });
+    }
+
+    if (document.querySelector("#contact-section")) {
+      fromLeft("#contact-section .scroll-reveal-left", "#contact-section");
+      fromRight("#contact-section .scroll-reveal-right", "#contact-section");
+    }
+
+    if (document.querySelector("#contact-map")) {
+      staggerUp("#contact-map .scroll-reveal-up", "#contact-map");
+    }
+
+    ScrollTrigger.refresh();
+  }
+
+  window.addEventListener("load", initScrollAnimations);
+  window.addEventListener("resize", function () {
+    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+  });
+})();
+  </script>
+
+  <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 </body>
 </html>
 

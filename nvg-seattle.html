@@ -88,7 +88,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   transition: background 0.25s, color 0.25s;
 }
 .site-nav-pill .nav-link:hover, .site-nav-pill .nav-link.text-brandGold { background: #eceef3; color: #cd7f2f !important; }
-.header-at-top { background: #ffffff !important; box-shadow: 0 4px 20px rgba(36, 45, 99, 0.08) !important; }
+.header-at-top { background: rgba(255,255,255,0.92) !important; backdrop-filter: blur(8px); box-shadow: none !important; }
 .header-scrolled { background: #ffffff !important; box-shadow: 0 4px 24px rgba(36, 45, 99, 0.12); }
 .nav-cta-btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -137,151 +137,164 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   #menuToggle { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
 }
 
-/* —— Layout —— */
-.page-main { padding-top: 125px; }
-.page-banner {
+/* —— Real Homes layout (NVG Seattle) —— */
+.page-main { padding-top: 0; }
+
+.rh-hero {
+  position: relative;
+  min-height: clamp(320px, 52vh, 480px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(110px + 3rem) 0 clamp(2rem, 5vh, 3rem);
   background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-  padding: calc(125px + 3.5rem) 0 4rem;
+  overflow: hidden;
+}
+.rh-hero-inner {
+  position: relative;
+  width: 100%;
   text-align: center;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.page-banner h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 0.75rem;
-  color: #fff;
+.rh-hero-kicker { margin: 0 0 0.75rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cd7f2f; }
+.rh-hero h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.35rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #ffffff;
+  white-space: nowrap;
 }
-.page-banner p {
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 36rem;
-  margin: 0 auto;
-  line-height: 1.7;
+.rh-hero h1 em { font-style: italic; color: #cd7f2f; }
+.rh-hero-list { list-style: none; margin: 0 0 1.75rem; padding: 0; display: grid; gap: 0.45rem; justify-items: center; }
+.rh-hero-list li { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.92rem; color: rgba(255, 255, 255, 0.88); font-weight: 500; }
+.rh-hero-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #cd7f2f; flex-shrink: 0; }
+.rh-hero .rh-btn { background: #cd7f2f; color: #1a2340 !important; }
+.rh-hero .rh-btn:hover { background: #e8a04e; color: #1a2340 !important; }
+.rh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.85rem;
+  background: #242d63;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.25s;
 }
-.page-banner .breadcrumb {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem;
-  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
-  margin-bottom: 1rem; color: #cd7f2f;
-}
-.page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-.page-banner .breadcrumb a:hover { color: #cd7f2f; }
-.page-banner .breadcrumb span { color: rgba(255,255,255,0.55); }
-@media (max-width: 767px) {
-  .page-main { padding-top: 100px !important; }
-  .page-banner { padding-top: calc(100px + 2.5rem); }
-}
+.rh-btn:hover { background: #1a2340; transform: translateY(-1px); }
+.rh-btn--light { background: #fff; color: #242d63 !important; }
+.rh-btn--light:hover { background: #f4f6f8; }
 
-/* —— Sections —— */
-.page-section { padding: var(--section-pad) 0; background: #ffffff; }
-.page-section.soft { background: #f4f6fc; }
-.page-section.cream { background: var(--brand-cream); }
-.page-section.navy-band {
+.rh-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; background: #fff; }
+.rh-section--soft { background: #f4f6f8; }
+.rh-intro-grid { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 900px) { .rh-intro-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.rh-intro-grid h2 { margin: 0; font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.08; color: #242d63; max-width: 14ch; }
+.rh-intro-grid h2 em { font-style: italic; color: #cd7f2f; }
+.rh-intro-copy p { margin: 0 0 1rem; line-height: 1.8; color: #5b6478; }
+.rh-link { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 700; color: #242d63; text-decoration: none; border-bottom: 2px solid #cd7f2f; padding-bottom: 0.1rem; }
+.rh-link:hover { color: #cd7f2f; }
+
+.rh-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center; padding: clamp(2rem, 4vw, 3rem) 0; border-block: 1px solid #e8ecf2; }
+@media (max-width: 600px) { .rh-stats-row { grid-template-columns: 1fr; } }
+.rh-stats-row strong { display: block; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); color: #242d63; line-height: 1; margin-bottom: 0.4rem; }
+.rh-stats-row span { font-size: 0.88rem; color: #5b6478; line-height: 1.45; }
+
+.rh-dark-band {
   background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
   color: #fff;
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
 }
-.page-section.navy-band .section-title { color: #fff; }
-.page-section.navy-band .section-kicker { color: #cd7f2f; }
+.rh-dark-band h2 { color: #fff; margin: 0 0 1rem; font-size: clamp(1.85rem, 4vw, 2.75rem); max-width: none; }
+.rh-dark-band h3 { color: #fff; margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 600; }
+.rh-dark-band h3 em { font-style: italic; color: #cd7f2f; }
+.rh-experience-intro { color: rgba(255,255,255,0.82); max-width: 40rem; line-height: 1.75; margin: 0 0 2rem; }
+.rh-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; max-width: 32rem; }
+.rh-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.5; }
+.rh-checklist i { color: #cd7f2f; margin-top: 0.2rem; flex-shrink: 0; }
+.rh-location-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: center; }
+@media (min-width: 900px) { .rh-location-split { grid-template-columns: 1.05fr 0.95fr; } }
+.rh-location-media { border-radius: 2px; overflow: hidden; aspect-ratio: 4/3; border: 1px solid rgba(255,255,255,0.12); }
+.rh-location-media img { width: 100%; height: 100%; object-fit: cover; display: block; max-width: none; }
 
-.proj-overview { display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 992px) { .proj-overview { grid-template-columns: 1.15fr 0.85fr; } }
-.proj-lead { font-size: 1.05rem; line-height: 1.8; color: #3d4660; margin: 0 0 1.15rem; }
-
-.proj-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-@media (min-width: 640px) { .proj-stats { grid-template-columns: repeat(2, 1fr); } }
-.proj-stat {
-  background: #fff; border-radius: 14px; padding: 1.35rem 1rem; text-align: center;
-  box-shadow: 0 10px 32px rgba(36, 45, 99, 0.08);
-  border: 1px solid #e8ecf4;
+.rh-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 900px) { .rh-split { grid-template-columns: 1fr 1fr; } }
+.rh-split-head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.rh-split-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
+.rh-split-head h2 em { font-style: italic; color: #cd7f2f; }
+.rh-accordion { border-top: 1px solid #e5e8f2; }
+.rh-acc-item { border-bottom: 1px solid #e5e8f2; }
+.rh-acc-btn {
+  width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.15rem 0;
+  background: none; border: none; text-align: left; cursor: pointer; font-family: var(--font-body);
+  font-size: 1rem; font-weight: 600; color: #242d63;
+}
+.rh-acc-btn i.icon { width: 2rem; color: #cd7f2f; text-align: center; }
+.rh-acc-btn .chev { margin-left: auto; transition: transform 0.25s; color: #8a93a8; }
+.rh-acc-item.is-open .rh-acc-btn .chev { transform: rotate(180deg); }
+.rh-acc-panel { display: none; padding: 0 0 1.15rem 2.85rem; color: #5b6478; line-height: 1.7; font-size: 0.92rem; }
+.rh-acc-item.is-open .rh-acc-panel { display: block; }
+.rh-accordion-wrap { max-width: 42rem; margin: 0 auto; }
+.rh-units-head { display: grid; gap: 1rem; margin-bottom: 2rem; align-items: end; }
+@media (min-width: 900px) { .rh-units-head { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+.rh-units-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; max-width: 14ch; }
+.rh-units-head p { margin: 0; color: #5b6478; line-height: 1.75; }
+.rh-units-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.rh-unit-card {
+  background: #fff;
+  border: 1px solid #e8ecf2;
+  border-radius: 2px;
+  padding: 1.5rem 1.35rem;
   border-top: 3px solid #cd7f2f;
 }
-.proj-stat strong { display: block; font-size: 1.6rem; color: #cd7f2f; line-height: 1.1; margin-bottom: 0.3rem; }
-.proj-stat span { font-size: 0.78rem; color: #5b6478; font-weight: 600; line-height: 1.35; }
-
-.proj-features { display: grid; gap: 1.25rem; }
-@media (min-width: 640px) { .proj-features { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 992px) { .proj-features { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 992px) { #design .proj-features { grid-template-columns: repeat(4, 1fr); } }
-.proj-feature {
-  background: #fff; border-radius: 16px; padding: 1.6rem 1.4rem;
-  border: 1px solid #e5e8f2; box-shadow: 0 8px 28px rgba(36, 45, 99, 0.06);
-  transition: transform 0.25s, box-shadow 0.25s;
+.rh-unit-card h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #242d63;
 }
-.proj-feature:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(36, 45, 99, 0.1); }
-.proj-feature i {
-  width: 2.75rem; height: 2.75rem; border-radius: 12px;
-  background: rgba(205, 127, 47, 0.12); color: #cd7f2f;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; margin-bottom: 1rem;
+.rh-unit-card p { margin: 0.5rem 0 0; font-size: 0.88rem; color: #5b6478; line-height: 1.6; }
+.rh-unit-card .rh-unit-sqft {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #242d63;
 }
-.proj-feature h3 { margin: 0 0 0.5rem; font-size: 1.02rem; color: #242d63; }
-.proj-feature p { margin: 0; font-size: 0.88rem; color: #5b6478; line-height: 1.65; }
-
-.proj-area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 1000px; margin: 0 auto; }
-@media (min-width: 768px) { .proj-area-grid { grid-template-columns: repeat(4, 1fr); } }
-.proj-area-card {
-  background: #fff; border-radius: 14px; padding: 1.5rem 1.15rem; text-align: center;
-  border: 1px solid #e5e8f2; box-shadow: 0 8px 28px rgba(36, 45, 99, 0.07);
-  border-top: 4px solid #cd7f2f;
-}
-.proj-area-card span { display: block; font-size: 0.7rem; color: #cd7f2f; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
-.proj-area-card strong { display: block; font-size: 1.2rem; color: #242d63; margin-bottom: 0.35rem; }
-.proj-area-card p { margin: 0; font-size: 0.8rem; color: #5b6478; line-height: 1.5; }
-
-.proj-quote {
-  max-width: 44rem; margin: 0 auto 2.5rem; padding: 1.75rem 2rem;
-  background: #fff; border-radius: 16px; border-left: 4px solid #cd7f2f;
-  box-shadow: 0 8px 28px rgba(36, 45, 99, 0.06);
-  font-size: 1.08rem; line-height: 1.75; color: #3d4660; font-style: italic; text-align: center;
+@media (max-width: 767px) {
+  .rh-units-grid { grid-template-columns: 1fr; }
 }
 
-.proj-eoi-banner {
-  max-width: 680px; margin: 0 auto 2.5rem; padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, rgba(205,127,47,0.14) 0%, rgba(205,127,47,0.06) 100%);
-  border: 1px solid rgba(205, 127, 47, 0.35); border-radius: 16px; text-align: center;
-}
-.proj-eoi-banner strong { display: block; font-size: 1.35rem; color: #cd7f2f; margin-bottom: 0.4rem; }
-.proj-eoi-banner span { font-size: 0.9rem; color: #5b6478; }
+.rh-map-head { text-align: center; margin-bottom: 2rem; }
+.rh-map-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
+.rh-nearby-kicker { margin: 0 0 1rem; text-align: center; }
+.rh-map-wrap { border-radius: 2px; overflow: hidden; margin-top: 2.5rem; border: 1px solid #e8ecf2; }
+.rh-map-wrap iframe { display: block; width: 100%; height: clamp(280px, 40vw, 400px); border: 0; }
+.rh-nearby { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.5rem; }
+@media (min-width: 768px) { .rh-nearby { grid-template-columns: repeat(4, 1fr); } }
+.rh-nearby-item { display: flex; align-items: flex-start; gap: 0.65rem; }
+.rh-nearby-item i { color: #242d63; font-size: 1.1rem; margin-top: 0.15rem; }
+.rh-nearby-item strong { display: block; font-size: 0.88rem; color: #242d63; margin-bottom: 0.15rem; }
+.rh-nearby-item span { font-size: 0.78rem; color: #8a93a8; }
 
-.proj-steps { display: grid; gap: 1.25rem; max-width: 1000px; margin: 0 auto; }
-@media (min-width: 768px) { .proj-steps { grid-template-columns: repeat(4, 1fr); } }
-.proj-step {
-  background: #fff; border-radius: 14px; padding: 1.6rem 1.25rem;
-  border: 1px solid #e5e8f2; box-shadow: 0 6px 24px rgba(36, 45, 99, 0.06);
-}
-.proj-step-num {
-  width: 2.25rem; height: 2.25rem; border-radius: 50%;
-  background: linear-gradient(135deg, #242d63, #cd7f2f); color: #fff;
-  font-weight: 700; display: flex; align-items: center; justify-content: center;
-  margin-bottom: 0.85rem; font-size: 0.85rem;
-}
-.proj-step h3 { margin: 0 0 0.5rem; font-size: 0.95rem; color: #242d63; }
-.proj-step p { margin: 0; font-size: 0.85rem; color: #5b6478; line-height: 1.6; }
+.wa-float-btn { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 9998; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); transition: transform 0.25s ease, background 0.25s ease; text-decoration: none; }
+.wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
 
-.proj-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1.75rem; }
-.proj-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  padding: 0.9rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
-  text-decoration: none; transition: 0.25s ease; border: none; cursor: pointer;
-  font-family: "DM Sans", system-ui, sans-serif;
+@media (max-width: 767px) {
+  .rh-hero { min-height: auto; padding-top: calc(100px + 2.5rem); }
+  .rh-hero h1 { font-size: clamp(1.1rem, 4.8vw, 1.65rem); }
 }
-.proj-btn-primary { background: #242d63; color: #fff; box-shadow: 0 6px 20px rgba(36, 45, 99, 0.35); }
-.proj-btn-primary:hover { background: #1a2340; color: #fff; transform: translateY(-2px); }
-.proj-btn-outline { border: 2px solid #242d63; color: #242d63; background: transparent; }
-.proj-btn-outline:hover { background: #242d63; color: #fff; }
-.proj-btn-wa { background: #25d366; color: #fff; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35); }
-.proj-btn-wa:hover { background: #1da851; color: #fff; transform: translateY(-2px); }
-
-.proj-cta {
-  position: relative; text-align: center; color: #fff;
-  padding: clamp(3.5rem, 7vw, 5rem) 0; overflow: hidden;
-}
-.proj-cta-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background: #CD7F2F;
-}
-.proj-cta .site-shell { position: relative; z-index: 1; }
-.proj-cta h2 { color: #fff; margin: 0 0 0.85rem; font-size: clamp(1.75rem, 3.5vw, 2.35rem); }
-.proj-cta p { color: rgba(255, 255, 255, 0.88); max-width: 36rem; margin: 0 auto 1.75rem; line-height: 1.75; }
-.proj-cta .proj-btn-outline { border-color: #242d63; background: #242d63; color: #fff; }
-.proj-cta .proj-btn-outline:hover { background: #1a2340; color: #fff; border-color: #1a2340; }
 
 /* Footer */
 .site-footer { background-color: #242d63 !important; color: #fff; border-top: none; }
@@ -319,118 +332,191 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="page-banner" aria-label="NVG Seattle">
-    <div class="site-shell">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a><span>/</span>
-        <a href="properties.html">Properties</a><span>/</span>
-        <span>NVG Seattle</span>
-      </nav>
-      <p class="section-kicker" style="color:#cd7f2f;margin-bottom:0.75rem;">Pre-Launch · Artistic Skyline</p>
-      <h1>NVG Seattle</h1>
-      <p>A seamless blend of modern design and intelligent planning in North Bengaluru — where the Artistic Skyline Marketing Pavilion embodies the vision of future city living.</p>
-    </div>
-  </section>
-
   <main class="page-main w-full max-w-full overflow-x-hidden">
-    <section class="page-section" id="overview">
+
+    <!-- Hero -->
+    <section class="rh-hero" aria-label="NVG Seattle">
+      <div class="site-shell rh-hero-inner">
+        <p class="rh-hero-kicker">Pre-Launch · Artistic Skyline · North Bengaluru</p>
+        <h1>Elegance Through <em>Simplicity</em></h1>
+        <ul class="rh-hero-list">
+          <li>Artistic Skyline Marketing Pavilion</li>
+          <li>3 BHK from 1,285 sq.ft · North facing</li>
+          <li>₹1L fully refundable EOI</li>
+        </ul>
+        <a href="contact.html" class="rh-btn">Register Your EOI</a>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="rh-section" style="padding-top:0;">
       <div class="site-shell">
-        <div class="proj-overview">
+        <div class="rh-stats-row">
           <div>
-            <p class="section-kicker mb-3">Marketing Pavilion</p>
-            <h2 class="section-title">Artistic <em>Skyline</em></h2>
-            <p class="proj-lead">The Artistic Skyline Pavilion is more than a marketing office — it embodies the spirit of the future development. Every step tells a story where art meets architecture.</p>
-            <p class="proj-lead">NVG Seattle blends bold architectural massing with immersive interiors — vertical forms, layered light, and reflective materials creating a modern, iconic landmark in North Bengaluru.</p>
+            <strong>11,430</strong>
+            <span>Sq.Ft. total site area</span>
           </div>
-          <div class="proj-stats">
-            <div class="proj-stat"><strong>11,430</strong><span>Sq.Ft. Site Area</span></div>
-            <div class="proj-stat"><strong>3,907</strong><span>Sq.Ft. Pavilion</span></div>
-            <div class="proj-stat"><strong>1,285</strong><span>Sq.Ft. 3 BHK</span></div>
-            <div class="proj-stat"><strong>₹1L</strong><span>Refundable EOI</span></div>
+          <div>
+            <strong>3,907</strong>
+            <span>Sq.Ft. marketing pavilion</span>
+          </div>
+          <div>
+            <strong>₹1L</strong>
+            <span>Fully refundable pre-launch EOI</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="page-section soft" id="location">
+    <!-- Key highlights -->
+    <section class="rh-dark-band" id="location">
       <div class="site-shell">
-        <div class="section-head">
-          <p class="section-kicker mb-3">Site Experience</p>
-          <h2 class="section-title">North Bengaluru <em>Advantage</em></h2>
-          <p class="section-sub">Strategically located on a 100-ft main road in one of North Bengaluru’s most established and rapidly appreciating residential hubs.</p>
-        </div>
-        <div class="proj-features">
-          <article class="proj-feature"><i class="fa-solid fa-road"></i><h3>100-Ft Main Road</h3><p>Excellent connectivity with wide frontage and strong visibility in a high-growth corridor.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-compass"></i><h3>North-East Facing</h3><p>Energy-efficient planning with passive daylighting and reduced heat gain.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-sun"></i><h3>Light &amp; Ventilation</h3><p>Natural light and cross-ventilation across spacious, comfortable residences.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-chart-line"></i><h3>High Appreciation</h3><p>Rapidly appreciating micro-market with strong end-user and investor interest.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-plane"></i><h3>Airport Influence Zone</h3><p>Part of the airport-led North Bengaluru growth story.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-map"></i><h3>3,000-Acre BDA Layout</h3><p>Major planned development strengthening long-term infrastructure.</p></article>
+        <div class="rh-location-split">
+          <div class="rh-location-copy">
+            <h2>A New Way to Live in North Bengaluru</h2>
+            <p class="rh-experience-intro">Strategically located on a 100-ft main road in one of North Bengaluru's most established and rapidly appreciating residential hubs.</p>
+            <h3>Key <em>Highlights</em></h3>
+            <ul class="rh-checklist">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> 100-ft main road frontage with strong visibility</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> North-east facing residences with natural light</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Cross-ventilation across spacious layouts</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Airport influence zone — high appreciation corridor</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Adjacent to 3,000-acre BDA planned layout</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority EOI access &amp; first-right-of-refusal window</li>
+            </ul>
+          </div>
+          <div class="rh-location-media">
+            <img src="./image/hero-interior.jpg" alt="NVG Seattle — luxury living in North Bengaluru" width="800" height="600" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="page-section" id="scale">
+    <!-- Design & experience -->
+    <section class="rh-section" id="design">
       <div class="site-shell">
-        <div class="section-head">
-          <p class="section-kicker mb-3">Area Planning</p>
-          <h2 class="section-title">Project <em>Scale</em></h2>
+        <div class="rh-split-head">
+          <h2>Design &amp; <em>Experience</em></h2>
         </div>
-        <div class="proj-area-grid">
-          <article class="proj-area-card"><span>Site Area</span><strong>1,062 sq.m</strong><p>11,430 sq.ft footprint</p></article>
-          <article class="proj-area-card"><span>Marketing Pavilion</span><strong>363 sq.m</strong><p>3,907 sq.ft experience centre</p></article>
-          <article class="proj-area-card"><span>Landscape &amp; Parking</span><strong>336 sq.m</strong><p>3,616 sq.ft green &amp; parking</p></article>
-          <article class="proj-area-card"><span>3 BHK North Facing</span><strong>1,285 sq.ft</strong><p>Premium residence layout</p></article>
+        <div class="rh-accordion-wrap">
+          <div class="rh-accordion" id="designAccordion">
+            <div class="rh-acc-item is-open">
+              <button type="button" class="rh-acc-btn" aria-expanded="true">
+                <i class="fa-solid fa-building icon" aria-hidden="true"></i>
+                Landmark Facade
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Metal and perforated panels with depth and reflection — a distinctive urban presence on the North Bengaluru skyline.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-gem icon" aria-hidden="true"></i>
+                Material Play
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Glass, mirrors, and metallic finishes create immersive interior depth inside the Artistic Skyline Pavilion.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-mug-saucer icon" aria-hidden="true"></i>
+                Coffee Bar &amp; Model Home
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Marketing pavilion with coffee bar zoning and a curated spatial experience for buyers and investors.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-wand-magic-sparkles icon" aria-hidden="true"></i>
+                Modern &amp; Aspirational
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">A design language of ambition, progress, and elegance — where art meets architecture at every turn.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="page-section cream" id="design">
+    <!-- Unit types grid -->
+    <section class="rh-section rh-section--soft" id="scale">
       <div class="site-shell">
-        <div class="section-head">
-          <p class="section-kicker mb-3">Design Language</p>
-          <h2 class="section-title">Artistic Skyline <em>Theme</em></h2>
+        <div class="rh-units-head">
+          <h2>Check NVG Seattle <em>Spaces</em></h2>
+          <p>From the 3,907 sq.ft Artistic Skyline Pavilion to the 1,285 sq.ft north-facing 3 BHK — every space is planned for light, ventilation, and long-term value.</p>
         </div>
-        <blockquote class="proj-quote">Great design isn't just what you see — it's what you feel every time you step into a space that truly reflects you.</blockquote>
-        <div class="proj-features">
-          <article class="proj-feature"><i class="fa-solid fa-building"></i><h3>Landmark Facade</h3><p>Metal and perforated panels with depth and reflection — a distinctive urban presence.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-gem"></i><h3>Material Play</h3><p>Glass, mirrors, and metallic finishes create immersive interior depth.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-mug-saucer"></i><h3>Coffee Bar &amp; Model Home</h3><p>Marketing pavilion with coffee bar zoning and curated spatial experience.</p></article>
-          <article class="proj-feature"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Modern &amp; Aspirational</h3><p>A design language of ambition, progress, and elegance.</p></article>
+        <div class="rh-units-grid">
+          <div class="rh-unit-card">
+            <h3>Marketing Pavilion</h3>
+            <p>Artistic Skyline experience centre — planned for light, ventilation, and long-term value.</p>
+            <span class="rh-unit-sqft">3,907 sq.ft</span>
+          </div>
+          <div class="rh-unit-card">
+            <h3>3 BHK North Facing</h3>
+            <p>Premium north-facing layout with natural light and cross-ventilation throughout.</p>
+            <span class="rh-unit-sqft">1,285 sq.ft</span>
+          </div>
+          <div class="rh-unit-card">
+            <h3>Landscape &amp; Parking</h3>
+            <p>Green zones and dedicated parking — designed for everyday comfort and resale appeal.</p>
+            <span class="rh-unit-sqft">3,616 sq.ft</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="page-section soft" id="eoi">
+    <!-- Location -->
+    <section class="rh-section" id="map">
       <div class="site-shell">
-        <div class="section-head">
-          <p class="section-kicker mb-3">Pre-Launch Entry</p>
-          <h2 class="section-title">Why EOI <em>Matters</em></h2>
+        <div class="rh-map-head">
+          <h2>All Roads Lead To <em>NVG Seattle</em></h2>
         </div>
-        <div class="proj-eoi-banner">
-          <strong>₹1,00,000 Fully Refundable EOI</strong>
-          <span>Non-bankable cheque · Priority unit selection · First-right-of-refusal window</span>
+        <p class="section-kicker rh-nearby-kicker">Nearby Highlights</p>
+        <div class="rh-nearby">
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-road" aria-hidden="true"></i>
+            <div><strong>100-Ft Main Road</strong><span>Primary connectivity</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-plane" aria-hidden="true"></i>
+            <div><strong>Airport Zone</strong><span>North Bengaluru growth</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-map" aria-hidden="true"></i>
+            <div><strong>BDA Layout</strong><span>3,000-acre planned zone</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            <div><strong>High Appreciation</strong><span>Investor corridor</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-compass" aria-hidden="true"></i>
+            <div><strong>North-East Facing</strong><span>Energy-efficient homes</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <div><strong>Natural Light</strong><span>Cross-ventilation</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-building" aria-hidden="true"></i>
+            <div><strong>11,430 Sq.Ft.</strong><span>Total site footprint</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            <div><strong>₹1L EOI</strong><span>Fully refundable</span></div>
+          </div>
         </div>
-        <div class="proj-steps">
-          <article class="proj-step"><div class="proj-step-num">01</div><h3>Submit EOI</h3><p>Share your ₹1 lakh fully refundable non-bankable cheque to register interest.</p></article>
-          <article class="proj-step"><div class="proj-step-num">02</div><h3>Priority Access</h3><p>Stay ahead for updates, selection windows, and next-stage communication.</p></article>
-          <article class="proj-step"><div class="proj-step-num">03</div><h3>Register Intent</h3><p>Confirm your interest in the pre-launch window.</p></article>
-          <article class="proj-step"><div class="proj-step-num">04</div><h3>Secure Access</h3><p>Gain first-right-of-refusal during the priority selection window.</p></article>
+        <div class="rh-map-wrap">
+          <iframe
+            title="North Bengaluru location"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.0!2d77.5!3d13.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
 
-    <section class="proj-cta">
-      <div class="proj-cta-bg" aria-hidden="true"></div>
-      <div class="site-shell">
-        <h2>Request NVG Seattle Details</h2>
-        <p>Talk to our experts for pre-launch details, location insights, and priority EOI access.</p>
-        <div class="proj-actions">
-          <a href="properties.html" class="proj-btn proj-btn-outline">All Projects</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
@@ -515,6 +601,25 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 
   <script>
 (function () {
+  document.querySelectorAll(".rh-acc-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.closest(".rh-acc-item");
+      if (!item) return;
+      var open = item.classList.contains("is-open");
+      document.querySelectorAll(".rh-acc-item").forEach(function (el) {
+        el.classList.remove("is-open");
+        var b = el.querySelector(".rh-acc-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+      if (!open) {
+        item.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+})();
+
+(function () {
   var navbar = document.getElementById("navbar");
   var menuToggle = document.getElementById("menuToggle");
   var menuClose = document.getElementById("menuClose");
@@ -568,5 +673,9 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   if (menuMedia) menuMedia.addEventListener("click", closeMenu);
 })();
   </script>
+
+  <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 </body>
 </html>

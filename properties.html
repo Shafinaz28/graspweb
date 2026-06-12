@@ -297,191 +297,227 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   .page-banner { padding-top: calc(100px + 2.5rem); }
 }
 
-.page-section { padding: clamp(3rem, 6vw, 5rem) 0; }
-.page-section.soft { background: #f8f9fc; }
+.page-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.page-section.soft { background: #f4f6fb; }
 
-.prop-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
+.rh-projects-head {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
 }
-.prop-filter-btn {
-  padding: 0.6rem 1.25rem;
-  border: 2px solid #eef1f8;
-  background: #fff;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+
+.rh-projects-head h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
   color: #242d63;
-  cursor: pointer;
-  transition: background 0.25s, border-color 0.25s, color 0.25s;
-}
-.prop-filter-btn.is-active,
-.prop-filter-btn:hover {
-  background: #242d63;
-  border-color: #242d63;
-  color: #fff;
 }
 
-.prop-cards-grid {
+.rh-projects-head h2 em {
+  font-style: italic;
+  color: #cd7f2f;
+}
+
+.rh-projects-head p {
+  margin: 0 auto;
+  font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+  line-height: 1.75;
+  color: #5b6478;
+  max-width: 38rem;
+}
+
+.rh-projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: stretch;
 }
-@media (min-width: 768px) {
-  .prop-cards-grid { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 991px) {
+  .rh-projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (min-width: 1024px) {
-  .prop-cards-grid { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 639px) {
+  .rh-projects-grid { grid-template-columns: 1fr; }
 }
-.prop-card {
+
+.rh-project-card {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(36, 45, 99, 0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s;
-}
-a.prop-card {
-  display: block;
   text-decoration: none;
-  color: inherit;
+  color: #1f2937;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.prop-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(36, 45, 99, 0.12);
+
+.rh-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
 }
-.prop-card.is-hidden { display: none; }
-.prop-card-media { position: relative; height: 220px; overflow: hidden; }
-.prop-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
-.prop-card:hover .prop-card-media img { transform: scale(1.05); }
-.prop-badge {
+
+.rh-project-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e8ecf4;
+}
+
+.rh-project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+  transition: transform 0.55s ease;
+}
+
+.rh-project-card:hover .rh-project-media img {
+  transform: scale(1.04);
+}
+
+.rh-project-badge {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
+  top: 0.85rem;
+  left: 0.85rem;
   z-index: 1;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background: #cd7f2f;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.prop-badge-featured { background: #242d63; }
-.prop-badge-offer { background: #cd7f2f; }
-.prop-card-body { padding: 1.25rem 1.35rem 1.35rem; }
-.prop-location {
+
+.rh-project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.rh-project-body h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-body) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111827;
+}
+
+.rh-project-address {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.rh-project-stats {
+  list-style: none;
+  margin: 0 0 1.15rem;
+  padding: 0 0 1.15rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.rh-project-stats li {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin: 0 0 0.65rem;
+  padding: 0 0.85rem;
   font-size: 0.82rem;
-  color: #6b7289;
-}
-.prop-location i { color: #cd7f2f; }
-.prop-card-title {
-  margin: 0 0 1rem;
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #242d63;
-}
-.prop-card-title-link {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-.prop-card-title-link:hover { color: #cd7f2f; }
-.prop-inquire-btn { text-decoration: none; color: #242d63 !important; }
-.prop-inquire-btn:hover { background: #cd7f2f !important; color: #fff !important; }
-.prop-amenities {
-  list-style: none;
-  margin: 0 0 1.15rem;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem 1.1rem;
-  font-size: 0.8rem;
   font-weight: 600;
-  color: #cd7f2f;
+  color: #374151;
+  border-right: 1px solid #d1d5db;
 }
-.prop-amenities li { display: inline-flex; align-items: center; gap: 0.35rem; }
-.prop-card-footer {
+
+.rh-project-stats li:first-child { padding-left: 0; }
+.rh-project-stats li:last-child { border-right: none; padding-right: 0; }
+.rh-project-stats i { color: #9ca3af; font-size: 0.9rem; }
+
+.rh-project-footer {
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eef1f8;
+  gap: 0.75rem;
 }
-.prop-price { margin: 0; display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
-.prop-price-amount { font-size: 1.35rem; font-weight: 800; color: #242d63; }
-.prop-price-period { font-size: 0.85rem; color: #8a93a8; }
-.prop-fav-btn {
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(205, 127, 47, 0.12);
-  color: #cd7f2f;
-  cursor: pointer;
+
+.rh-project-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.rh-project-cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: background 0.25s, color 0.25s;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #242d63;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #242d63;
+  white-space: nowrap;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-.prop-fav-btn:hover,
-.prop-fav-btn.is-active { background: #cd7f2f; color: #fff; }
+
+.rh-project-card:hover .rh-project-cta {
+  background: #cd7f2f;
+  border-color: #cd7f2f;
+  color: #ffffff;
+}
 
 .properties-cta {
   width: 100%;
-  max-width: 100%;
   text-align: center;
-  margin: 0;
-  padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem);
-  background: #CD7F2F;
-  border-radius: 0;
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  background: #242d63;
 }
-.properties-cta .site-shell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .properties-cta p {
   color: rgba(255, 255, 255, 0.9);
   margin: 0 auto 1.5rem;
-  max-width: 32rem;
-  line-height: 1.7;
+  max-width: 34rem;
+  line-height: 1.75;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
 }
-.properties-cta .fusion-btn-primary {
-  background: #242d63;
-  color: #ffffff;
-}
-.properties-cta .fusion-btn-primary:hover {
-  background: #242d63;
-  color: #ffffff;
-}
-.fusion-btn {
+
+.properties-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "DM Sans", system-ui, sans-serif;
-  padding: 0.95rem 1.75rem;
+  padding: 1rem 2.75rem;
   border-radius: 999px;
+  background: #cd7f2f;
+  color: #ffffff;
+  font-size: 0.9rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  transition: 0.25s ease;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
-.fusion-btn-primary { background: #242d63; color: #fff; }
-.fusion-btn-primary:hover { background: #242d63; color: #fff; }
+
+.properties-cta-btn:hover {
+  background: #ffffff;
+  color: #242d63;
+  transform: translateY(-2px);
+}
+.wa-float-btn { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 9998; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); transition: transform 0.25s ease, background 0.25s ease; text-decoration: none; }
+.wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
+.scroll-reveal-img { overflow: hidden; }
   </style>
 </head>
 <body class="inner-page inner-page--banner bg-white font-sansBrand">
@@ -516,72 +552,90 @@ a.prop-card {
         <span>/</span>
         <span>Properties</span>
       </nav>
-      <h1>Our Projects</h1>
-      <p class="page-banner-lead">NVG Seattle, NVG Nippon, and Sambhav Buloke — curated by GRASP Realtors.</p>
+      <h1>Our <em style="font-style:italic;color:#cd7f2f;">Properties</em></h1>
+      <p class="page-banner-lead">Verified pre-launch and rising-soon projects across Bengaluru — curated by GRASP Realtors with transparent guidance from first visit to handover.</p>
     </div>
   </section>
 
   <main class="page-main w-full max-w-full overflow-x-hidden">
-    <section class="page-section soft">
+    <section class="page-section soft" id="properties-section">
       <div class="site-shell">
-        <div class="text-center max-w-2xl mx-auto mb-8">
-          <p class="section-kicker mb-3">Portfolio</p>
-          <h2 class="section-title">Featured <em>Projects</em></h2>
-        </div>
-        <div class="prop-cards-grid" id="propertiesGrid">
-          <a href="nvg-seattle.html" class="prop-card" data-category="residential">
-            <div class="prop-card-media">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="NVG Seattle" />
-              <span class="prop-badge prop-badge-offer">Pre-Launch</span>
+        <header class="rh-projects-head scroll-reveal-text">
+          <p class="section-kicker" style="margin:0 0 0.75rem;">Portfolio</p>
+          <h2>Check GRASP <em>Apartments</em></h2>
+          <p>
+            Handpicked pre-launch and rising-soon developments across Bengaluru — verified listings with clear specs, location, and priority access through GRASP Realtors.
+          </p>
+        </header>
+
+        <div class="rh-projects-grid scroll-reveal-stagger" id="propertiesGrid">
+          <a href="nvg-seattle.html" class="rh-project-card scroll-reveal-item">
+            <div class="rh-project-media">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85" alt="NVG Seattle — Artistic Skyline, North Bengaluru" loading="lazy" />
+              <span class="rh-project-badge">Pre-Launch</span>
             </div>
-            <div class="prop-card-body">
-              <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> North Bangalore Growth Corridor</p>
-              <h3 class="prop-card-title">NVG Seattle</h3>
-              <ul class="prop-amenities">
-                <li><i class="fa-solid fa-building" aria-hidden="true"></i> High-Rise</li>
-                <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Pre-Launch EOI</li>
-                <li><i class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i> ₹1L Refundable</li>
+            <div class="rh-project-body">
+              <h3>NVG Seattle</h3>
+              <p class="rh-project-address">Artistic Skyline · North Bengaluru, Karnataka</p>
+              <ul class="rh-project-stats">
+                <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 3 BHK</li>
+                <li><i class="fa-solid fa-shower" aria-hidden="true"></i> 3 Bath</li>
+                <li><i class="fa-solid fa-vector-square" aria-hidden="true"></i> 1,285 sq ft</li>
               </ul>
+              <div class="rh-project-footer">
+                <span class="rh-project-price">₹1L EOI</span>
+                <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+              </div>
             </div>
           </a>
-          <a href="nvg-nippon.html" class="prop-card" data-category="residential">
-            <div class="prop-card-media">
-              <img src="./image/nvgnippon.png" alt="NVG Nippon — KIADB, Bangalore" />
-              <span class="prop-badge prop-badge-offer">Pre-Launch</span>
+
+          <a href="nvg-nippon.html" class="rh-project-card scroll-reveal-item">
+            <div class="rh-project-media">
+              <img src="./image/nvgnippon.png" alt="NVG Nippon — KIADB, opposite SAP Campus" loading="lazy" />
+              <span class="rh-project-badge">Pre-Launch</span>
             </div>
-            <div class="prop-card-body">
-              <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> KIADB · Opposite SAP Campus</p>
-              <h3 class="prop-card-title">NVG Nippon</h3>
-              <ul class="prop-amenities">
-                <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 2 &amp; 3 BHK</li>
-                <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i> 1100–1800 sq.ft</li>
-                <li><i class="fa-solid fa-building" aria-hidden="true"></i> 360+ Units</li>
+            <div class="rh-project-body">
+              <h3>NVG Nippon</h3>
+              <p class="rh-project-address">KIADB · Opposite SAP Campus, Bengaluru</p>
+              <ul class="rh-project-stats">
+                <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 2–3 BHK</li>
+                <li><i class="fa-solid fa-shower" aria-hidden="true"></i> 2–3 Bath</li>
+                <li><i class="fa-solid fa-vector-square" aria-hidden="true"></i> 1,800 sq ft</li>
               </ul>
+              <div class="rh-project-footer">
+                <span class="rh-project-price">On Request</span>
+                <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+              </div>
             </div>
           </a>
-          <a href="buloke-sambhav.html" class="prop-card" data-category="residential">
-            <div class="prop-card-media">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sambhav Buloke — North Bengaluru" />
-              <span class="prop-badge prop-badge-offer">Rising Soon</span>
+
+          <a href="buloke-sambhav.html" class="rh-project-card scroll-reveal-item">
+            <div class="rh-project-media">
+              <img src="./image/sambhav.jpg" alt="Sambhav Buloke — premium residences, North Bengaluru" loading="lazy" />
+              <span class="rh-project-badge">Rising Soon</span>
             </div>
-            <div class="prop-card-body">
-              <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> North Bengaluru</p>
-              <h3 class="prop-card-title">Sambhav Buloke</h3>
-              <ul class="prop-amenities">
-                <li><i class="fa-solid fa-building" aria-hidden="true"></i> 115 Apartments</li>
-                <li><i class="fa-solid fa-leaf" aria-hidden="true"></i> Extensive Greenery</li>
-                <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> Pre-Launch</li>
+            <div class="rh-project-body">
+              <h3>Sambhav Buloke</h3>
+              <p class="rh-project-address">North Bengaluru, Karnataka</p>
+              <ul class="rh-project-stats">
+                <li><i class="fa-solid fa-bed" aria-hidden="true"></i> Premium</li>
+                <li><i class="fa-solid fa-building" aria-hidden="true"></i> 144 Units</li>
+                <li><i class="fa-solid fa-leaf" aria-hidden="true"></i> Green Living</li>
               </ul>
+              <div class="rh-project-footer">
+                <span class="rh-project-price">On Request</span>
+                <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+              </div>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <div class="properties-cta">
-      <div class="site-shell">
+    <div class="properties-cta" id="properties-cta">
+      <div class="site-shell scroll-reveal-text">
         <p>Need help choosing? Our advisors will shortlist properties based on your budget and location.</p>
-        <a href="contact.html" class="fusion-btn fusion-btn-primary">Get A Quote</a>
+        <a href="contact.html" class="properties-cta-btn">Get A Quote</a>
       </div>
     </div>
   </main>
@@ -742,18 +796,57 @@ a.prop-card {
   var menuMedia = menuOverlay && menuOverlay.querySelector(".menu-media");
   if (menuMedia) menuMedia.addEventListener("click", closeMenu);
 
-  document.querySelectorAll(".prop-fav-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      btn.classList.toggle("is-active");
-      var icon = btn.querySelector("i");
-      if (icon) {
-        icon.classList.toggle("fa-regular");
-        icon.classList.toggle("fa-solid");
-      }
-    });
-  });
-
 })();
   </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+(function () {
+  function initScrollAnimations() {
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    var toggle = "play reverse play reverse";
+    var start = "top 80%";
+
+    function fromRight(target, trigger) {
+      gsap.fromTo(target, { x: 100, opacity: 0 }, {
+        x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
+      });
+    }
+
+    function staggerUp(target, trigger) {
+      gsap.fromTo(target, { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
+        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
+      });
+    }
+
+    if (document.querySelector("#properties-section")) {
+      fromRight("#properties-section .scroll-reveal-text", "#properties-section");
+      staggerUp("#properties-section .scroll-reveal-item", "#properties-section .rh-projects-grid");
+    }
+
+    if (document.querySelector("#properties-cta")) {
+      fromRight("#properties-cta .scroll-reveal-text", "#properties-cta");
+    }
+
+    ScrollTrigger.refresh();
+  }
+
+  window.addEventListener("load", initScrollAnimations);
+  window.addEventListener("resize", function () {
+    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+  });
+})();
+  </script>
+
+  <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 </body>
 </html>

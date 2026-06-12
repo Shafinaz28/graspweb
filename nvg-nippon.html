@@ -1,926 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVG Nippon — Modern Living at KIADB | GRASP Realtors</title>
+  <title>NVG Nippon · GRASP Realtors</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { colors: { brandBlue: "#242d63", brandGold: "#cd7f2f" }, fontFamily: { sans: ["DM Sans", "system-ui", "sans-serif"], sansBrand: ["DM Sans", "system-ui", "sans-serif"], serif: ["Playfair Display", "Georgia", "serif"], serifBrand: ["Playfair Display", "Georgia", "serif"] } } } };
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brandBlue: "#242d63", brandGold: "#cd7f2f" },
+          fontFamily: {
+            sans: ["DM Sans", "system-ui", "sans-serif"],
+            sansBrand: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "Georgia", "serif"],
+            serifBrand: ["Playfair Display", "Georgia", "serif"],
+          },
+        },
+      },
+    };
   </script>
   <style>
-    html,
-    body {
-      background: #fff;
-      color: #1f2937;
-      line-height: 1.5;
-      font-family: "DM Sans", system-ui, sans-serif;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    main,
-    header,
-    footer,
-    section {
-      max-width: 100%;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    :root {
-      --font-display: "Playfair Display", Georgia, serif;
-      --font-body: "DM Sans", system-ui, sans-serif;
-      --brand-navy: #242d63;
-      --brand-gold: #cd7f2f;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: var(--font-display) !important;
-      font-weight: 600;
-      color: var(--brand-navy);
-    }
-
-    p,
-    a,
-    li,
-    span,
-    button,
-    label,
-    input,
-    select {
-      font-family: var(--font-body);
-    }
-
-    .section-kicker {
-      color: var(--brand-gold);
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      color: var(--brand-navy);
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 600;
-      line-height: 1.12;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--brand-gold);
-    }
-
-    .section-sub {
-      text-align: center;
-      color: #5b6478;
-      max-width: 36rem;
-      margin: 0.75rem auto 0;
-      line-height: 1.7;
-    }
-
-    .site-shell {
-      width: 100%;
-      max-width: 1240px;
-      margin-inline: auto;
-      padding-inline: clamp(1rem, 4vw, 2.5rem);
-    }
-
-    @media (max-width: 767px) {
-      .site-shell {
-        padding-inline: 1rem;
-      }
-
-      #navbar {
-        height: 100px !important;
-      }
-
-      #navbar a img {
-        height: 76px !important;
-      }
-
-      #menuToggle {
-        width: 30px !important;
-        height: 22px !important;
-      }
-
-      .page-main {
-        padding-top: 100px !important;
-      }
-
-    }
-
-    @media (max-width: 1023px) {
-      #navbar {
-        height: 100px !important;
-      }
-
-      #navbar a img {
-        height: 76px !important;
-      }
-
-      #navbar .site-shell {
-        position: relative;
-      }
-
-      #navbar .navbar-logo {
-        position: static !important;
-        left: auto !important;
-        transform: none !important;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin-right: auto;
-      }
-
-      #navbar .navbar-actions {
-        position: static;
-        flex: 0 0 auto;
-        margin-left: auto;
-      }
-
-      #menuToggle {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-      }
-    }
-
-    #navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      transform: translateY(0);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #navbar.navbar-hidden {
-      transform: translateY(-100%);
-    }
-
-    .site-nav-pill {
-      background: transparent;
-      padding: 0;
-      width: fit-content;
-      gap: 0.25rem;
-    }
-
-    .site-nav-pill .nav-link {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-family: "DM Sans", system-ui, sans-serif;
-      font-size: clamp(0.95rem, 1.15vw, 1.1rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      color: #242d63 !important;
-      transition: background 0.25s, color 0.25s;
-    }
-
-    .site-nav-pill .nav-link:hover,
-    .site-nav-pill .nav-link.text-brandGold {
-      background: #eceef3;
-      color: #cd7f2f !important;
-    }
-
-    .header-at-top {
-      background: #ffffff !important;
-      box-shadow: 0 4px 20px rgba(36, 45, 99, 0.08) !important;
-    }
-
-    .header-scrolled {
-      background: #ffffff !important;
-      box-shadow: 0 4px 24px rgba(36, 45, 99, 0.1);
-    }
-
-
-    .nav-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.5rem;
-      border-radius: 999px;
-      background: #242d63;
-      color: #ffffff !important;
-      font-family: "DM Sans", system-ui, sans-serif;
-      font-size: clamp(0.95rem, 1.15vw, 1.1rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      white-space: nowrap;
-      text-decoration: none;
-      transition: background 0.25s, transform 0.25s;
-    }
-
-    .nav-cta-btn:hover {
-      background: #1a2340;
-      color: #ffffff !important;
-      transform: translateY(-1px);
-    }
-
-    .menu-line {
-      transition: all 0.3s ease;
-      background: #242d63;
-    }
-
-    .header-at-top .menu-line {
-      background: #242d63 !important;
-    }
-
-    .menu-open .line-1 {
-      transform: rotate(45deg) translate(7px, 7px);
-    }
-
-    .menu-open .line-2 {
-      opacity: 0;
-    }
-
-    .menu-open .line-3 {
-      transform: rotate(-45deg) translate(8px, -8px);
-    }
-
-    #menuOverlay {
-      background: transparent !important;
-      width: 100vw;
-      height: 100vh;
-      height: 100dvh;
-    }
-
-    #menuOverlay .menu-overlay-inner {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100%;
-      min-height: 100dvh;
-    }
-
-    #menuOverlay .menu-media {
-      flex: 1 1 65%;
-      width: 65%;
-      min-width: 0;
-      min-height: 100dvh;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    #menuOverlay .menu-media--peek {
-      background: transparent !important;
-    }
-
-    #menuOverlay .menu-media--peek .menu-media-overlay {
-      background: rgba(36, 45, 99, 0.5);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
-
-    #menuOverlay .menu-media-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    #menuPanel {
-      flex: 0 0 35%;
-      width: 35% !important;
-      max-width: 420px;
-      min-width: min(100%, 300px);
-      min-height: 100dvh;
-      height: 100%;
-      background: #fff !important;
-      color: #242d63;
-    }
-
-    @media (max-width: 1023px) {
-      #menuOverlay .menu-media {
-        flex: 1 1 32%;
-        width: 32%;
-      }
-
-      #menuPanel {
-        flex: 0 0 68%;
-        width: 68% !important;
-        min-width: 0;
-      }
-    }
-
-    #menuPanel .menu-nav-link {
-      display: block;
-      width: 100%;
-      background: transparent;
-      color: #242d63 !important;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid #e5e7eb;
-      font-family: "DM Sans", system-ui, sans-serif;
-      font-size: clamp(0.95rem, 1.15vw, 1.1rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      text-decoration: none;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    #menuPanel .menu-nav-link:hover {
-      color: #cd7f2f !important;
-    }
-
-    .menu-cta-btn {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      margin-top: 1.5rem;
-      border-radius: 999px;
-    }
-
-    .menu-social {
-      margin-top: 2rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    .menu-social-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #cd7f2f;
-      margin: 0 0 0.85rem;
-    }
-
-    .menu-social-links {
-      display: flex;
-      gap: 0.65rem;
-    }
-
-    .menu-social-links a {
-      width: 2.5rem;
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #242d63;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .menu-social-links a:hover {
-      background: #cd7f2f;
-    }
-
-    .menu-panel-logo {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .menu-panel-logo img {
-      height: clamp(3rem, 8vw, 4.5rem);
-      width: auto;
-      object-fit: contain;
-    }
-
-    .site-footer {
-      background-color: #242d63 !important;
-      color: #ffffff;
-      border-top: none;
-    }
-
-    .site-footer .footer-logo {
-      filter: brightness(0) invert(1);
-    }
-
-    .site-footer h3 {
-      color: #ffffff;
-    }
-
-    .site-footer p,
-    .site-footer li,
-    .site-footer span {
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .site-footer a {
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      transition: color 0.25s ease;
-    }
-
-    .site-footer a:hover {
-      color: #cd7f2f;
-    }
-
-    .site-footer .footer-divider {
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .site-footer .footer-copy {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    .site-footer .footer-social a {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    .site-footer .footer-social a:hover {
-      background: #cd7f2f;
-      color: #ffffff;
-    }
-
-    .page-main {
-      padding-top: 125px;
-    }
-
-    .page-banner {
-      background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-      padding: calc(125px + 3.5rem) 0 4rem;
-      text-align: center;
-      color: #fff;
-    }
-
-    .page-banner h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin: 0 0 0.75rem;
-      color: #fff;
-      line-height: 1.12;
-    }
-
-    .page-banner p {
-      color: rgba(255, 255, 255, 0.88);
-      max-width: 36rem;
-      margin: 0 auto;
-      line-height: 1.7;
-      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-    }
-
-    .page-banner .breadcrumb {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-      color: #cd7f2f;
-    }
-
-    .page-banner .breadcrumb a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .page-banner .breadcrumb a:hover {
-      color: #cd7f2f;
-    }
-
-    .page-banner .breadcrumb span {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    @media (max-width: 767px) {
-      .page-main {
-        padding-top: 100px !important;
-      }
-
-      .page-banner {
-        padding-top: calc(100px + 2.5rem);
-      }
-    }
-
-    .page-section {
-      padding: clamp(3rem, 6vw, 5rem) 0;
-    }
-
-    .page-section.soft {
-      background: #f8f9fc;
-    }
-
-    /* NVG Hero */
-    .nvg-hero {
-      background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-      color: #fff;
-      padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
-    }
-
-    .nvg-hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .nvg-brand {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #cd7f2f;
-      margin: 0;
-    }
-
-    .nvg-hero-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #cd7f2f;
-      margin-bottom: 1rem;
-    }
-
-    .nvg-hero h1 {
-      font-size: clamp(2rem, 4.5vw, 3.25rem);
-      color: #fff;
-      margin: 0 0 1rem;
-      line-height: 1.15;
-      max-width: 16ch;
-    }
-
-    .nvg-hero-lead {
-      color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-      line-height: 1.75;
-      max-width: 52rem;
-      margin: 0 0 1.5rem;
-    }
-
-    .nvg-hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      margin-bottom: 1.75rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .nvg-hero-pills span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .nvg-hero-pills i {
-      color: #cd7f2f;
-    }
-
-    .nvg-hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .nvg-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.85rem 1.5rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: 0.25s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .nvg-btn-primary {
-      background: #cd7f2f;
-      color: #fff;
-    }
-
-    .nvg-btn-primary:hover {
-      background: #fff;
-      color: #242d63;
-    }
-
-    .nvg-btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.45);
-      color: #fff;
-      background: transparent;
-    }
-
-    .nvg-btn-outline:hover {
-      border-color: #cd7f2f;
-      color: #cd7f2f;
-    }
-
-    .nvg-hero-grid {
-      display: grid;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    @media (min-width: 992px) {
-      .nvg-hero-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .nvg-hero-visual {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35);
-    }
-
-    .nvg-hero-visual img {
-      width: 100%;
-      height: auto;
-      max-height: min(52vh, 520px);
-      object-fit: cover;
-      display: block;
-    }
-
-    .proj-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .proj-stats {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .proj-stat {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.25rem 1rem;
-      text-align: center;
-      box-shadow: 0 8px 28px rgba(36, 45, 99, 0.08);
-    }
-
-    .proj-stat strong {
-      display: block;
-      font-size: 1.75rem;
-      color: #cd7f2f;
-      line-height: 1.1;
-      margin-bottom: 0.25rem;
-    }
-
-    .proj-stat span {
-      font-size: 0.78rem;
-      color: #5b6478;
-      font-weight: 600;
-    }
-
-    .proj-overview-text {
-      text-align: center;
-      max-width: 40rem;
-      margin: 0 auto 2rem;
-      color: #3d4660;
-      line-height: 1.75;
-      font-size: 1.05rem;
-    }
-
-    .proj-steps {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .proj-steps {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .proj-step {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 1.25rem;
-      border: 1px solid #e5e8f2;
-      box-shadow: 0 6px 24px rgba(36, 45, 99, 0.06);
-    }
-
-    .proj-step-num {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: #242d63;
-      color: #fff;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    .proj-step h3 {
-      margin: 0 0 0.5rem;
-      font-size: 0.95rem;
-      color: #242d63;
-    }
-
-    .proj-step p {
-      margin: 0;
-      font-size: 0.85rem;
-      color: #5b6478;
-      line-height: 1.6;
-    }
-
-    .proj-config-grid {
-      display: grid;
-      gap: 1.5rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .proj-config-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .proj-config-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 1.75rem;
-      border: 1px solid #e5e8f2;
-      box-shadow: 0 10px 32px rgba(36, 45, 99, 0.08);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .proj-config-card h3 {
-      margin: 0 0 0.35rem;
-      font-size: 1.25rem;
-    }
-
-    .proj-config-card .size {
-      color: #cd7f2f;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .proj-config-meta {
-      font-size: 0.88rem;
-      color: #5b6478;
-      margin-bottom: 1rem;
-      line-height: 1.75;
-      flex: 1;
-    }
-
-    .proj-config-meta strong {
-      color: #242d63;
-    }
-
-    .proj-config-price {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #242d63;
-      margin-bottom: 0.35rem;
-    }
-
-    .proj-config-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #cd7f2f;
-      margin-bottom: 1rem;
-    }
-
-    .proj-amenities {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem 1rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 640px) {
-      .proj-amenities {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .proj-amenity {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #242d63;
-      background: #fff;
-      padding: 0.85rem 1rem;
-      border-radius: 10px;
-      border: 1px solid #e5e8f2;
-    }
-
-    .proj-amenity i {
-      color: #cd7f2f;
-      width: 1.25rem;
-      text-align: center;
-    }
-
-    .proj-location-wrap {
-      display: grid;
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 992px) {
-      .proj-location-wrap {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
-    }
-
-    .proj-location-lead {
-      color: #3d4660;
-      line-height: 1.75;
-      margin: 0 0 1.25rem;
-    }
-
-    .proj-location-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .proj-location-list li {
-      padding: 0.45rem 0 0.45rem 1.5rem;
-      position: relative;
-      color: #3d4660;
-      line-height: 1.6;
-      font-size: 0.92rem;
-    }
-
-    .proj-location-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.85rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #cd7f2f;
-    }
-
-    .proj-angle-boxes {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .proj-angle-boxes {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .proj-angle-box {
-      background: #242d63;
-      color: rgba(255, 255, 255, 0.9);
-      padding: 1.25rem;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      line-height: 1.65;
-    }
-
-    .proj-angle-box strong {
-      color: #cd7f2f;
-      display: block;
-      margin-bottom: 0.35rem;
-    }
-
+html, body {
+  background: #f4f6fb;
+  color: #1f2937;
+  line-height: 1.5;
+  font-family: "DM Sans", system-ui, sans-serif;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+main, header, footer, section { max-width: 100%; }
+img { max-width: 100%; display: block; }
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --brand-navy: #242d63;
+  --brand-navy-deep: #1a2340;
+  --brand-gold: #cd7f2f;
+  --brand-cream: #faf6f0;
+  --section-pad: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+h1, h2, h3 { font-family: var(--font-display) !important; font-weight: 600; color: var(--brand-navy); }
+p, a, li, span, button, label { font-family: var(--font-body); }
+.section-kicker {
+  color: var(--brand-gold);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.section-title {
+  font-family: var(--font-display);
+  color: var(--brand-navy);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+.section-title em { font-style: italic; color: var(--brand-gold); }
+.section-sub {
+  text-align: center;
+  color: #5b6478;
+  max-width: 40rem;
+  margin: 0.85rem auto 0;
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+.section-head { text-align: center; max-width: 42rem; margin: 0 auto 1.75rem; }
+.site-shell { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
+
+/* —— Navbar —— */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
+}
+#navbar.navbar-hidden { transform: translateY(-100%); }
+.site-nav-pill { background: transparent; padding: 0; width: fit-content; gap: 0.25rem; }
+.site-nav-pill .nav-link {
+  display: inline-block; padding: 0.6rem 1.2rem; border-radius: 999px;
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem); font-weight: 600; color: #242d63 !important;
+  transition: background 0.25s, color 0.25s;
+}
+.site-nav-pill .nav-link:hover, .site-nav-pill .nav-link.text-brandGold { background: #eceef3; color: #cd7f2f !important; }
+.header-at-top { background: rgba(255,255,255,0.92) !important; backdrop-filter: blur(8px); box-shadow: none !important; }
+.header-scrolled { background: #ffffff !important; box-shadow: 0 4px 24px rgba(36, 45, 99, 0.12); }
+.nav-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.7rem 1.5rem; border-radius: 999px; background: #242d63; color: #fff !important;
+  font-weight: 600; text-decoration: none; transition: background 0.25s, transform 0.25s;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+.nav-cta-btn:hover { background: #1a2340; color: #fff !important; transform: translateY(-1px); }
+.header-scrolled .nav-cta-btn:hover { background: #1a2340; color: #fff !important; }
+
+.menu-line { transition: all 0.3s ease; background: #242d63; }
+.menu-open .line-1 { transform: rotate(45deg) translate(7px, 7px); }
+.menu-open .line-2 { opacity: 0; }
+.menu-open .line-3 { transform: rotate(-45deg) translate(8px, -8px); }
+#menuOverlay { background: transparent !important; width: 100vw; height: 100dvh; }
+#menuOverlay .menu-overlay-inner { display: flex; min-height: 100dvh; }
+#menuOverlay .menu-media { flex: 1 1 65%; width: 65%; min-width: 0; min-height: 100dvh; position: relative; overflow: hidden; cursor: pointer; }
+#menuOverlay .menu-media--peek .menu-media-overlay { background: rgba(36,45,99,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+#menuOverlay .menu-media-overlay { position: absolute; inset: 0; pointer-events: none; }
+#menuPanel { flex: 0 0 35%; width: 35% !important; max-width: 420px; min-width: min(100%, 300px); min-height: 100dvh; background: #fff !important; }
+#menuPanel .menu-nav-link { display: block; padding: 0.65rem 0; border-bottom: 1px solid #e5e7eb; font-weight: 600; color: #242d63 !important; text-decoration: none; }
+#menuPanel .menu-nav-link:hover { color: #cd7f2f !important; }
+.menu-cta-btn { display: flex; width: 100%; justify-content: center; margin-top: 1.5rem; border-radius: 999px; }
+.menu-social { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #e5e7eb; }
+.menu-social-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cd7f2f; margin: 0 0 0.85rem; }
+.menu-social-links { display: flex; gap: 0.65rem; }
+.menu-social-links a { width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; background: #242d63; color: #fff; }
+.menu-panel-logo img { height: clamp(3rem, 8vw, 4.5rem); width: auto; object-fit: contain; }
+@media (max-width: 1023px) {
+  #menuOverlay .menu-media { flex: 1 1 32%; width: 32%; }
+  #menuPanel { flex: 0 0 68%; width: 68% !important; min-width: 0; }
+}
+
+@media (max-width: 767px) {
+  .site-shell { padding-inline: 1rem; }
+  #navbar { height: 100px !important; }
+  #navbar a img { height: 76px !important; }
+  #menuToggle { width: 30px !important; height: 22px !important; }
+  .page-main { padding-top: 100px !important; }
+}
+@media (max-width: 1023px) {
+  #navbar { height: 100px !important; }
+  #navbar a img { height: 76px !important; }
+  #navbar .navbar-logo { position: static !important; transform: none !important; display: flex; margin-right: auto; }
+  #navbar .navbar-actions { margin-left: auto; }
+  #menuToggle { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+}
+
+/* —— Real Homes layout (NVG Nippon) —— */
+.page-main { padding-top: 0; }
+
+.rh-hero {
+  position: relative;
+  min-height: clamp(320px, 52vh, 480px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(110px + 3rem) 0 clamp(2rem, 5vh, 3rem);
+  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
+  overflow: hidden;
+}
+.rh-hero-inner {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rh-hero-kicker { margin: 0 0 0.75rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cd7f2f; }
+.rh-hero h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.35rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.rh-hero h1 em { font-style: italic; color: #cd7f2f; }
+.rh-hero-list { list-style: none; margin: 0 0 1.75rem; padding: 0; display: grid; gap: 0.45rem; justify-items: center; }
+.rh-hero-list li { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.92rem; color: rgba(255, 255, 255, 0.88); font-weight: 500; }
+.rh-hero-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #cd7f2f; flex-shrink: 0; }
+.rh-hero .rh-btn { background: #cd7f2f; color: #1a2340 !important; }
+.rh-hero .rh-btn:hover { background: #e8a04e; color: #1a2340 !important; }
+.rh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.85rem;
+  background: #242d63;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.25s;
+}
+.rh-btn:hover { background: #1a2340; transform: translateY(-1px); }
+.rh-btn--light { background: #fff; color: #242d63 !important; }
+.rh-btn--light:hover { background: #f4f6f8; }
+
+.rh-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; background: #fff; }
+.rh-section--soft { background: #f4f6f8; }
+.rh-intro-grid { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 900px) { .rh-intro-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.rh-intro-grid h2 { margin: 0; font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.08; color: #242d63; max-width: 14ch; }
+.rh-intro-grid h2 em { font-style: italic; color: #cd7f2f; }
+.rh-intro-copy p { margin: 0 0 1rem; line-height: 1.8; color: #5b6478; }
+.rh-link { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 700; color: #242d63; text-decoration: none; border-bottom: 2px solid #cd7f2f; padding-bottom: 0.1rem; }
+.rh-link:hover { color: #cd7f2f; }
+
+.rh-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center; padding: clamp(2rem, 4vw, 3rem) 0; border-block: 1px solid #e8ecf2; }
+@media (max-width: 600px) { .rh-stats-row { grid-template-columns: 1fr; } }
+.rh-stats-row strong { display: block; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); color: #242d63; line-height: 1; margin-bottom: 0.4rem; }
+.rh-stats-row span { font-size: 0.88rem; color: #5b6478; line-height: 1.45; }
+
+.rh-dark-band {
+  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
+  color: #fff;
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
+}
+.rh-dark-band h2 { color: #fff; margin: 0 0 1rem; font-size: clamp(1.85rem, 4vw, 2.75rem); max-width: none; }
+.rh-dark-band h3 { color: #fff; margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 600; }
+.rh-dark-band h3 em { font-style: italic; color: #cd7f2f; }
+.rh-experience-intro { color: rgba(255,255,255,0.82); max-width: 40rem; line-height: 1.75; margin: 0 0 2rem; }
+.rh-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; max-width: 32rem; }
+.rh-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.5; }
+.rh-checklist i { color: #cd7f2f; margin-top: 0.2rem; flex-shrink: 0; }
+.rh-location-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: center; }
+@media (min-width: 900px) { .rh-location-split { grid-template-columns: 1.05fr 0.95fr; } }
+.rh-location-media { border-radius: 2px; overflow: hidden; aspect-ratio: 4/3; border: 1px solid rgba(255,255,255,0.12); }
+.rh-location-media img { width: 100%; height: 100%; object-fit: cover; display: block; max-width: none; }
+
+.rh-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 900px) { .rh-split { grid-template-columns: 1fr 1fr; } }
+.rh-split-head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.rh-split-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
+.rh-split-head h2 em { font-style: italic; color: #cd7f2f; }
+.rh-accordion { border-top: 1px solid #e5e8f2; }
+.rh-acc-item { border-bottom: 1px solid #e5e8f2; }
+.rh-acc-btn {
+  width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.15rem 0;
+  background: none; border: none; text-align: left; cursor: pointer; font-family: var(--font-body);
+  font-size: 1rem; font-weight: 600; color: #242d63;
+}
+.rh-acc-btn i.icon { width: 2rem; color: #cd7f2f; text-align: center; }
+.rh-acc-btn .chev { margin-left: auto; transition: transform 0.25s; color: #8a93a8; }
+.rh-acc-item.is-open .rh-acc-btn .chev { transform: rotate(180deg); }
+.rh-acc-panel { display: none; padding: 0 0 1.15rem 2.85rem; color: #5b6478; line-height: 1.7; font-size: 0.92rem; }
+.rh-acc-item.is-open .rh-acc-panel { display: block; }
+.rh-accordion-wrap { max-width: 42rem; margin: 0 auto; }
+.rh-units-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin: 0 auto 2rem;
+  max-width: 40rem;
+}
+.rh-units-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; max-width: none; }
+.rh-units-head h2 em { font-style: italic; color: #cd7f2f; }
+.rh-units-head p { margin: 0; color: #5b6478; line-height: 1.75; }
+.rh-units-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.rh-unit-card {
+  background: #fff;
+  border: 1px solid #e8ecf2;
+  border-radius: 2px;
+  padding: 1.5rem 1.35rem;
+  border-top: 3px solid #cd7f2f;
+}
+.rh-unit-card h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #242d63;
+}
+.rh-unit-card p { margin: 0.5rem 0 0; font-size: 0.88rem; color: #5b6478; line-height: 1.6; }
+.rh-unit-card .rh-unit-sqft {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #242d63;
+}
+@media (max-width: 767px) {
+  .rh-units-grid { grid-template-columns: 1fr; }
+}
+
+.rh-map-head { text-align: center; margin-bottom: 2rem; }
+.rh-map-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
+.rh-nearby-kicker { margin: 0 0 1rem; text-align: center; }
+.rh-map-wrap { border-radius: 2px; overflow: hidden; margin-top: 2.5rem; border: 1px solid #e8ecf2; }
+.rh-map-wrap iframe { display: block; width: 100%; height: clamp(280px, 40vw, 400px); border: 0; }
+.rh-nearby { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.5rem; }
+@media (min-width: 768px) { .rh-nearby { grid-template-columns: repeat(4, 1fr); } }
+.rh-nearby-item { display: flex; align-items: flex-start; gap: 0.65rem; }
+.rh-nearby-item i { color: #242d63; font-size: 1.1rem; margin-top: 0.15rem; }
+.rh-nearby-item strong { display: block; font-size: 0.88rem; color: #242d63; margin-bottom: 0.15rem; }
+.rh-nearby-item span { font-size: 0.78rem; color: #8a93a8; }
+
+.wa-float-btn { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 9998; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); transition: transform 0.25s ease, background 0.25s ease; text-decoration: none; }
+.wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
+
+@media (max-width: 767px) {
+  .rh-hero { min-height: auto; padding-top: calc(100px + 2.5rem); }
+  .rh-hero h1 { font-size: clamp(1.1rem, 4.8vw, 1.65rem); }
+}
+
+/* Footer */
+.site-footer { background-color: #242d63 !important; color: #fff; border-top: none; }
+.site-footer .footer-logo { filter: brightness(0) invert(1); }
+.site-footer h3 { color: #fff; }
+.site-footer p, .site-footer li, .site-footer span, .site-footer a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
+.site-footer a:hover { color: #cd7f2f; }
+.site-footer .footer-divider { border-color: rgba(255, 255, 255, 0.15); }
+.site-footer .footer-copy { color: rgba(255, 255, 255, 0.55); }
+.site-footer .footer-social a { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.site-footer .footer-social a:hover { background: #cd7f2f; }
   </style>
 </head>
-
 <body class="inner-page bg-white font-sansBrand">
 
   <header id="navbar" class="w-full h-[125px] header-at-top transition-all duration-300">
@@ -936,8 +331,7 @@
       </a>
       <div class="navbar-actions flex items-center justify-end gap-4 flex-1">
         <a href="contact.html" class="nav-cta-btn hidden md:inline-flex">Get A Quote</a>
-        <button id="menuToggle" class="relative w-9 h-7 flex flex-col items-center justify-center gap-1.5 z-[10001]"
-          aria-label="Open menu">
+        <button id="menuToggle" class="relative w-9 h-7 flex flex-col items-center justify-center gap-1.5 z-[10001]" aria-label="Open menu">
           <span class="menu-line line-1 block w-full h-[2px]"></span>
           <span class="menu-line line-2 block w-full h-[2px]"></span>
           <span class="menu-line line-3 block w-full h-[2px]"></span>
@@ -946,153 +340,187 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="page-banner" aria-label="NVG Nippon">
-    <div class="site-shell">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a><span>/</span>
-        <a href="properties.html">Properties</a><span>/</span>
-        <span>NVG Nippon</span>
-      </nav>
-      <p class="section-kicker" style="color:#cd7f2f;margin-bottom:0.75rem;">Pre-Launch · KIADB · Opposite SAP Campus</p>
-      <h1>NVG Nippon</h1>
-      <p>2 &amp; 3 BHK premium residences in the heart of KIADB — 360 exclusive units built for end-users and investors in a high-demand, employment-driven micro-market.</p>
-    </div>
-  </section>
-
   <main class="page-main w-full max-w-full overflow-x-hidden">
 
-    <section class="page-section soft" id="overview">
-      <div class="site-shell">
-        <div class="text-center mb-8">
-          <p class="section-kicker mb-3">Project Overview</p>
-          <h2 class="section-title">Thoughtfully Planned <em>Community</em></h2>
-          <p class="section-sub">A thoughtfully planned community on 4 acres with modern amenities &amp; smart layouts.
-          </p>
-        </div>
-        <div class="proj-stats">
-          <div class="proj-stat"><strong>4</strong><span>Acres (Approx.)</span></div>
-          <div class="proj-stat"><strong>360+</strong><span>Residences</span></div>
-          <div class="proj-stat"><strong>Opp.</strong><span>SAP Campus</span></div>
-          <div class="proj-stat"><strong>KIADB</strong><span>Prime Micro-Market</span></div>
-        </div>
+    <!-- Hero -->
+    <section class="rh-hero" aria-label="NVG Nippon">
+      <div class="site-shell rh-hero-inner">
+        <p class="rh-hero-kicker">Pre-Launch · KIADB · Opposite SAP Campus</p>
+        <h1>Thoughtfully Planned <em>Community</em></h1>
+        <ul class="rh-hero-list">
+          <li>2 &amp; 3 BHK premium residences</li>
+          <li>360+ units across 4 acres</li>
+          <li>Opposite SAP Campus, KIADB</li>
+        </ul>
+        <a href="contact.html" class="rh-btn">Register Your EOI</a>
       </div>
     </section>
 
-    <section class="page-section" id="eoi-journey">
+    <!-- Stats -->
+    <section class="rh-section" style="padding-top:0;">
       <div class="site-shell">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <p class="section-kicker mb-3">Pre-Launch Journey</p>
-          <h2 class="section-title">EOI <em>Steps</em></h2>
-          <p class="section-sub">Simple, guided steps to secure early access &amp; priority updates.</p>
-        </div>
-        <div class="proj-steps">
-          <article class="proj-step">
-            <div class="proj-step-num">1</div>
-            <h3>Submit EOI</h3>
-            <p>Share your preference (2/3 BHK) and contact details.</p>
-          </article>
-          <article class="proj-step">
-            <div class="proj-step-num">2</div>
-            <h3>Get Brochure</h3>
-            <p>Receive floor plans, amenity list, and project brief.</p>
-          </article>
-          <article class="proj-step">
-            <div class="proj-step-num">3</div>
-            <h3>Site &amp; Location</h3>
-            <p>We share exact coordinates and assist for a visit.</p>
-          </article>
-          <article class="proj-step">
-            <div class="proj-step-num">4</div>
-            <h3>Launch-Day Pricing</h3>
-            <p>Official pricing disclosed on launch day (pre-launch: on request).</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section soft" id="configurations">
-      <div class="site-shell">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <p class="section-kicker mb-3">Configurations</p>
-          <h2 class="section-title">2 &amp; 3 BHK <em>Residences</em></h2>
-          <p class="section-sub">Optimized carpet area planning with premium proportions &amp; natural light.</p>
-        </div>
-        <div class="proj-config-grid">
-          <article class="proj-config-card">
-            <h3>2 BHK Luxury</h3>
-            <p class="size">Approx. 1100 – 1200 sq. ft.</p>
-            <div class="proj-config-meta">
-              <p><strong>Ideal for:</strong> Young families</p>
-              <p><strong>Focus:</strong> Smart layout</p>
-              <p><strong>Demand:</strong> High</p>
-            </div>
-            <p class="proj-config-price">Price: On Request</p>
-            <span class="proj-config-tag">EOI open</span>
-          </article>
-          <article class="proj-config-card">
-            <h3>3 BHK Premium</h3>
-            <p class="size">Approx. 1700 – 1800 sq. ft.</p>
-            <div class="proj-config-meta">
-              <p><strong>Ideal for:</strong> Upgraders</p>
-              <p><strong>Focus:</strong> Spacious living</p>
-              <p><strong>Value:</strong> Long-term</p>
-            </div>
-            <p class="proj-config-price">Price: On Request</p>
-            <span class="proj-config-tag">Launch-day disclosure</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section" id="amenities">
-      <div class="site-shell">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <p class="section-kicker mb-3">Amenities</p>
-          <h2 class="section-title">World-Class <em>Amenities</em></h2>
-          <p class="section-sub">Curated for a premium lifestyle and everyday convenience.</p>
-        </div>
-        <div class="proj-amenities">
-          <div class="proj-amenity"><i class="fa-solid fa-building"></i> Grand Clubhouse</div>
-          <div class="proj-amenity"><i class="fa-solid fa-person-swimming"></i> Swimming Pool</div>
-          <div class="proj-amenity"><i class="fa-solid fa-dumbbell"></i> Equipped Gym</div>
-          <div class="proj-amenity"><i class="fa-solid fa-seedling"></i> Landscaped Gardens</div>
-          <div class="proj-amenity"><i class="fa-solid fa-person-running"></i> Jogging Track</div>
-          <div class="proj-amenity"><i class="fa-solid fa-shield-halved"></i> 24/7 Security</div>
-          <div class="proj-amenity"><i class="fa-solid fa-child"></i> Kids Play Zone</div>
-          <div class="proj-amenity"><i class="fa-solid fa-bolt"></i> Power Backup (Common Areas)</div>
-          <div class="proj-amenity"><i class="fa-solid fa-square-parking"></i> Dedicated Parking</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section soft" id="location">
-      <div class="site-shell">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <p class="section-kicker mb-3">Location</p>
-          <h2 class="section-title">The Golden <em>Location</em></h2>
-        </div>
-        <div class="proj-location-wrap">
+        <div class="rh-stats-row">
           <div>
-            <p class="proj-location-lead">Centrally placed within KIADB, surrounded by major IT &amp; corporate hubs
-              like Shell, Boeing, and Autoliv, and located opposite SAP Campus — a strong driver for end-user and rental
-              demand.</p>
-            <ul class="proj-location-list">
-              <li>Centre of KIADB micro-market</li>
-              <li>Opposite SAP Campus</li>
-              <li>Excellent road connectivity</li>
-              <li>Employment-driven residential demand</li>
-              <li>Near three BCCI standard cricket stadiums</li>
+            <strong>360+</strong>
+            <span>Residential units</span>
+          </div>
+          <div>
+            <strong>4 Acres</strong>
+            <span>Master planned layout</span>
+          </div>
+          <div>
+            <strong>Opposite SAP</strong>
+            <span>KIADB prime location</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key highlights -->
+    <section class="rh-dark-band" id="location">
+      <div class="site-shell">
+        <div class="rh-location-split">
+          <div class="rh-location-copy">
+            <h2>A New Way to Live in KIADB</h2>
+            <p class="rh-experience-intro">Strategically positioned opposite SAP Campus in KIADB — surrounded by major employers, infrastructure, and lifestyle destinations in Bengaluru's growth corridor.</p>
+            <h3>Key <em>Highlights</em></h3>
+            <ul class="rh-checklist">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Opposite SAP Campus — walk-to-work potential</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Proximity to Shell, Boeing, Autoliv &amp; IT parks</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Near international cricket stadiums</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Clubhouse, swimming pool, gym &amp; gardens</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Jogging track, kids zone, power backup &amp; parking</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> 24/7 security &amp; gated community living</li>
             </ul>
           </div>
-          <div class="proj-angle-boxes">
-            <div class="proj-angle-box"><strong>Investor Angle</strong>High tenant pull from nearby tech &amp; corporate
-              zones.</div>
-            <div class="proj-angle-box"><strong>Lifestyle Angle</strong>Premium amenities + calm residential planning on
-              a compact land parcel.</div>
-            <div class="proj-angle-box"><strong>Transparency</strong>Pricing revealed on launch day; pre-launch details
-              available on request.</div>
+          <div class="rh-location-media">
+            <img src="./image/nvgnippon.png" alt="NVG Nippon — KIADB residential community opposite SAP Campus" width="800" height="600" loading="lazy" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="rh-section" id="design">
+      <div class="site-shell">
+        <div class="rh-split-head">
+          <h2>Amenities &amp; <em>Experience</em></h2>
+        </div>
+        <div class="rh-accordion-wrap">
+          <div class="rh-accordion" id="designAccordion">
+            <div class="rh-acc-item is-open">
+              <button type="button" class="rh-acc-btn" aria-expanded="true">
+                <i class="fa-solid fa-building icon" aria-hidden="true"></i>
+                Clubhouse &amp; Social Spaces
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">A full clubhouse with curated social zones — designed for gatherings, recreation, and community life at scale.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-person-swimming icon" aria-hidden="true"></i>
+                Pool &amp; Fitness
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Swimming pool, gymnasium, and jogging track for active, wellness-focused living every day.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-location-dot icon" aria-hidden="true"></i>
+                KIADB Location Advantage
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Opposite SAP Campus with Shell, Boeing, Autoliv, and major IT corridors within easy reach.</div>
+            </div>
+            <div class="rh-acc-item">
+              <button type="button" class="rh-acc-btn" aria-expanded="false">
+                <i class="fa-solid fa-file-signature icon" aria-hidden="true"></i>
+                EOI Process
+                <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+              </button>
+              <div class="rh-acc-panel">Register interest through GRASP · shortlist your unit type · submit EOI · receive priority allocation updates.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unit types grid -->
+    <section class="rh-section rh-section--soft" id="scale">
+      <div class="site-shell">
+        <div class="rh-units-head">
+          <h2>Check NVG Nippon <em>Spaces</em></h2>
+          <p>2 BHK from 1,100–1,200 sq.ft and 3 BHK from 1,700–1,800 sq.ft — spacious layouts with clubhouse amenities across 4 acres.</p>
+        </div>
+        <div class="rh-units-grid">
+          <div class="rh-unit-card">
+            <h3>2 BHK Residences</h3>
+            <p>Smart layouts with natural light and efficient planning for young families.</p>
+            <span class="rh-unit-sqft">1,100–1,200 sq.ft</span>
+          </div>
+          <div class="rh-unit-card">
+            <h3>3 BHK Residences</h3>
+            <p>Spacious family homes with premium finishes and cross-ventilation.</p>
+            <span class="rh-unit-sqft">1,700–1,800 sq.ft</span>
+          </div>
+          <div class="rh-unit-card">
+            <h3>Clubhouse &amp; Amenities</h3>
+            <p>Pool, gym, gardens, and kids zone across 4 acres of community living.</p>
+            <span class="rh-unit-sqft">360+ units</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="rh-section" id="map">
+      <div class="site-shell">
+        <div class="rh-map-head">
+          <h2>All Roads Lead To <em>NVG Nippon</em></h2>
+        </div>
+        <p class="section-kicker rh-nearby-kicker">Nearby Highlights</p>
+        <div class="rh-nearby">
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-building" aria-hidden="true"></i>
+            <div><strong>SAP Campus</strong><span>Opposite the project</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-industry" aria-hidden="true"></i>
+            <div><strong>Shell &amp; Boeing</strong><span>Major employers nearby</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-car" aria-hidden="true"></i>
+            <div><strong>Autoliv</strong><span>Industrial corridor</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-baseball-bat-ball" aria-hidden="true"></i>
+            <div><strong>Cricket Stadiums</strong><span>Sports &amp; entertainment</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-map" aria-hidden="true"></i>
+            <div><strong>KIADB</strong><span>Planned industrial zone</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-person-swimming" aria-hidden="true"></i>
+            <div><strong>Pool &amp; Gym</strong><span>On-site amenities</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-tree" aria-hidden="true"></i>
+            <div><strong>4 Acres</strong><span>Landscaped community</span></div>
+          </div>
+          <div class="rh-nearby-item">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <div><strong>24/7 Security</strong><span>Gated living</span></div>
+          </div>
+        </div>
+        <div class="rh-map-wrap">
+          <iframe
+            title="KIADB Bengaluru location"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5!2d77.7!3d12.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13b5b5b5b5b5%3A0x0!2sKIADB%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
@@ -1105,9 +533,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <img src="./logo/grasp-logo.png" alt="GRASP Realtors Logo" class="footer-logo h-20 w-auto mb-5 object-contain" />
-          <p class="leading-7 mb-6">
-            GRASP Realtors helps you find verified properties with transparent guidance, smart location insights, and professional real estate support.
-          </p>
+          <p class="leading-7 mb-6">GRASP Realtors helps you find verified properties with transparent guidance, smart location insights, and professional real estate support.</p>
         </div>
         <div>
           <h3 class="text-xl font-serifBrand mb-6 font-semibold">Quick Links</h3>
@@ -1154,14 +580,10 @@
   <!-- FULL SCREEN MENU -->
   <section id="menuOverlay" class="fixed inset-0 z-[10000] invisible opacity-0 transition-opacity duration-500" aria-hidden="true">
     <div class="menu-overlay-inner">
-      <div class="menu-media menu-media--peek" aria-hidden="true">
-        <div class="menu-media-overlay"></div>
-      </div>
+      <div class="menu-media menu-media--peek" aria-hidden="true"><div class="menu-media-overlay"></div></div>
       <div id="menuPanel" class="min-h-full bg-white text-brandBlue px-7 md:px-12 py-10 md:py-14 translate-x-full transition-transform duration-500 ease-in-out overflow-y-auto">
         <div class="flex items-center justify-between mb-8">
-          <a href="index.html" class="menu-panel-logo" aria-label="GRASP Realtors home">
-            <img src="./logo/grasp-logo.png" alt="GRASP Realtors" />
-          </a>
+          <a href="index.html" class="menu-panel-logo" aria-label="GRASP Realtors home"><img src="./logo/grasp-logo.png" alt="GRASP Realtors" /></a>
           <button id="menuClose" class="text-3xl leading-none text-brandBlue hover:text-brandGold transition" aria-label="Close menu">&times;</button>
         </div>
         <ul class="space-y-1">
@@ -1186,76 +608,82 @@
   </section>
 
   <script>
-    (function () {
-      const navbar = document.getElementById("navbar");
-      const menuToggle = document.getElementById("menuToggle");
-      const menuClose = document.getElementById("menuClose");
-      const menuOverlay = document.getElementById("menuOverlay");
-      const menuPanel = document.getElementById("menuPanel");
-      if (!navbar) return;
-      let menuIsOpen = false;
-      let lastScrollY = window.scrollY;
-      const scrollDelta = 8;
-      function updateNavbar() {
-        const currentY = window.scrollY;
-        if (currentY > 40) {
-          navbar.classList.add("header-scrolled");
-          navbar.classList.remove("header-at-top");
-        } else {
-          navbar.classList.remove("header-scrolled");
-          navbar.classList.add("header-at-top");
-          navbar.classList.remove("navbar-hidden");
-        }
-        if (!menuIsOpen && currentY > 80) {
-          if (currentY > lastScrollY + scrollDelta) navbar.classList.add("navbar-hidden");
-          else if (currentY < lastScrollY - scrollDelta) navbar.classList.remove("navbar-hidden");
-        } else if (currentY <= 80) {
-          navbar.classList.remove("navbar-hidden");
-        }
-        lastScrollY = currentY;
+(function () {
+  document.querySelectorAll(".rh-acc-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.closest(".rh-acc-item");
+      if (!item) return;
+      var open = item.classList.contains("is-open");
+      document.querySelectorAll(".rh-acc-item").forEach(function (el) {
+        el.classList.remove("is-open");
+        var b = el.querySelector(".rh-acc-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+      if (!open) {
+        item.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
       }
-      updateNavbar();
-      window.addEventListener("scroll", updateNavbar, { passive: true });
-      function closeMenu() {
-        menuIsOpen = false;
-        updateNavbar();
-        if (menuToggle) menuToggle.classList.remove("menu-open");
-        if (menuOverlay) menuOverlay.classList.add("opacity-0");
-        if (menuPanel) menuPanel.classList.add("translate-x-full");
-        document.body.style.overflow = "auto";
-        setTimeout(function () {
-          if (!menuIsOpen && menuOverlay) {
-            menuOverlay.classList.add("invisible");
-            menuOverlay.classList.remove("visible", "opacity-100");
-            menuOverlay.setAttribute("aria-hidden", "true");
-          }
-        }, 500);
-      }
-      if (menuToggle && menuOverlay && menuPanel) {
-        menuToggle.addEventListener("click", function () {
-          menuIsOpen = !menuIsOpen;
-          menuToggle.classList.toggle("menu-open");
-          if (menuIsOpen) {
-            navbar.classList.remove("navbar-hidden");
-            menuOverlay.classList.remove("invisible", "opacity-0");
-            menuOverlay.classList.add("visible", "opacity-100");
-            menuOverlay.setAttribute("aria-hidden", "false");
-            menuPanel.classList.remove("translate-x-full");
-            document.body.style.overflow = "hidden";
-          } else {
-            closeMenu();
-          }
-        });
-        document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape" && menuIsOpen) closeMenu();
-        });
-      }
-      if (menuClose) menuClose.addEventListener("click", closeMenu);
-      var menuMedia = menuOverlay && menuOverlay.querySelector(".menu-media");
-      if (menuMedia) menuMedia.addEventListener("click", closeMenu);
+    });
+  });
+})();
 
-    })();
+(function () {
+  var navbar = document.getElementById("navbar");
+  var menuToggle = document.getElementById("menuToggle");
+  var menuClose = document.getElementById("menuClose");
+  var menuOverlay = document.getElementById("menuOverlay");
+  var menuPanel = document.getElementById("menuPanel");
+  if (!navbar) return;
+  var menuIsOpen = false, lastScrollY = window.scrollY, scrollDelta = 8;
+  function updateNavbar() {
+    var y = window.scrollY;
+    if (y > 40) { navbar.classList.add("header-scrolled"); navbar.classList.remove("header-at-top"); }
+    else { navbar.classList.remove("header-scrolled"); navbar.classList.add("header-at-top"); navbar.classList.remove("navbar-hidden"); }
+    if (!menuIsOpen && y > 80) {
+      if (y > lastScrollY + scrollDelta) navbar.classList.add("navbar-hidden");
+      else if (y < lastScrollY - scrollDelta) navbar.classList.remove("navbar-hidden");
+    }
+    lastScrollY = y;
+  }
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+  function closeMenu() {
+    menuIsOpen = false; updateNavbar();
+    if (menuToggle) menuToggle.classList.remove("menu-open");
+    if (menuOverlay) menuOverlay.classList.add("opacity-0");
+    if (menuPanel) menuPanel.classList.add("translate-x-full");
+    document.body.style.overflow = "auto";
+    setTimeout(function () {
+      if (!menuIsOpen && menuOverlay) {
+        menuOverlay.classList.add("invisible");
+        menuOverlay.classList.remove("visible", "opacity-100");
+        menuOverlay.setAttribute("aria-hidden", "true");
+      }
+    }, 500);
+  }
+  if (menuToggle && menuOverlay && menuPanel) {
+    menuToggle.addEventListener("click", function () {
+      menuIsOpen = !menuIsOpen;
+      menuToggle.classList.toggle("menu-open");
+      if (menuIsOpen) {
+        navbar.classList.remove("navbar-hidden");
+        menuOverlay.classList.remove("invisible", "opacity-0");
+        menuOverlay.classList.add("visible", "opacity-100");
+        menuOverlay.setAttribute("aria-hidden", "false");
+        menuPanel.classList.remove("translate-x-full");
+        document.body.style.overflow = "hidden";
+      } else closeMenu();
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && menuIsOpen) closeMenu(); });
+  }
+  if (menuClose) menuClose.addEventListener("click", closeMenu);
+  var menuMedia = menuOverlay && menuOverlay.querySelector(".menu-media");
+  if (menuMedia) menuMedia.addEventListener("click", closeMenu);
+})();
   </script>
-</body>
 
+  <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</body>
 </html>

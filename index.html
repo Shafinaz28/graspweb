@@ -4,13 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRASP Realtors</title>
-  <link
-    rel="preload"
-    href="./video/13240171_1920_1080_60fps.mp4"
-    as="video"
-    type="video/mp4"
-    fetchpriority="high"
-  />
+  <link rel="preload" href="./video/slowly_go.mp4" as="video" type="video/mp4" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -337,6 +332,442 @@
       background: #1a2340;
       border-color: #1a2340;
       color: #ffffff;
+    }
+
+    /* Hero — full-screen video background */
+    .hero-video-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: #080c1a;
+    }
+
+    .hero-video-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center center;
+      pointer-events: none;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(8, 12, 26, 0.35) 0%, rgba(8, 12, 26, 0.15) 45%, rgba(8, 12, 26, 0.55) 100%),
+        linear-gradient(90deg, rgba(8, 12, 26, 0.4) 0%, transparent 45%);
+    }
+
+    .hero-video-copy {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: calc(110px + 1rem) clamp(1.25rem, 5vw, 4rem) clamp(2.5rem, 6vh, 4rem);
+    }
+
+    .hero-video-headline {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 5.75rem);
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+      text-align: left;
+      max-width: 12ch;
+    }
+
+    .hero-video-headline span {
+      display: block;
+      color: #ffffff;
+    }
+
+    .hero-video-headline em {
+      font-style: italic;
+      color: #cd7f2f !important;
+    }
+
+    .hero-video-sub {
+      max-width: 36rem;
+      margin: clamp(1rem, 3vh, 1.75rem) 0 0;
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-sub-line {
+      display: inline;
+    }
+
+    .hero-sub-line::after {
+      content: " ";
+    }
+
+    .hero-scroll-hint {
+      margin-top: 1.25rem;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.1rem;
+      animation: heroScrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes heroScrollPulse {
+      0%, 100% { transform: translateY(0); opacity: 0.55; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+
+    /* Real Homes–style intro, stats & projects */
+    .rh-intro {
+      background: #ffffff;
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+    }
+
+    .rh-intro-grid {
+      display: grid;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .rh-intro-grid {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(2rem, 6vw, 5rem);
+      }
+    }
+
+    .rh-intro h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #242d63;
+      max-width: 14ch;
+    }
+
+    .rh-intro h2 em {
+      font-style: italic;
+      color: #cd7f2f;
+    }
+
+    .rh-intro-copy p {
+      margin: 0 0 1.25rem;
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      line-height: 1.8;
+      color: #5b6478;
+      max-width: 36rem;
+    }
+
+    .rh-text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #242d63;
+      text-decoration: none;
+      border-bottom: 2px solid #cd7f2f;
+      padding-bottom: 0.15rem;
+      transition: color 0.25s, gap 0.25s;
+    }
+
+    .rh-text-link:hover {
+      color: #cd7f2f;
+      gap: 0.75rem;
+    }
+
+    .rh-stats {
+      background: #f4f6f8;
+      padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+      border-block: 1px solid #e8ecf2;
+    }
+
+    .rh-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 3vw, 2rem);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .rh-stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .rh-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      color: #242d63;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .rh-stat span {
+      font-size: 0.88rem;
+      color: #5b6478;
+      line-height: 1.45;
+      max-width: 14rem;
+      margin-inline: auto;
+      display: block;
+    }
+
+    .rh-projects {
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
+      background: #f4f6fb;
+    }
+
+    .rh-projects-head {
+      text-align: center;
+      max-width: 42rem;
+      margin: 0 auto clamp(2rem, 4vw, 3rem);
+    }
+
+    .rh-projects-head h2 {
+      margin: 0 0 0.85rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.12;
+      color: #242d63;
+    }
+
+    .rh-projects-head h2 em {
+      font-style: italic;
+      color: #cd7f2f;
+    }
+
+    .rh-projects-head p {
+      margin: 0 auto;
+      font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+      line-height: 1.75;
+      color: #5b6478;
+      max-width: 38rem;
+    }
+
+    .rh-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.75rem);
+      align-items: stretch;
+    }
+
+    @media (max-width: 991px) {
+      .rh-projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 639px) {
+      .rh-projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .rh-project-card {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #1f2937;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .rh-project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+    }
+
+    .rh-project-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e8ecf4;
+    }
+
+    .rh-project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-width: none;
+      transition: transform 0.55s ease;
+    }
+
+    .rh-project-card:hover .rh-project-media img {
+      transform: scale(1.04);
+    }
+
+    .rh-project-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1.15rem 1.2rem 1.25rem;
+    }
+
+    .rh-project-body h3 {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-body) !important;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #111827;
+    }
+
+    .rh-project-address {
+      margin: 0 0 1rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    .rh-project-stats {
+      list-style: none;
+      margin: 0 0 1.15rem;
+      padding: 0 0 1.15rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .rh-project-stats li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #374151;
+      border-right: 1px solid #d1d5db;
+    }
+
+    .rh-project-stats li:first-child {
+      padding-left: 0;
+    }
+
+    .rh-project-stats li:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .rh-project-stats i {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .rh-project-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .rh-project-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .rh-project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border: 1px solid #242d63;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #242d63;
+      white-space: nowrap;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .rh-project-card:hover .rh-project-cta {
+      background: #cd7f2f;
+      border-color: #cd7f2f;
+      color: #ffffff;
+    }
+
+    .rh-projects-cta {
+      text-align: center;
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    @media (max-width: 767px) {
+      .hero-video-wrap {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-video-overlay {
+        background:
+          linear-gradient(180deg, rgba(8, 12, 26, 0.4) 0%, rgba(8, 12, 26, 0.25) 50%, rgba(8, 12, 26, 0.5) 100%);
+      }
+
+      .hero-video-copy {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: calc(100px + 1rem);
+        padding-bottom: clamp(2rem, 5vh, 3rem);
+      }
+
+      .hero-video-headline {
+        font-size: clamp(2rem, 11vw, 3.25rem);
+        text-align: center;
+        max-width: none;
+        margin-inline: auto;
+      }
+
+      .hero-video-sub {
+        text-align: center;
+        margin-inline: auto;
+        max-width: 20rem;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .hero-sub-line {
+        display: block;
+      }
+
+      .hero-sub-line::after {
+        content: none;
+      }
+
+      .hero-scroll-hint {
+        margin-inline: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-hint { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -1303,47 +1734,125 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <main class="w-full max-w-full overflow-x-hidden">
-    <section class="hero-light relative w-full max-w-full overflow-hidden">
-      <video
-        id="heroVideo"
-        class="hero-video absolute inset-0 w-full h-full object-cover z-0"
-        src="./video/13240171_1920_1080_60fps.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        webkit-playsinline
-        preload="auto"
-        fetchpriority="high"
-        aria-hidden="true"
-      ></video>
-
-      <div class="hero-video-overlay absolute inset-0 z-[1]" aria-hidden="true"></div>
-
-      <div class="relative z-[2] w-full px-6 pt-[120px] pb-16 max-w-5xl mx-auto">
-        <p class="section-kicker mb-4">Luxury Properties Across Bangalore</p>
-
-        <h1 class="section-title hero-headline">
-          Your Trusted <em>Real Estate</em> Partner
-        </h1>
-
-        <p class="hero-sub">
-          Building trust. Creating landmarks — verified homes, clear documents, and guidance that grows with you.
-        </p>
-
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
-          <a href="properties.html" class="hero-cta-primary inline-block">
-            Properties
-          </a>
-          <a href="contact.html" class="hero-cta-secondary inline-block">
-            Contact
-          </a>
+    <section class="hero-video-section" id="hero">
+      <div class="hero-video-wrap">
+        <video
+          id="heroVideo"
+          class="hero-video-bg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="./video/slowly_go.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-overlay"></div>
+        <div class="hero-video-copy">
+          <h1 class="hero-video-headline">
+            Think Smarter,<br>
+            <span>Invest Better.<br>Live <em>Luxury.</em></span>
+          </h1>
+          <p class="hero-video-sub">
+            <span class="hero-sub-line">Specialized in verified luxury properties</span>
+            <span class="hero-sub-line">across Bangalore — transparent guidance,</span>
+            <span class="hero-sub-line">one dedicated team from first visit</span>
+            <span class="hero-sub-line">to handover.</span>
+          </p>
+          <div class="hero-scroll-hint">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- WHY GRASP -->
+  <section class="why-choose-unique" id="cinematicHandoff">
+    <div class="why-choose-shell">
+      <div class="why-choose-header scroll-reveal-text">
+        <p class="why-choose-kicker section-kicker">Why GRASP?</p>
+        <h2 class="section-title">Built For Smarter <em>Real Estate</em> Decisions</h2>
+      </div>
+
+      <div class="why-choose-strip">
+        <div class="why-choose-glow"></div>
+        <div class="why-choose-cards scroll-reveal-stagger">
+
+          <article class="why-choose-card scroll-reveal-item">
+            <span class="why-choose-step">01</span>
+            <div class="why-choose-icon">
+              <i class="fa-solid fa-house-circle-check" aria-hidden="true"></i>
+            </div>
+            <h3>Verified Properties</h3>
+            <p>Every listing is checked for approvals, documents, and realistic pricing.</p>
+          </article>
+
+          <article class="why-choose-card scroll-reveal-item">
+            <span class="why-choose-step">02</span>
+            <div class="why-choose-icon">
+              <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            </div>
+            <h3>Expert Guidance</h3>
+            <p>From first call to key handover, one team stays with you throughout.</p>
+          </article>
+
+          <article class="why-choose-card scroll-reveal-item">
+            <span class="why-choose-step">03</span>
+            <div class="why-choose-icon">
+              <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+            </div>
+            <h3>Clear Documentation</h3>
+            <p>We simplify legal terms so you know exactly what you are signing.</p>
+          </article>
+
+          <article class="why-choose-card scroll-reveal-item">
+            <span class="why-choose-step">04</span>
+            <div class="why-choose-icon">
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3>Market-Ready Insights</h3>
+            <p>Area trends, rental yield, and growth potential before you invest.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rh-intro">
+    <div class="site-shell">
+      <div class="rh-intro-grid scroll-reveal-text">
+        <h2>Where Life Becomes <em>Magical</em></h2>
+        <div class="rh-intro-copy">
+          <p>
+            We break the usual real-estate experience with curated projects, clear documentation, and expert support — from first visit through handover — so every decision feels confident and every space feels truly yours.
+          </p>
+          <a href="about.html" class="rh-text-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rh-stats" aria-label="GRASP highlights">
+    <div class="site-shell">
+      <div class="rh-stats-grid scroll-reveal-stagger">
+        <div class="rh-stat">
+          <strong>3</strong>
+          <span>Featured pre-launch projects across Bengaluru</span>
+        </div>
+        <div class="rh-stat">
+          <strong>500+</strong>
+          <span>Residences in our current project pipeline</span>
+        </div>
+        <div class="rh-stat">
+          <strong>15+</strong>
+          <span>Years guiding buyers &amp; investors with GRASP</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FULL SCREEN MENU OVERLAY -->
   <section
@@ -1355,7 +1864,7 @@
 
       <div class="menu-media" aria-hidden="true">
         <video autoplay muted loop playsinline>
-          <source src="./video/13240171_1920_1080_60fps.mp4" type="video/mp4" />
+          <source src="./video/7578540-hd_1920_1080_30fps.mp4" type="video/mp4" />
         </video>
         <div class="menu-media-overlay"></div>
       </div>
@@ -1405,65 +1914,6 @@
       </div>
     </div>
   </section>
-
-  <!-- FONT AWESOME CDN -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-/>
-
-<!-- WHY CHOOSE US SECTION -->
-<section class="why-choose-unique" id="services">
-  <div class="why-choose-shell">
-    <div class="why-choose-header scroll-reveal-text">
-      <p class="why-choose-kicker section-kicker">Why GRASP?</p>
-      <h2 class="section-title">Built For Smarter <em>Real Estate</em> Decisions</h2>
-    </div>
-
-    <div class="why-choose-strip">
-      <div class="why-choose-glow"></div>
-      <div class="why-choose-cards scroll-reveal-stagger">
-
-        <article class="why-choose-card scroll-reveal-item">
-          <span class="why-choose-step">01</span>
-          <div class="why-choose-icon">
-            <i class="fa-solid fa-house-circle-check" aria-hidden="true"></i>
-          </div>
-          <h3>Verified Properties</h3>
-          <p>Every listing is checked for approvals, documents, and realistic pricing.</p>
-        </article>
-
-        <article class="why-choose-card scroll-reveal-item">
-          <span class="why-choose-step">02</span>
-          <div class="why-choose-icon">
-            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
-          </div>
-          <h3>Expert Guidance</h3>
-          <p>From first call to key handover, one team stays with you throughout.</p>
-        </article>
-
-        <article class="why-choose-card scroll-reveal-item">
-          <span class="why-choose-step">03</span>
-          <div class="why-choose-icon">
-            <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
-          </div>
-          <h3>Clear Documentation</h3>
-          <p>We simplify legal terms so you know exactly what you are signing.</p>
-        </article>
-
-        <article class="why-choose-card scroll-reveal-item">
-          <span class="why-choose-step">04</span>
-          <div class="why-choose-icon">
-            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-          </div>
-          <h3>Market-Ready Insights</h3>
-          <p>Area trends, rental yield, and growth potential before you invest.</p>
-        </article>
-
-      </div>
-    </div>
-  </div>
-</section>
 
 <style>
   .why-choose-unique {
@@ -2083,69 +2533,163 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 />
 
-<!-- PROJECT SECTION -->
-<section id="projects" class="projects-section font-sans">
-  <div class="projects-wrap">
-
-    <header class="projects-header-center scroll-reveal-text">
-      <p class="prop-kicker">// Our Projects</p>
-      <h2 class="prop-title">Featured Projects</h2>
+<!-- PROJECTS — listing cards -->
+<section id="projects" class="rh-projects font-sans">
+  <div class="site-shell">
+    <header class="rh-projects-head scroll-reveal-text">
+      <h2>Check GRASP <em>Apartments</em></h2>
+      <p>
+        Handpicked pre-launch and rising-soon developments across Bengaluru — verified listings with clear specs, location, and priority access through GRASP Realtors.
+      </p>
     </header>
 
-    <div class="prop-cards-grid">
-
-      <a href="nvg-seattle.html" class="prop-card scroll-reveal-item">
-        <div class="prop-card-media">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="NVG Seattle — NVG Lifestyle High Rise" />
-          <span class="prop-badge prop-badge-offer">Pre-Launch</span>
+    <div class="rh-projects-grid">
+      <a href="nvg-seattle.html" class="rh-project-card scroll-reveal-item">
+        <div class="rh-project-media">
+          <img
+            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85"
+            alt="NVG Seattle — Artistic Skyline, North Bengaluru"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
         </div>
-        <div class="prop-card-body">
-          <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> North Bangalore Growth Corridor</p>
-          <h3 class="prop-card-title">NVG Seattle · NVG Lifestyle</h3>
-          <ul class="prop-amenities" aria-label="Property details">
-            <li><i class="fa-solid fa-building" aria-hidden="true"></i> High-Rise</li>
-            <li><i class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i> ₹1L Refundable EOI</li>
-            <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Priority Access</li>
+        <div class="rh-project-body">
+          <h3>NVG Seattle</h3>
+          <p class="rh-project-address">Artistic Skyline · North Bengaluru, Karnataka</p>
+          <ul class="rh-project-stats">
+            <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 3 BHK</li>
+            <li><i class="fa-solid fa-shower" aria-hidden="true"></i> 3 Bath</li>
+            <li><i class="fa-solid fa-vector-square" aria-hidden="true"></i> 1,285 sq ft</li>
           </ul>
+          <div class="rh-project-footer">
+            <span class="rh-project-price">₹1L EOI</span>
+            <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+          </div>
         </div>
       </a>
 
-      <a href="nvg-nippon.html" class="prop-card scroll-reveal-item">
-        <div class="prop-card-media">
-          <img src="./image/nvgnippon.png" alt="NVG Nippon — KIADB, Bangalore" />
-          <span class="prop-badge prop-badge-offer">Pre-Launch</span>
+      <a href="nvg-nippon.html" class="rh-project-card scroll-reveal-item">
+        <div class="rh-project-media">
+          <img
+            src="./image/nvgnippon.png"
+            alt="NVG Nippon — KIADB, opposite SAP Campus"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
         </div>
-        <div class="prop-card-body">
-          <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> KIADB · Opposite SAP Campus</p>
-          <h3 class="prop-card-title">NVG Nippon</h3>
-          <ul class="prop-amenities" aria-label="Property details">
-            <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 2 &amp; 3 BHK</li>
-            <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i> 1100–1800 sq.ft</li>
-            <li><i class="fa-solid fa-building" aria-hidden="true"></i> 360+ Units</li>
+        <div class="rh-project-body">
+          <h3>NVG Nippon</h3>
+          <p class="rh-project-address">KIADB · Opposite SAP Campus, Bengaluru</p>
+          <ul class="rh-project-stats">
+            <li><i class="fa-solid fa-bed" aria-hidden="true"></i> 2–3 BHK</li>
+            <li><i class="fa-solid fa-shower" aria-hidden="true"></i> 2–3 Bath</li>
+            <li><i class="fa-solid fa-vector-square" aria-hidden="true"></i> 1,800 sq ft</li>
           </ul>
+          <div class="rh-project-footer">
+            <span class="rh-project-price">On Request</span>
+            <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+          </div>
         </div>
       </a>
 
-      <a href="buloke-sambhav.html" class="prop-card scroll-reveal-item">
-        <div class="prop-card-media">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sambhav Buloke — North Bengaluru" />
-          <span class="prop-badge prop-badge-offer">Rising Soon</span>
+      <a href="buloke-sambhav.html" class="rh-project-card scroll-reveal-item">
+        <div class="rh-project-media">
+          <img
+            src="./image/sambhav.jpg"
+            alt="Sambhav Buloke — premium residences, North Bengaluru"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
         </div>
-        <div class="prop-card-body">
-          <p class="prop-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> North Bengaluru</p>
-          <h3 class="prop-card-title">Sambhav Buloke</h3>
-          <ul class="prop-amenities" aria-label="Property details">
-            <li><i class="fa-solid fa-building" aria-hidden="true"></i> 115 Apartments</li>
-            <li><i class="fa-solid fa-leaf" aria-hidden="true"></i> Extensive Greenery</li>
-            <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> Pre-Launch</li>
+        <div class="rh-project-body">
+          <h3>Sambhav Buloke</h3>
+          <p class="rh-project-address">North Bengaluru, Karnataka</p>
+          <ul class="rh-project-stats">
+            <li><i class="fa-solid fa-bed" aria-hidden="true"></i> Premium</li>
+            <li><i class="fa-solid fa-building" aria-hidden="true"></i> 144 Units</li>
+            <li><i class="fa-solid fa-leaf" aria-hidden="true"></i> Green Living</li>
           </ul>
+          <div class="rh-project-footer">
+            <span class="rh-project-price">On Request</span>
+            <span class="rh-project-cta">View Details <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+          </div>
         </div>
       </a>
-
     </div>
 
-    <div class="projects-cta-wrap scroll-reveal-text">
+    <div class="rh-projects-cta scroll-reveal-text">
       <a href="properties.html" class="projects-explore-btn">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERT AGENTS -->
+<section id="founders" class="home-experts-section font-sans">
+  <div class="site-shell">
+    <header class="home-experts-head scroll-reveal-text">
+      <h2 class="home-experts-title">Meet Our Expert Agents</h2>
+      <p class="home-experts-sub">Dedicated professionals ready to help you find your perfect property.</p>
+    </header>
+
+    <div class="home-experts-viewport">
+      <div class="home-experts-track" id="foundersTrack">
+        <article class="home-experts-card home-founders-member scroll-reveal-item is-active" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Akshay Gangadhar</h3>
+            <p class="home-experts-role">Founder &amp; Managing Director</p>
+            <p class="home-experts-bio">Leads GRASP with a focus on verified luxury listings and transparent advisory for every client.</p>
+          </div>
+        </article>
+        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Gokul Raj</h3>
+            <p class="home-experts-role">Co-Founder &amp; Strategy Lead</p>
+            <p class="home-experts-bio">Specialises in growth corridors and pre-launch investments across North Bengaluru.</p>
+          </div>
+        </article>
+        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Sridhar</h3>
+            <p class="home-experts-role">Co-Founder &amp; Operations Head</p>
+            <p class="home-experts-bio">Oversees site visits, documentation, and smooth handover support from booking to keys.</p>
+          </div>
+        </article>
+        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Prashanth Jain</h3>
+            <p class="home-experts-role">Co-Founder &amp; Business Development</p>
+            <p class="home-experts-bio">Builds developer partnerships and guides investors through pre-launch opportunities.</p>
+          </div>
+        </article>
+        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Rakshith</h3>
+            <p class="home-experts-role">Co-Founder &amp; Client Relations</p>
+            <p class="home-experts-bio">Supports buyers with shortlisting, negotiations, and personalised property journeys.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="home-experts-dots" id="foundersDots">
+      <button type="button" class="is-active" data-index="0" aria-label="Agent 1"></button>
+      <button type="button" data-index="1" aria-label="Agent 2"></button>
+      <button type="button" data-index="2" aria-label="Agent 3"></button>
+      <button type="button" data-index="3" aria-label="Agent 4"></button>
+      <button type="button" data-index="4" aria-label="Agent 5"></button>
     </div>
   </div>
 </section>
@@ -2494,6 +3038,253 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(205, 127, 47, 0.35);
   }
+
+  .home-experts-section {
+    padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    background: #ffffff;
+  }
+
+  .home-experts-head {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .home-experts-title {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-body) !important;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #242d63;
+  }
+
+  .home-experts-sub {
+    margin: 0;
+    font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+    line-height: 1.65;
+    color: #6b7280;
+  }
+
+  .home-experts-viewport {
+    overflow: hidden;
+    max-width: min(100%, 380px);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .home-experts-viewport { max-width: 900px; }
+  }
+
+  .home-experts-track {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .home-experts-track::-webkit-scrollbar { display: none; }
+
+  .home-experts-card {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 100%;
+    min-height: clamp(380px, 62vw, 460px);
+    scroll-snap-align: center;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #c8ccd4 0%, #8e96a8 28%, #3d4a63 62%, #1a2340 100%);
+    cursor: default;
+    transition: box-shadow 0.35s ease;
+  }
+
+  @media (min-width: 768px) {
+    .home-experts-card {
+      flex: 0 0 calc(50% - 0.75rem);
+      min-width: calc(50% - 0.75rem);
+      min-height: 420px;
+      scroll-snap-align: start;
+    }
+  }
+
+  .home-experts-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(15, 20, 40, 0.1) 0%, rgba(15, 20, 40, 0.72) 100%);
+    pointer-events: none;
+  }
+
+  .home-experts-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    max-width: none;
+    z-index: 0;
+  }
+
+  .home-experts-card.is-active,
+  .home-experts-card:hover,
+  .home-experts-card:focus-within {
+    box-shadow: 0 16px 40px rgba(26, 35, 64, 0.22);
+  }
+
+  .home-experts-contact {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #242d63;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+  }
+
+  .home-experts-contact:hover {
+    background: #cd7f2f;
+    color: #ffffff;
+  }
+
+  .home-experts-watermark {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .home-experts-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .home-experts-card.is-active .home-experts-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .home-experts-info h3 {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-body) !important;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .home-experts-role {
+    margin: 0 0 0.5rem;
+    font-size: clamp(0.82rem, 1.4vw, 0.92rem);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .home-experts-bio {
+    margin: 0;
+    font-size: clamp(0.78rem, 1.3vw, 0.88rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .home-experts-card.is-active .home-experts-contact {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @media (hover: hover) {
+    .home-experts-card:hover .home-experts-contact,
+    .home-experts-card:focus-within .home-experts-contact {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .home-experts-card:hover .home-experts-info,
+    .home-experts-card:focus-within .home-experts-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .home-experts-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  .home-experts-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #d1d5db;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .home-experts-dots button.is-active {
+    background: #cd7f2f;
+    transform: scale(1.12);
+  }
+
+  .wa-float-btn {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 9998;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.65rem;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+    transition: transform 0.25s ease, background 0.25s ease;
+    text-decoration: none;
+  }
+
+  .wa-float-btn:hover {
+    background: #1ebe57;
+    color: #fff;
+    transform: scale(1.06);
+  }
 </style>
 
 
@@ -2714,6 +3505,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
 
   <!-- JAVASCRIPT -->
   <script>
@@ -2823,19 +3615,6 @@
       }
     });
 
-    (function () {
-      var heroVideo = document.getElementById("heroVideo");
-      if (!heroVideo) return;
-      function playHero() {
-        heroVideo.play().catch(function () {});
-      }
-      if (heroVideo.readyState < 2) {
-        heroVideo.addEventListener("canplay", playHero, { once: true });
-      } else {
-        playHero();
-      }
-    })();
-
     document.querySelectorAll(".prop-fav-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         btn.classList.toggle("is-active");
@@ -2846,6 +3625,19 @@
         }
       });
     });
+
+    function initLenis() {
+      if (typeof Lenis === "undefined" || typeof gsap === "undefined") return null;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+
+      var lenis = new Lenis();
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(function (time) {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+      return lenis;
+    }
 
     // Scroll animations — play on scroll down, reverse on scroll up
     function initScrollAnimations() {
@@ -2919,17 +3711,31 @@
         fromRight("#about .about-v2-content", "#about");
       }
 
+      if (document.querySelector("#cinematicHandoff")) {
+        fromLeft("#cinematicHandoff h2", "#cinematicHandoff");
+        fromRight("#cinematicHandoff .rh-intro-copy", "#cinematicHandoff");
+      }
+
+      if (document.querySelector(".rh-stats")) {
+        staggerUp(".rh-stats .rh-stat", ".rh-stats");
+      }
+
       // Why Choose Us
-      if (document.querySelector("#services")) {
-        fromRight("#services .scroll-reveal-text", "#services");
-        staggerUp("#services .scroll-reveal-item", "#services .scroll-reveal-stagger");
+      if (document.querySelector("#cinematicHandoff")) {
+        fromRight("#cinematicHandoff .scroll-reveal-text", "#cinematicHandoff");
+        staggerUp("#cinematicHandoff .scroll-reveal-item", "#cinematicHandoff .scroll-reveal-stagger");
       }
 
       // Projects — header, cards, CTA
       if (document.querySelector("#projects")) {
-        fromRight("#projects .projects-header-center", "#projects");
-        staggerUp("#projects .scroll-reveal-item", "#projects .prop-cards-grid");
-        fromRight("#projects .projects-cta-wrap", "#projects");
+        fromRight("#projects .rh-projects-head", "#projects");
+        staggerUp("#projects .scroll-reveal-item", "#projects .rh-projects-grid");
+        fromRight("#projects .rh-projects-cta", "#projects");
+      }
+
+      if (document.querySelector("#founders")) {
+        fromRight("#founders .home-experts-head", "#founders");
+        staggerUp("#founders .home-founders-member", "#founders .home-experts-track");
       }
 
       // Price calculator — text left, form right
@@ -2941,7 +3747,15 @@
       ScrollTrigger.refresh();
     }
 
-    window.addEventListener("load", initScrollAnimations);
+    function initPageMotion() {
+      initLenis();
+      initScrollAnimations();
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    }
+
+    window.addEventListener("load", initPageMotion);
     window.addEventListener("resize", function () {
       if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
     });
@@ -2950,19 +3764,135 @@
 
   <script>
     (function () {
-      var v = document.getElementById("heroVideo");
+      var foundersTrack = document.getElementById("foundersTrack");
+      var foundersDots = document.getElementById("foundersDots");
+      var foundersMembers = foundersTrack ? foundersTrack.querySelectorAll(".home-founders-member") : [];
+      var autoTimer = null;
+      var resumeTimer = null;
+      var autoPaused = false;
+      var AUTO_MS = 4500;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function isDesktopExperts() {
+        return window.matchMedia("(min-width: 768px)").matches;
+      }
+
+      function getActiveFounderIndex() {
+        if (!foundersTrack || !foundersMembers.length) return 0;
+        var scrollPos = foundersTrack.scrollLeft;
+        var closest = 0;
+        var closestDist = Infinity;
+        foundersMembers.forEach(function (member, i) {
+          var dist = Math.abs(member.offsetLeft - scrollPos);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = i;
+          }
+        });
+        return closest;
+      }
+
+      function scrollToFounderIndex(index) {
+        if (!foundersTrack || !foundersMembers[index]) return;
+        foundersTrack.scrollTo({
+          left: foundersMembers[index].offsetLeft,
+          behavior: reduceMotion ? "auto" : "smooth",
+        });
+        updateFoundersDots();
+      }
+
+      function updateFoundersDots() {
+        var index = getActiveFounderIndex();
+        var desktop = isDesktopExperts();
+        foundersMembers.forEach(function (member, i) {
+          var active = desktop ? (i === index || i === index + 1) : i === index;
+          member.classList.toggle("is-active", active);
+        });
+        if (!foundersDots) return;
+        Array.prototype.forEach.call(foundersDots.children, function (dot, i) {
+          dot.classList.toggle("is-active", i === index);
+        });
+      }
+
+      function advanceFoundersCarousel() {
+        if (!foundersMembers.length) return;
+        var current = getActiveFounderIndex();
+        var next = current + 1 >= foundersMembers.length ? 0 : current + 1;
+        scrollToFounderIndex(next);
+      }
+
+      function stopAutoScroll() {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      function startAutoScroll() {
+        stopAutoScroll();
+        if (reduceMotion || autoPaused || foundersMembers.length < 2) return;
+        autoTimer = setInterval(advanceFoundersCarousel, AUTO_MS);
+      }
+
+      function pauseAutoScroll() {
+        autoPaused = true;
+        stopAutoScroll();
+        if (resumeTimer) clearTimeout(resumeTimer);
+      }
+
+      function scheduleResumeAutoScroll() {
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function () {
+          autoPaused = false;
+          startAutoScroll();
+        }, 3500);
+      }
+
+      if (foundersTrack) {
+        foundersTrack.addEventListener("scroll", updateFoundersDots, { passive: true });
+        window.addEventListener("resize", function () {
+          var index = getActiveFounderIndex();
+          scrollToFounderIndex(index);
+          startAutoScroll();
+          updateFoundersDots();
+        });
+        foundersTrack.addEventListener("mouseenter", pauseAutoScroll);
+        foundersTrack.addEventListener("mouseleave", scheduleResumeAutoScroll);
+        foundersTrack.addEventListener("touchstart", pauseAutoScroll, { passive: true });
+        foundersTrack.addEventListener("touchend", scheduleResumeAutoScroll, { passive: true });
+        foundersTrack.addEventListener("focusin", pauseAutoScroll);
+        foundersTrack.addEventListener("focusout", scheduleResumeAutoScroll);
+        updateFoundersDots();
+        startAutoScroll();
+      }
+
+      if (foundersDots) {
+        Array.prototype.forEach.call(foundersDots.children, function (dot) {
+          dot.addEventListener("click", function () {
+            pauseAutoScroll();
+            if (!foundersTrack) return;
+            var index = parseInt(dot.getAttribute("data-index"), 10) || 0;
+            scrollToFounderIndex(index);
+            scheduleResumeAutoScroll();
+          });
+        });
+      }
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stopAutoScroll();
+        else if (!autoPaused) startAutoScroll();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var video = document.getElementById("heroVideo");
       var loader = document.getElementById("pageLoader");
-      var primary = "./video/13240171_1920_1080_60fps.mp4";
-      var fallback = "./video/herovideo.mp4";
       var minShowMs = 900;
-      var maxWaitMs = 10000;
+      var maxWaitMs = 8000;
       var startedAt = Date.now();
       var loaderDone = false;
-
-      function playHero() {
-        if (!v) return;
-        v.play().catch(function () {});
-      }
 
       function hideLoader() {
         if (loaderDone) return;
@@ -2981,44 +3911,31 @@
       }
 
       function onHeroReady() {
-        playHero();
         hideLoader();
       }
 
-      if (v) {
-        v.preload = "auto";
-        if (!v.getAttribute("src")) v.src = primary;
-        v.load();
-
-        if (v.readyState >= 3) {
+      if (video) {
+        if (video.readyState >= 2) {
           onHeroReady();
         } else {
-          v.addEventListener("canplay", onHeroReady, { once: true });
-          v.addEventListener("playing", onHeroReady, { once: true });
-          v.addEventListener("loadeddata", playHero, { once: true });
-          v.addEventListener("error", function () {
-            if (v.dataset.fallbackUsed) {
-              hideLoader();
-              return;
-            }
-            v.dataset.fallbackUsed = "1";
-            v.src = fallback;
-            v.load();
-            v.addEventListener("canplay", onHeroReady, { once: true });
-            v.addEventListener("playing", onHeroReady, { once: true });
-            playHero();
-          }, { once: true });
+          video.addEventListener("loadeddata", onHeroReady, { once: true });
+          video.addEventListener("error", onHeroReady, { once: true });
         }
+        video.play().catch(function () {});
       } else {
         hideLoader();
       }
 
       setTimeout(hideLoader, maxWaitMs);
       window.addEventListener("load", function () {
-        if (!loaderDone && v && v.readyState >= 2) onHeroReady();
+        if (!loaderDone && video && video.readyState >= 2) onHeroReady();
       });
     })();
   </script>
+
+  <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
 </body>
 </html>
