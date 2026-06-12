@@ -6,7 +6,7 @@
   <title>About Us — GRASP Realtors</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,8 +17,8 @@
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
-            serif: ["Playfair Display", "Georgia", "serif"],
-            serifBrand: ["Playfair Display", "Georgia", "serif"],
+            serif: ["DM Sans", "system-ui", "sans-serif"],
+            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
           },
         },
       },
@@ -38,7 +38,7 @@ body {
 main, header, footer, section { max-width: 100%; }
 img, video { max-width: 100%; }
 :root {
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "DM Sans", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --brand-navy: #242d63;
   --brand-gold: #cd7f2f;
@@ -324,29 +324,27 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 @media (min-width: 992px) {
   .about-journey-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
 }
-.about-collage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
-  min-height: 380px;
-  overflow: hidden;
-}
 .scroll-reveal-img { overflow: hidden; }
-.about-collage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+.about-feature-img {
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: clamp(280px, 42vw, 480px);
   box-shadow: 0 12px 40px rgba(36, 45, 99, 0.12);
 }
-.about-collage .collage-main {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  min-height: 280px;
+.about-feature-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(280px, 42vw, 480px);
+  object-fit: cover;
+  object-position: center;
 }
-.about-collage .collage-top { min-height: 130px; }
-.about-collage .collage-bottom { min-height: 130px; }
+.about-intro-text {
+  color: #5b6478;
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
 .about-label {
   color: #cd7f2f;
   font-size: 0.75rem;
@@ -739,32 +737,24 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
           <span>About</span>
         </nav>
         <h1>About Us</h1>
-        <p>A newly launched real estate company focused on clear communication, verified options, and client-first support.</p>
+        <p>A Bangalore real estate team focused on verified properties, clear communication, and client-first support.</p>
       </div>
     </div>
 
     <section class="page-section" id="about-journey">
       <div class="site-shell about-journey-grid">
-        <div class="about-collage scroll-reveal-img" aria-hidden="true">
+        <div class="about-feature-img scroll-reveal-img">
           <img
-            class="collage-main"
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80"
-            alt=""
-          />
-          <img
-            class="collage-top"
-            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80"
-            alt=""
-          />
-          <img
-            class="collage-bottom"
-            src="./image/sambhav.jpg"
-            alt=""
+            src="./image/hero-interior.jpg"
+            alt="Premium interior — GRASP Realtors Bangalore"
           />
         </div>
         <div class="scroll-reveal-text">
           <p class="about-label">About Us</p>
-          <h2 class="about-journey-title">Unite Building And Real Estate Journey</h2>
+          <h2 class="about-journey-title">Your Trusted Partner In Bangalore Real Estate</h2>
+          <p class="about-intro-text">
+            We help buyers and investors find verified luxury homes and pre-launch projects across Bengaluru — with honest guidance from enquiry to handover.
+          </p>
           <div class="about-tabs" role="tablist">
             <button type="button" class="about-tab is-active" role="tab" aria-selected="true" data-tab="mission">Mission</button>
             <button type="button" class="about-tab" role="tab" aria-selected="false" data-tab="vision">Vision</button>
@@ -772,7 +762,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
           </div>
           <div id="panel-mission" class="about-tab-panel is-active" role="tabpanel">
             <p>
-              GRASP Realtors helps you find verified properties with transparent guidance. We focus on clear communication, honest advice, and support from your first inquiry through closing.
+              Help clients find verified properties with transparent guidance — from first inquiry through closing.
             </p>
             <ul class="about-checklist">
               <li><i class="fa-solid fa-check" aria-hidden="true"></i> Verified listings &amp; document clarity</li>
@@ -781,7 +771,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
           </div>
           <div id="panel-vision" class="about-tab-panel" role="tabpanel" hidden>
             <p>
-              To become Bangalore’s most trusted new-age real estate partner — known for integrity, smart location insights, and relationships that last beyond a single transaction.
+              Become Bangalore’s trusted real estate partner — known for integrity, smart insights, and lasting relationships.
             </p>
             <ul class="about-checklist">
               <li><i class="fa-solid fa-check" aria-hidden="true"></i> Data-driven market guidance</li>
@@ -790,14 +780,14 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
           </div>
           <div id="panel-goal" class="about-tab-panel" role="tabpanel" hidden>
             <p>
-              Make property decisions simpler for every client — whether you are buying your first home, renting, selling, or building an investment portfolio with confidence.
+              Make property decisions simpler — whether you are buying your first home, investing, or upgrading.
             </p>
             <ul class="about-checklist">
               <li><i class="fa-solid fa-check" aria-hidden="true"></i> Faster, stress-free closings</li>
               <li><i class="fa-solid fa-check" aria-hidden="true"></i> End-to-end coordination &amp; follow-up</li>
             </ul>
           </div>
-          <a href="contact.html" class="fusion-btn fusion-btn-primary">Learn More</a>
+          <a href="contact.html" class="fusion-btn fusion-btn-primary">Get In Touch</a>
         </div>
       </div>
     </section>
@@ -805,25 +795,25 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
     <section class="page-section soft" id="about-services">
       <div class="site-shell">
         <div class="about-services-head scroll-reveal-text">
-          <h2 class="section-title">Take A Stroll Around <em>Surroundings</em></h2>
+          <h2 class="section-title">What We <em>Offer</em></h2>
         </div>
         <div class="about-service-grid scroll-reveal-stagger">
           <article class="about-service-card scroll-reveal-item">
             <div class="icon-wrap"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
             <h3>Property Buying</h3>
-            <p>Curated shortlists, site visits, and negotiation support tailored to your budget and lifestyle in Bangalore.</p>
+            <p>Curated shortlists, site visits, and negotiation support across Bangalore.</p>
             <a href="properties.html">Read More</a>
           </article>
           <article class="about-service-card scroll-reveal-item">
             <div class="icon-wrap"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
             <h3>Investment Guidance</h3>
-            <p>ROI-focused advisory with location analysis so you invest with clarity, not guesswork.</p>
+            <p>Location insights and ROI-focused advice for smarter investments.</p>
             <a href="properties.html">Read More</a>
           </article>
           <article class="about-service-card scroll-reveal-item">
             <div class="icon-wrap"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
             <h3>Document Support</h3>
-            <p>Title checks, RERA compliance, and loan coordination handled with transparency at every step.</p>
+            <p>Title checks, RERA compliance, and loan coordination.</p>
             <a href="properties.html">Read More</a>
           </article>
         </div>
@@ -861,7 +851,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
         </div>
 
         <div>
-          <h3 class="text-xl font-serifBrand mb-6 font-semibold">Quick Links</h3>
+          <h3 class="text-xl font-sansBrand mb-6 font-semibold">Quick Links</h3>
           <ul class="space-y-4">
             <li><a href="index.html" class="hover:text-brandGold transition">Home</a></li>
             <li><a href="about.html" class="hover:text-brandGold transition">About</a></li>
@@ -872,7 +862,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
         </div>
 
         <div>
-          <h3 class="text-xl font-serifBrand mb-6 font-semibold">Our Services</h3>
+          <h3 class="text-xl font-sansBrand mb-6 font-semibold">Our Services</h3>
           <ul class="space-y-4">
             <li><a href="#" class="hover:text-brandGold transition">Property Buying</a></li>
             <li><a href="#" class="hover:text-brandGold transition">Property Selling</a></li>
@@ -883,7 +873,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
         </div>
 
         <div>
-          <h3 class="text-xl font-serifBrand mb-6 font-semibold">Contact Us</h3>
+          <h3 class="text-xl font-sansBrand mb-6 font-semibold">Contact Us</h3>
           <ul class="space-y-5">
             <li class="flex gap-3">
               <i class="fa-solid fa-location-dot text-brandGold mt-1"></i>

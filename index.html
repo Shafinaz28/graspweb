@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet"
   />
   <link
@@ -32,9 +32,9 @@
           },
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
-            display: ["Playfair Display", "Georgia", "serif"],
-            serif: ["Playfair Display", "Georgia", "serif"],
-            serifBrand: ["Playfair Display", "Georgia", "serif"],
+            display: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["DM Sans", "system-ui", "sans-serif"],
+            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
           },
         },
@@ -46,7 +46,7 @@
     :root {
       --brand-navy: #242d63;
       --brand-gold: #cd7f2f;
-      --font-display: "Playfair Display", Georgia, serif;
+      --font-display: "DM Sans", system-ui, sans-serif;
       --font-body: "DM Sans", system-ui, sans-serif;
     }
 
@@ -101,7 +101,7 @@
     }
 
     .font-serif,
-    .font-serifBrand,
+    .font-sansBrand,
     .font-display {
       font-family: var(--font-display) !important;
     }
@@ -1743,7 +1743,7 @@
   </style>
 </head>
 
-<body class="has-hero bg-white font-serifBrand is-loading">
+<body class="has-hero bg-white font-sansBrand is-loading">
 
   <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
     <div class="page-loader-inner">
@@ -2608,7 +2608,7 @@
       <a href="nvg-seattle.html" class="rh-project-card scroll-reveal-item">
         <div class="rh-project-media">
           <img
-            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85"
+            src="image/nvgseatle.jpg"
             alt="NVG Seattle — Artistic Skyline, North Bengaluru"
             width="1200"
             height="900"
@@ -2633,7 +2633,7 @@
       <a href="nvg-nippon.html" class="rh-project-card scroll-reveal-item">
         <div class="rh-project-media">
           <img
-            src="./image/nvgnippon.png"
+            src="image/nvgnipon.jpg"
             alt="NVG Nippon — KIADB, opposite SAP Campus"
             width="1200"
             height="900"
@@ -2701,9 +2701,7 @@
           <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
-            <h3>Mr Akshay Gangadhar</h3>
-            <p class="home-experts-role">Founder &amp; Managing Director</p>
-            <p class="home-experts-bio">Leads GRASP with a focus on verified luxury listings and transparent advisory for every client.</p>
+            <h3>Mr Sridhar</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
@@ -2711,17 +2709,6 @@
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Gokul Raj</h3>
-            <p class="home-experts-role">Co-Founder &amp; Strategy Lead</p>
-            <p class="home-experts-bio">Specialises in growth corridors and pre-launch investments across North Bengaluru.</p>
-          </div>
-        </article>
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Sridhar</h3>
-            <p class="home-experts-role">Co-Founder &amp; Operations Head</p>
-            <p class="home-experts-bio">Oversees site visits, documentation, and smooth handover support from booking to keys.</p>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
@@ -2729,8 +2716,13 @@
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Prashanth Jain</h3>
-            <p class="home-experts-role">Co-Founder &amp; Business Development</p>
-            <p class="home-experts-bio">Builds developer partnerships and guides investors through pre-launch opportunities.</p>
+          </div>
+        </article>
+        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
+          <a href="contact.html" class="home-experts-contact">Contact</a>
+          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
+          <div class="home-experts-info">
+            <h3>Mr Akshay Gangadhar</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
@@ -2738,8 +2730,6 @@
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Rakshith</h3>
-            <p class="home-experts-role">Co-Founder &amp; Client Relations</p>
-            <p class="home-experts-bio">Supports buyers with shortlisting, negotiations, and personalised property journeys.</p>
           </div>
         </article>
       </div>
@@ -3291,25 +3281,11 @@
   }
 
   .home-experts-info h3 {
-    margin: 0 0 0.3rem;
+    margin: 0;
     font-family: var(--font-body) !important;
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     font-weight: 700;
     color: #ffffff;
-  }
-
-  .home-experts-role {
-    margin: 0 0 0.5rem;
-    font-size: clamp(0.82rem, 1.4vw, 0.92rem);
-    line-height: 1.45;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  .home-experts-bio {
-    margin: 0;
-    font-size: clamp(0.78rem, 1.3vw, 0.88rem);
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.82);
   }
 
   .home-experts-card.is-active .home-experts-contact {
@@ -3502,7 +3478,7 @@
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-xl font-serifBrand mb-6 font-semibold">
+        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
           Quick Links
         </h3>
 
@@ -3517,7 +3493,7 @@
 
       <!-- Services -->
       <div>
-        <h3 class="text-xl font-serifBrand mb-6 font-semibold">
+        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
           Our Services
         </h3>
 
@@ -3532,7 +3508,7 @@
 
       <!-- Contact -->
       <div>
-        <h3 class="text-xl font-serifBrand mb-6 font-semibold">
+        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
           Contact Us
         </h3>
 
