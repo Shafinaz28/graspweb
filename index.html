@@ -422,6 +422,50 @@
       content: " ";
     }
 
+    .hero-video-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: clamp(1.25rem, 3vh, 1.75rem);
+    }
+
+    .hero-video-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.85rem;
+      background: #cd7f2f;
+      color: #1a2340 !important;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 2px solid #cd7f2f;
+      transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .hero-video-cta:hover {
+      background: #e8a04e;
+      border-color: #e8a04e;
+      color: #1a2340 !important;
+      transform: translateY(-2px);
+    }
+
+    .hero-video-cta--outline {
+      background: transparent;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-video-cta--outline:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #1a2340 !important;
+    }
+
     .hero-scroll-hint {
       margin-top: 1.25rem;
       color: rgba(255, 255, 255, 0.75);
@@ -1760,6 +1804,10 @@
             <span class="hero-sub-line">one dedicated team from first visit</span>
             <span class="hero-sub-line">to handover.</span>
           </p>
+          <div class="hero-video-actions">
+            <a href="properties.html" class="hero-video-cta">Explore Properties</a>
+            <a href="contact.html" class="hero-video-cta hero-video-cta--outline">Contact Us</a>
+          </div>
           <div class="hero-scroll-hint">
             <i class="fa-solid fa-chevron-down"></i>
           </div>
@@ -3101,6 +3149,40 @@
     transition: box-shadow 0.35s ease;
   }
 
+  @media (max-width: 767px) {
+    .home-experts-viewport {
+      max-width: 100%;
+      overflow: visible;
+    }
+
+    .home-experts-track {
+      flex-direction: column;
+      overflow-x: visible;
+      overflow-y: visible;
+      scroll-snap-type: none;
+      gap: 1.25rem;
+    }
+
+    .home-experts-card {
+      flex: none;
+      width: 100%;
+      min-width: 0;
+      min-height: 360px;
+      scroll-snap-align: none;
+    }
+
+    .home-experts-card .home-experts-info,
+    .home-experts-card .home-experts-contact {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .home-experts-dots {
+      display: none;
+    }
+  }
+
   @media (min-width: 768px) {
     .home-experts-card {
       flex: 0 0 calc(50% - 0.75rem);
@@ -3793,7 +3875,7 @@
       }
 
       function scrollToFounderIndex(index) {
-        if (!foundersTrack || !foundersMembers[index]) return;
+        if (!foundersTrack || !foundersMembers[index] || !isDesktopExperts()) return;
         foundersTrack.scrollTo({
           left: foundersMembers[index].offsetLeft,
           behavior: reduceMotion ? "auto" : "smooth",
@@ -3802,11 +3884,16 @@
       }
 
       function updateFoundersDots() {
-        var index = getActiveFounderIndex();
         var desktop = isDesktopExperts();
+        if (!desktop) {
+          foundersMembers.forEach(function (member) {
+            member.classList.add("is-active");
+          });
+          return;
+        }
+        var index = getActiveFounderIndex();
         foundersMembers.forEach(function (member, i) {
-          var active = desktop ? (i === index || i === index + 1) : i === index;
-          member.classList.toggle("is-active", active);
+          member.classList.toggle("is-active", i === index || i === index + 1);
         });
         if (!foundersDots) return;
         Array.prototype.forEach.call(foundersDots.children, function (dot, i) {
@@ -3830,7 +3917,7 @@
 
       function startAutoScroll() {
         stopAutoScroll();
-        if (reduceMotion || autoPaused || foundersMembers.length < 2) return;
+        if (!isDesktopExperts() || reduceMotion || autoPaused || foundersMembers.length < 2) return;
         autoTimer = setInterval(advanceFoundersCarousel, AUTO_MS);
       }
 
@@ -3851,9 +3938,13 @@
       if (foundersTrack) {
         foundersTrack.addEventListener("scroll", updateFoundersDots, { passive: true });
         window.addEventListener("resize", function () {
-          var index = getActiveFounderIndex();
-          scrollToFounderIndex(index);
-          startAutoScroll();
+          if (isDesktopExperts()) {
+            var index = getActiveFounderIndex();
+            scrollToFounderIndex(index);
+            startAutoScroll();
+          } else {
+            stopAutoScroll();
+          }
           updateFoundersDots();
         });
         foundersTrack.addEventListener("mouseenter", pauseAutoScroll);
