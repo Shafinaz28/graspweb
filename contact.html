@@ -70,12 +70,6 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   font-style: italic;
   color: var(--brand-gold);
 }
-.page-banner h1 {
-  color: #fff;
-  font-family: var(--font-display) !important;
-  font-weight: 600;
-}
-.page-banner p { font-family: var(--font-body); }
 .contact-info-card h2 {
   color: #fff;
   font-family: var(--font-display) !important;
@@ -88,6 +82,8 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   #navbar a img { height: 76px !important; }
   #menuToggle { width: 30px !important; height: 22px !important; }
   .page-main { padding-top: 100px !important; }
+  .page-main--hero { padding-top: 0 !important; }
+  .page-hero-banner { margin-top: 100px; }
 }
 @media (max-width: 1023px) {
   #navbar { height: 100px !important; }
@@ -266,14 +262,56 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .menu-panel-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
 .menu-panel-logo img { height: clamp(3rem, 8vw, 4.5rem); width: auto; object-fit: contain; }
 .page-main { padding-top: 125px; }
-.page-banner { background: linear-gradient(135deg, #242d63 0%, #1a2340 100%); padding: 3.5rem 0 4rem; text-align: center; color: #fff; }
-.page-banner h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.75rem; }
-.page-banner p { color: rgba(255, 255, 255, 0.85); max-width: 36rem; margin: 0 auto; line-height: 1.7; }
-.page-banner .breadcrumb { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; color: #cd7f2f; }
-.page-banner .breadcrumb a { color: rgba(255, 255, 255, 0.7); }
-.page-banner .breadcrumb a:hover { color: #cd7f2f; }
+.page-main--hero { padding-top: 0; }
 .page-section { padding: clamp(3rem, 6vw, 5rem) 0; }
 .page-section.soft { background: #f4f6fc; }
+
+/* Hero banner */
+.page-hero-banner {
+  position: relative;
+  min-height: clamp(280px, 42vh, 420px);
+  margin-top: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: #1a2340 url("./image/modern-apartment-complex-with-lush-green-landscaping.jpg") center/cover no-repeat;
+}
+.page-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 35, 64, 0.58);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1rem;
+}
+.page-hero-banner h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff !important;
+  margin: 0 0 0.75rem;
+}
+.page-hero-banner .breadcrumb {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.page-hero-banner .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+.page-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
+@media (max-width: 767px) {
+  .page-hero-banner { margin-top: 100px; }
+}
+
 .fusion-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; transition: 0.25s ease; }
 .fusion-btn-primary { background: #242d63; color: #fff; font-family: "DM Sans", system-ui, sans-serif; }
 .fusion-btn-primary:hover { background: #1a2340; color: #fff; }
@@ -344,16 +382,15 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
     </div>
   </header>
 
-  <main class="page-main">
-    <div class="page-banner">
-      <div class="site-shell">
+  <main class="page-main page-main--hero">
+    <div class="page-hero-banner" aria-label="Contact">
+      <div class="page-hero-inner site-shell">
+        <h1>Contact</h1>
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <span>/</span>
+          <span aria-hidden="true">→</span>
           <span>Contact</span>
         </nav>
-        <h1>Contact Us</h1>
-        <p>Have a question or ready to view a property? Reach out — our team typically responds within 24 hours.</p>
       </div>
     </div>
 

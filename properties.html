@@ -65,7 +65,9 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   #navbar { height: 100px !important; }
   #navbar a img { height: 76px !important; }
   #menuToggle { width: 30px !important; height: 22px !important; }
-  .page-banner { padding-top: calc(100px + 2rem); }
+  .page-main { padding-top: 100px !important; }
+  .page-main--hero { padding-top: 0 !important; }
+  .page-hero-banner { margin-top: 100px; }
 }
 @media (max-width: 1023px) {
   #navbar { height: 100px !important; }
@@ -109,33 +111,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 }
 .header-at-top { background: transparent !important; box-shadow: none !important; }
 .header-scrolled { background: #ffffff !important; box-shadow: 0 4px 24px rgba(36, 45, 99, 0.1); }
-/* Inner pages with banner — white nav bar (matches About) */
-.inner-page--banner .header-at-top,
-.inner-page--banner .header-scrolled {
-  background: #ffffff !important;
-  box-shadow: 0 4px 20px rgba(36, 45, 99, 0.08);
-}
-.inner-page--banner .header-at-top .site-nav-pill .nav-link,
-.inner-page--banner .header-scrolled .site-nav-pill .nav-link {
-  color: #242d63 !important;
-}
-.inner-page--banner .header-at-top .site-nav-pill .nav-link.text-brandGold,
-.inner-page--banner .header-scrolled .site-nav-pill .nav-link.text-brandGold {
-  background: #eceef3;
-  color: #cd7f2f !important;
-}
-.inner-page--banner .header-at-top .site-nav-pill .nav-link:hover,
-.inner-page--banner .header-scrolled .site-nav-pill .nav-link:hover {
-  background: #eceef3;
-  color: #cd7f2f !important;
-}
-.inner-page--banner .header-at-top .menu-line,
-.inner-page--banner .header-scrolled .menu-line {
-  background: #242d63 !important;
-}
-.inner-page--banner .navbar-logo img {
-  filter: none;
-}
 .nav-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -252,53 +227,53 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .menu-panel-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
 .menu-panel-logo img { height: clamp(3rem, 8vw, 4.5rem); width: auto; object-fit: contain; }
 
-.page-main { padding-top: 0; }
-.page-banner {
-  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-  padding: calc(125px + 3.5rem) 0 4rem;
+.page-main { padding-top: 125px; }
+.page-main--hero { padding-top: 0; }
+.page-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.page-section.soft { background: #f4f6fc; }
+
+/* Hero banner */
+.page-hero-banner {
+  position: relative;
+  min-height: clamp(280px, 42vh, 420px);
+  margin-top: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: #fff;
+  background: #1a2340 url("./image/modern-apartment-complex-with-lush-green-landscaping.jpg") center/cover no-repeat;
 }
-.page-banner h1 {
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #fff;
-  line-height: 1.12;
+.page-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 35, 64, 0.58);
 }
-.page-banner p {
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 36rem;
-  margin: 0 auto;
-  line-height: 1.7;
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1rem;
 }
-.page-banner .breadcrumb {
+.page-hero-banner h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff !important;
+  margin: 0 0 0.75rem;
+}
+.page-hero-banner .breadcrumb {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 1rem;
-  color: #cd7f2f;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
 }
-.page-banner .breadcrumb a {
-  color: rgba(255, 255, 255, 0.7);
+.page-hero-banner .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  transition: color 0.2s;
 }
-.page-banner .breadcrumb a:hover { color: #cd7f2f; }
-.page-banner .breadcrumb span { color: rgba(255, 255, 255, 0.55); }
-@media (max-width: 767px) {
-  .page-main { padding-top: 0 !important; }
-  .page-banner { padding-top: calc(100px + 2.5rem); }
-}
-
-.page-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
-.page-section.soft { background: #f4f6fb; }
+.page-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
 
 .rh-projects-head {
   text-align: center;
@@ -520,7 +495,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .scroll-reveal-img { overflow: hidden; }
   </style>
 </head>
-<body class="inner-page inner-page--banner bg-white font-sansBrand">
+<body class="inner-page bg-white font-sansBrand">
 
   <header id="navbar" class="w-full h-[125px] header-at-top transition-all duration-300">
     <div class="relative h-full flex items-center justify-between site-shell">
@@ -545,19 +520,18 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   </header>
 
   <!-- HERO SECTION -->
-  <section class="page-banner" aria-label="Properties">
-    <div class="site-shell">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Properties</span>
-      </nav>
-      <h1>Our <em style="font-style:italic;color:#cd7f2f;">Properties</em></h1>
-      <p class="page-banner-lead">Verified pre-launch and rising-soon projects across Bengaluru — curated by GRASP Realtors with transparent guidance from first visit to handover.</p>
+  <main class="page-main page-main--hero w-full max-w-full overflow-x-hidden">
+    <div class="page-hero-banner" aria-label="Properties">
+      <div class="page-hero-inner site-shell">
+        <h1>Properties</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">→</span>
+          <span>Properties</span>
+        </nav>
+      </div>
     </div>
-  </section>
 
-  <main class="page-main w-full max-w-full overflow-x-hidden">
     <section class="page-section soft" id="properties-section">
       <div class="site-shell">
         <header class="rh-projects-head scroll-reveal-text">

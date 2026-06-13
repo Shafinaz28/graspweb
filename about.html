@@ -76,9 +76,6 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   font-weight: 600;
 }
 .page-banner p { font-family: var(--font-body); }
-.page-section.bg-brandBlue .section-title { color: #fff; }
-.page-section.bg-brandBlue .section-title em { color: var(--brand-gold); }
-.contact-info-card h2 { color: #fff; font-family: var(--font-display) !important; }
 .site-shell { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
 @media (max-width: 767px) {
   .site-shell { padding-inline: 1rem; }
@@ -264,9 +261,158 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .site-footer .footer-social a:hover { background: #cd7f2f; color: #ffffff; }
 .menu-panel-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
 .menu-panel-logo img { height: clamp(3rem, 8vw, 4.5rem); width: auto; object-fit: contain; }
+
 .page-main { padding-top: 125px; }
+.page-main--about { padding-top: 0; }
 .page-section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .page-section.soft { background: #f4f6fc; }
+
+/* Hero banner */
+.about-hero-banner {
+  position: relative;
+  min-height: clamp(280px, 42vh, 420px);
+  margin-top: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: #1a2340 url("./image/modern-apartment-complex-with-lush-green-landscaping.jpg") center/cover no-repeat;
+}
+.about-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 35, 64, 0.58);
+}
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1rem;
+}
+.about-hero-banner h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff !important;
+  margin: 0 0 0.75rem;
+}
+.about-hero-banner .breadcrumb {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.about-hero-banner .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+.about-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
+@media (max-width: 767px) {
+  .about-hero-banner { margin-top: 100px; }
+}
+
+/* About intro */
+.about-intro-section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.about-intro-section h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: #242d63;
+  margin: 0 0 1.75rem;
+}
+.about-intro-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 2.5rem;
+}
+@media (min-width: 768px) {
+  .about-intro-cols { grid-template-columns: 1fr 1fr; }
+}
+.about-intro-cols p {
+  margin: 0;
+  color: #5b6478;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+/* Split feature blocks */
+.about-split {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+.about-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .about-split-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+  .about-split--reverse .about-split-media { order: 1; }
+  .about-split--reverse .about-split-content { order: 2; }
+}
+.about-split-media {
+  position: relative;
+}
+.about-split-media img {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  min-height: clamp(260px, 36vw, 380px);
+  box-shadow: 0 12px 40px rgba(36, 45, 99, 0.12);
+}
+.about-split-dots {
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+  width: clamp(100px, 18vw, 160px);
+  height: clamp(100px, 18vw, 160px);
+  background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  z-index: -1;
+  opacity: 0.7;
+}
+.about-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-feature-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.about-feature-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f0f2f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: #242d63;
+}
+.about-feature-item h3 {
+  font-family: var(--font-body) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #242d63;
+  margin: 0 0 0.4rem;
+}
+.about-feature-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #5b6478;
+}
+
+/* CTA */
 .fusion-btn {
   display: inline-flex;
   align-items: center;
@@ -279,345 +425,12 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: 0.25s ease;
+  text-decoration: none;
 }
 .fusion-btn-primary { background: #242d63; color: #fff; font-family: "DM Sans", system-ui, sans-serif; }
 .fusion-btn-primary:hover { background: #1a2340; color: #fff; }
-
-.page-banner {
-  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-  padding: 3.5rem 0 4rem;
-  text-align: center;
-  color: #fff;
-}
-.page-banner h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 0.75rem;
-  color: #fff;
-}
-.page-banner p {
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 36rem;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-.page-banner .breadcrumb {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-  color: #cd7f2f;
-}
-.page-banner .breadcrumb a { color: rgba(255, 255, 255, 0.7); }
-.page-banner .breadcrumb a:hover { color: #cd7f2f; }
-
-/* Journey */
-.about-journey-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-@media (min-width: 992px) {
-  .about-journey-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
-}
 .scroll-reveal-img { overflow: hidden; }
-.about-feature-img {
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: clamp(280px, 42vw, 480px);
-  box-shadow: 0 12px 40px rgba(36, 45, 99, 0.12);
-}
-.about-feature-img img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: clamp(280px, 42vw, 480px);
-  object-fit: cover;
-  object-position: center;
-}
-.about-intro-text {
-  color: #5b6478;
-  line-height: 1.8;
-  margin: 0 0 1.25rem;
-  font-size: 0.95rem;
-}
-.about-label {
-  color: #cd7f2f;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin: 0 0 0.75rem;
-}
-.about-journey-title {
-  font-size: clamp(1.5rem, 3vw, 2.15rem);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #242d63;
-  margin: 0 0 1.25rem;
-}
-.about-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  border-bottom: 2px solid #eef1f8;
-  padding-bottom: 0.25rem;
-}
-.about-tab {
-  padding: 0.65rem 1.1rem;
-  border: none;
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #6b7289;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.about-tab.is-active {
-  color: #242d63;
-  border-bottom-color: #cd7f2f;
-}
-.about-tab-panel { display: none; }
-.about-tab-panel.is-active { display: block; }
-.about-tab-panel p {
-  color: #5b6478;
-  line-height: 1.8;
-  margin: 0 0 1.25rem;
-  font-size: 0.95rem;
-}
-.about-checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
-}
-.about-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  margin-bottom: 0.65rem;
-  font-weight: 600;
-  color: #242d63;
-  font-size: 0.92rem;
-}
-.about-checklist i {
-  color: #cd7f2f;
-  margin-top: 0.2rem;
-}
 
-/* Service cards */
-.about-services-head {
-  text-align: center;
-  max-width: 40rem;
-  margin: 0 auto 2.5rem;
-}
-.about-services-head .section-title {
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-}
-.about-service-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 768px) {
-  .about-service-grid { grid-template-columns: repeat(3, 1fr); }
-}
-.about-service-card {
-  background: #fff;
-  padding: 2rem 1.75rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(36, 45, 99, 0.08);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.about-service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(36, 45, 99, 0.12);
-}
-.about-service-card .icon-wrap {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #cd7f2f;
-  font-size: 2rem;
-}
-.about-service-card h3 {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin: 0 0 0.75rem;
-  color: #242d63;
-}
-.about-service-card p {
-  color: #5b6478;
-  font-size: 0.88rem;
-  line-height: 1.7;
-  margin: 0 0 1rem;
-}
-.about-service-card a {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #cd7f2f;
-}
-.about-service-card a:hover { color: #242d63; }
-
-/* Video + testimonials */
-.about-video-block {
-  position: relative;
-  min-height: 420px;
-  background: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 1rem 8rem;
-}
-.about-video-block::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(36, 45, 99, 0.72);
-}
-.about-video-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-.about-play-btn {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: none;
-  background: #cd7f2f;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s, background 0.25s;
-}
-.about-play-btn:hover {
-  transform: scale(1.06);
-  background: #fff;
-  color: #242d63;
-}
-.about-video-title {
-  color: #fff;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0;
-  max-width: 28ch;
-}
-.about-testimonials-wrap {
-  margin-top: -5rem;
-  position: relative;
-  z-index: 2;
-  padding-bottom: 2rem;
-}
-.about-testimonials-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(36, 45, 99, 0.12);
-  padding: clamp(2rem, 4vw, 3rem);
-}
-.about-testimonials-card h2 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 0 0 2rem;
-  color: #242d63;
-}
-.about-testimonial-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-@media (min-width: 768px) {
-  .about-testimonial-grid { grid-template-columns: 1fr 1fr; }
-}
-.about-testimonial-item {
-  position: relative;
-  padding-right: 2rem;
-}
-.about-testimonial-item p {
-  color: #5b6478;
-  line-height: 1.8;
-  font-size: 0.92rem;
-  margin: 0 0 1.25rem;
-}
-.about-testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-.about-testimonial-author img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.about-testimonial-author strong {
-  display: block;
-  color: #242d63;
-  font-size: 0.95rem;
-}
-.about-testimonial-author span {
-  font-size: 0.8rem;
-  color: #6b7289;
-}
-.about-quote-mark {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  line-height: 1;
-  color: rgba(205, 127, 47, 0.35);
-}
-
-/* Partners */
-.about-partners {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem 3rem;
-  opacity: 0.55;
-  filter: grayscale(1);
-}
-.about-partners span {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #242d63;
-  letter-spacing: 0.04em;
-}
-
-/* CTA */
 .about-cta {
   background: #CD7F2F;
   text-align: center;
@@ -645,43 +458,6 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .about-cta .fusion-btn-primary:hover {
   background: #1a2340;
   color: #fff;
-}
-.about-video-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 20000;
-  background: rgba(14, 20, 48, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-.about-video-modal.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-.about-video-modal-inner {
-  position: relative;
-  width: min(900px, 100%);
-}
-.about-video-modal video {
-  width: 100%;
-  border-radius: 12px;
-  background: #000;
-}
-.about-video-modal-close {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 1;
 }
 .wa-float-btn {
   position: fixed;
@@ -728,94 +504,96 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
     </div>
   </header>
 
-  <main class="page-main">
-    <div class="page-banner">
-      <div class="site-shell">
+  <main class="page-main page-main--about">
+    <div class="about-hero-banner">
+      <div class="about-hero-inner site-shell">
+        <h1>About</h1>
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <span>/</span>
+          <span aria-hidden="true">→</span>
           <span>About</span>
         </nav>
-        <h1>About Us</h1>
-        <p>A Bangalore real estate team focused on verified properties, clear communication, and client-first support.</p>
       </div>
     </div>
 
-    <section class="page-section" id="about-journey">
-      <div class="site-shell about-journey-grid">
-        <div class="about-feature-img scroll-reveal-img">
-          <img
-            src="./image/hero-interior.jpg"
-            alt="Premium interior — GRASP Realtors Bangalore"
-          />
-        </div>
-        <div class="scroll-reveal-text">
-          <p class="about-label">About Us</p>
-          <h2 class="about-journey-title">Your Trusted Partner In Bangalore Real Estate</h2>
-          <p class="about-intro-text">
-            We help buyers and investors find verified luxury homes and pre-launch projects across Bengaluru — with honest guidance from enquiry to handover.
+    <section class="about-intro-section" id="about-intro">
+      <div class="site-shell scroll-reveal-text">
+        <h2>About Us</h2>
+        <div class="about-intro-cols">
+          <p>
+            At GRASP Realtors, we believe real estate is not just about buying or selling property — it is about making the right decision for your future. Our team helps clients discover verified properties, understand market value, and choose locations with strong growth potential across Bengaluru.
           </p>
-          <div class="about-tabs" role="tablist">
-            <button type="button" class="about-tab is-active" role="tab" aria-selected="true" data-tab="mission">Mission</button>
-            <button type="button" class="about-tab" role="tab" aria-selected="false" data-tab="vision">Vision</button>
-            <button type="button" class="about-tab" role="tab" aria-selected="false" data-tab="goal">Goal</button>
-          </div>
-          <div id="panel-mission" class="about-tab-panel is-active" role="tabpanel">
-            <p>
-              Help clients find verified properties with transparent guidance — from first inquiry through closing.
-            </p>
-            <ul class="about-checklist">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Verified listings &amp; document clarity</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Client-first support across Bangalore</li>
-            </ul>
-          </div>
-          <div id="panel-vision" class="about-tab-panel" role="tabpanel" hidden>
-            <p>
-              Become Bangalore’s trusted real estate partner — known for integrity, smart insights, and lasting relationships.
-            </p>
-            <ul class="about-checklist">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Data-driven market guidance</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Long-term value for buyers &amp; investors</li>
-            </ul>
-          </div>
-          <div id="panel-goal" class="about-tab-panel" role="tabpanel" hidden>
-            <p>
-              Make property decisions simpler — whether you are buying your first home, investing, or upgrading.
-            </p>
-            <ul class="about-checklist">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Faster, stress-free closings</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> End-to-end coordination &amp; follow-up</li>
-            </ul>
-          </div>
-          <a href="contact.html" class="fusion-btn fusion-btn-primary">Get In Touch</a>
+          <p>
+            With transparent guidance, trusted listings, and a client-first approach, we make the property journey smoother, safer, and more rewarding. Whether you are buying your first home, investing in land, or exploring commercial opportunities, GRASP Realtors is here to guide you at every step.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="page-section soft" id="about-services">
-      <div class="site-shell">
-        <div class="about-services-head scroll-reveal-text">
-          <h2 class="section-title">What We <em>Offer</em></h2>
+    <section class="about-split" id="about-features-a">
+      <div class="site-shell about-split-grid">
+        <div class="about-split-content scroll-reveal-text">
+          <ul class="about-feature-list">
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-house-circle-check" aria-hidden="true"></i></div>
+              <div>
+                <h3>Verified Properties</h3>
+                <p>Every listing is checked for approvals, documents, and realistic pricing before we recommend it to you.</p>
+              </div>
+            </li>
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+              <div>
+                <h3>Expert Guidance</h3>
+                <p>From first call to key handover, one dedicated GRASP team stays with you throughout your property journey.</p>
+              </div>
+            </li>
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></div>
+              <div>
+                <h3>Clear Documentation</h3>
+                <p>We simplify legal terms, RERA compliance, and paperwork so you know exactly what you are signing.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="about-service-grid scroll-reveal-stagger">
-          <article class="about-service-card scroll-reveal-item">
-            <div class="icon-wrap"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
-            <h3>Property Buying</h3>
-            <p>Curated shortlists, site visits, and negotiation support across Bangalore.</p>
-            <a href="properties.html">Read More</a>
-          </article>
-          <article class="about-service-card scroll-reveal-item">
-            <div class="icon-wrap"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-            <h3>Investment Guidance</h3>
-            <p>Location insights and ROI-focused advice for smarter investments.</p>
-            <a href="properties.html">Read More</a>
-          </article>
-          <article class="about-service-card scroll-reveal-item">
-            <div class="icon-wrap"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
-            <h3>Document Support</h3>
-            <p>Title checks, RERA compliance, and loan coordination.</p>
-            <a href="properties.html">Read More</a>
-          </article>
+        <div class="about-split-media scroll-reveal-img">
+          <img src="./image/aboutkitchen.jpg" alt="Modern kitchen interior — GRASP Realtors" />
+          <span class="about-split-dots" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-split about-split--reverse" id="about-features-b">
+      <div class="site-shell about-split-grid">
+        <div class="about-split-media scroll-reveal-img">
+          <img src="./image/abouthall.jpg" alt="Living hall interior — GRASP Realtors" />
+          <span class="about-split-dots" aria-hidden="true"></span>
+        </div>
+        <div class="about-split-content scroll-reveal-text">
+          <ul class="about-feature-list">
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+              <div>
+                <h3>Market-Ready Insights</h3>
+                <p>Area trends, rental yield, and growth potential shared before you invest — so decisions are data-backed, not guesswork.</p>
+              </div>
+            </li>
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+              <div>
+                <h3>Property Buying</h3>
+                <p>Curated shortlists, site visits, and negotiation support tailored to your budget and lifestyle across Bangalore.</p>
+              </div>
+            </li>
+            <li class="about-feature-item">
+              <div class="about-feature-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
+              <div>
+                <h3>Document Support</h3>
+                <p>Title checks, loan coordination, and registration support handled with transparency at every stage.</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -828,15 +606,6 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       </div>
     </section>
   </main>
-
-  <div id="aboutVideoModal" class="about-video-modal" role="dialog" aria-modal="true" aria-label="Property video" hidden>
-    <div class="about-video-modal-inner">
-      <button type="button" class="about-video-modal-close" id="aboutVideoClose" aria-label="Close video">&times;</button>
-      <video id="aboutModalVideo" controls playsinline preload="metadata">
-        <source src="./video/13240171_1920_1080_60fps.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </div>
 
   <footer class="site-footer bg-[#242d63] font-sans">
     <div class="site-shell py-16">
@@ -1010,65 +779,6 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 
   var menuMedia = menuOverlay && menuOverlay.querySelector(".menu-media");
   if (menuMedia) menuMedia.addEventListener("click", closeMenu);
-
-  /* About page: Mission / Vision / Goal tabs */
-  document.querySelectorAll(".about-tab").forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      var target = tab.getAttribute("data-tab");
-      document.querySelectorAll(".about-tab").forEach(function (t) {
-        t.classList.remove("is-active");
-        t.setAttribute("aria-selected", "false");
-      });
-      document.querySelectorAll(".about-tab-panel").forEach(function (panel) {
-        panel.classList.remove("is-active");
-        panel.hidden = true;
-      });
-      tab.classList.add("is-active");
-      tab.setAttribute("aria-selected", "true");
-      var panel = document.getElementById("panel-" + target);
-      if (panel) {
-        panel.classList.add("is-active");
-        panel.hidden = false;
-      }
-    });
-  });
-
-  var aboutPlayBtn = document.getElementById("aboutPlayBtn");
-  var aboutVideoModal = document.getElementById("aboutVideoModal");
-  var aboutModalVideo = document.getElementById("aboutModalVideo");
-  var aboutVideoClose = document.getElementById("aboutVideoClose");
-
-  function openAboutVideo() {
-    if (!aboutVideoModal || !aboutModalVideo) return;
-    aboutVideoModal.hidden = false;
-    aboutVideoModal.classList.add("is-open");
-    document.body.style.overflow = "hidden";
-    aboutModalVideo.play().catch(function () {});
-  }
-
-  function closeAboutVideo() {
-    if (!aboutVideoModal || !aboutModalVideo) return;
-    aboutVideoModal.classList.remove("is-open");
-    aboutModalVideo.pause();
-    aboutModalVideo.currentTime = 0;
-    document.body.style.overflow = "";
-    setTimeout(function () {
-      aboutVideoModal.hidden = true;
-    }, 300);
-  }
-
-  if (aboutPlayBtn) aboutPlayBtn.addEventListener("click", openAboutVideo);
-  if (aboutVideoClose) aboutVideoClose.addEventListener("click", closeAboutVideo);
-  if (aboutVideoModal) {
-    aboutVideoModal.addEventListener("click", function (e) {
-      if (e.target === aboutVideoModal) closeAboutVideo();
-    });
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && aboutVideoModal && aboutVideoModal.classList.contains("is-open")) {
-      closeAboutVideo();
-    }
-  });
 })();
   </script>
 
@@ -1113,14 +823,18 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       });
     }
 
-    if (document.querySelector("#about-journey")) {
-      slideImage("#about-journey .scroll-reveal-img", "#about-journey");
-      fromRight("#about-journey .scroll-reveal-text", "#about-journey");
+    if (document.querySelector("#about-intro")) {
+      fromRight("#about-intro .scroll-reveal-text", "#about-intro");
     }
 
-    if (document.querySelector("#about-services")) {
-      fromRight("#about-services .scroll-reveal-text", "#about-services");
-      staggerUp("#about-services .scroll-reveal-item", "#about-services .scroll-reveal-stagger");
+    if (document.querySelector("#about-features-a")) {
+      fromLeft("#about-features-a .about-split-content", "#about-features-a");
+      slideImage("#about-features-a .scroll-reveal-img", "#about-features-a");
+    }
+
+    if (document.querySelector("#about-features-b")) {
+      slideImage("#about-features-b .scroll-reveal-img", "#about-features-b");
+      fromRight("#about-features-b .about-split-content", "#about-features-b");
     }
 
     if (document.querySelector("#about-cta")) {
