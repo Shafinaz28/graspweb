@@ -75,19 +75,33 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   font-family: var(--font-display) !important;
   font-size: 1.35rem;
 }
-.site-shell { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
+.site-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+}
+.scroll-reveal-text,
+.scroll-reveal-left,
+.scroll-reveal-right,
+.contact-form,
+.contact-info-card p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 @media (max-width: 767px) {
   .site-shell { padding-inline: 1rem; }
-  #navbar { height: 100px !important; }
-  #navbar a img { height: 76px !important; }
+  #navbar { height: 72px !important; }
+  #navbar a img { height: 52px !important; }
   #menuToggle { width: 30px !important; height: 22px !important; }
-  .page-main { padding-top: 100px !important; }
+  .page-main { padding-top: 0 !important; }
   .page-main--hero { padding-top: 0 !important; }
-  .page-hero-banner { margin-top: 100px; }
 }
 @media (max-width: 1023px) {
-  #navbar { height: 100px !important; }
-  #navbar a img { height: 76px !important; }
+  #navbar { height: 72px !important; }
+  #navbar a img { height: 52px !important; }
   #navbar .site-shell { position: relative; }
   #navbar .navbar-logo {
     position: static !important;
@@ -137,8 +151,8 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   color: #cd7f2f !important;
 }
 .header-at-top {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 2px 14px rgba(36, 45, 99, 0.07) !important;
 }
 .header-scrolled {
   background: #ffffff !important;
@@ -270,7 +284,9 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .page-hero-banner {
   position: relative;
   min-height: clamp(280px, 42vh, 420px);
-  margin-top: 125px;
+  margin-top: 0;
+  padding-top: 125px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,7 +325,12 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 }
 .page-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
 @media (max-width: 767px) {
-  .page-hero-banner { margin-top: 100px; }
+  .page-hero-banner {
+    padding-top: 72px;
+    min-height: clamp(220px, 34vh, 300px);
+  }
+  .page-hero-inner { padding: 1.5rem 1rem; }
+  .page-hero-banner h1 { font-size: clamp(1.75rem, 8vw, 2.25rem); }
 }
 
 .fusion-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; transition: 0.25s ease; }
@@ -682,15 +703,17 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
     var start = "top 80%";
 
     function fromLeft(target, trigger) {
-      gsap.fromTo(target, { x: -100, opacity: 0 }, {
-        x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      gsap.fromTo(target, mobile ? { y: 28, opacity: 0 } : { x: -100, opacity: 0 }, {
+        x: 0, y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
         scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
       });
     }
 
     function fromRight(target, trigger) {
-      gsap.fromTo(target, { x: 100, opacity: 0 }, {
-        x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      gsap.fromTo(target, mobile ? { y: 28, opacity: 0 } : { x: 100, opacity: 0 }, {
+        x: 0, y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
         scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
       });
     }
