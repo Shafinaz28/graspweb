@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
     rel="stylesheet"
   />
   <link
@@ -48,6 +48,7 @@
       --brand-gold: #cd7f2f;
       --font-display: "DM Sans", system-ui, sans-serif;
       --font-body: "DM Sans", system-ui, sans-serif;
+      --font-hero: "Playfair Display", Georgia, serif;
     }
 
     html,
@@ -342,6 +343,38 @@
       min-height: 100vh;
       min-height: 100dvh;
       background: #080c1a;
+      font-family: var(--font-body);
+    }
+
+    .hero-video-section .hero-rotator-track,
+    .hero-video-section .hero-rotator-line {
+      font-family: var(--font-hero) !important;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      font-style: normal;
+    }
+
+    .hero-video-section .hero-rotator-line em,
+    .hero-video-section .hero-rotator-line .hero-accent {
+      font-style: italic;
+      color: #cd7f2f;
+    }
+
+    .hero-video-section .hero-video-sub {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(0.95rem, 1.75vw, 1.08rem);
+      letter-spacing: 0.02em;
+      line-height: 1.8;
+    }
+
+    .hero-video-section .hero-video-cta {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .hero-video-wrap {
@@ -418,20 +451,25 @@
       top: 50%;
       margin: 0;
       padding: 0 0.5rem;
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 10vw, 6.25rem);
-      font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-family: var(--font-hero);
+      font-size: clamp(2.75rem, 9vw, 5.75rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      text-transform: none;
       color: #ffffff;
       opacity: 0;
       visibility: hidden;
       z-index: 0;
       transform: translateY(calc(-50% + 28px));
       transition: opacity 0.55s ease, transform 0.55s ease, visibility 0.55s ease;
-      text-shadow: 0 4px 36px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
       white-space: nowrap;
+    }
+
+    .hero-rotator-line .hero-accent {
+      color: #cd7f2f;
+      font-style: italic;
     }
 
     .hero-rotator-line.is-active {
@@ -445,26 +483,30 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.15rem;
-      letter-spacing: 0.18em;
-      font-size: clamp(2.85rem, 9.5vw, 6rem);
+      gap: 0.35rem;
+      letter-spacing: 0.04em;
+      font-size: clamp(2.65rem, 8.5vw, 5.5rem);
       color: #cd7f2f;
       white-space: normal;
     }
 
     .hero-rotator-brand-main {
       display: block;
-      font-size: 1.15em;
-      letter-spacing: 0.24em;
+      font-family: var(--font-hero);
+      font-size: 1em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       color: #cd7f2f;
     }
 
     .hero-rotator-brand-sub {
       display: block;
-      font-size: 0.5em;
+      font-family: var(--font-body);
+      font-size: 0.32em;
+      font-weight: 500;
       letter-spacing: 0.42em;
-      color: #ffffff;
-      font-weight: 600;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.95);
     }
 
     .hero-video-copy {
@@ -867,7 +909,7 @@
         min-height: 100svh;
         min-height: 100dvh;
         overflow: hidden;
-        padding: calc(72px + 0.75rem) 0 max(1rem, env(safe-area-inset-bottom, 0px));
+        padding: calc(100px + 0.75rem) 0 max(1rem, env(safe-area-inset-bottom, 0px));
         box-sizing: border-box;
       }
 
@@ -916,10 +958,13 @@
         left: auto;
         right: auto;
         display: none;
-        font-size: clamp(2rem, 10.5vw, 2.85rem);
-        letter-spacing: 0.04em;
+        font-family: var(--font-hero) !important;
+        font-size: clamp(2.1rem, 9.5vw, 3rem);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        text-transform: none;
         white-space: normal;
-        line-height: 1.15;
+        line-height: 1.12;
         transform: none !important;
         opacity: 0;
         visibility: hidden;
@@ -936,21 +981,25 @@
       }
 
       .hero-rotator-line--brand {
-        font-size: clamp(1.95rem, 10vw, 2.75rem);
-        letter-spacing: 0.1em;
-        gap: 0.12rem;
+        font-size: clamp(2rem, 9vw, 2.85rem);
+        letter-spacing: 0.04em;
+        gap: 0.3rem;
       }
 
       .hero-rotator-brand-main {
-        font-size: 1.18em;
-        letter-spacing: 0.18em;
+        font-family: var(--font-hero) !important;
+        font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 0.05em;
         line-height: 1.05;
       }
 
       .hero-rotator-brand-sub {
-        font-size: 0.46em;
-        letter-spacing: 0.28em;
-        color: #ffffff;
+        font-family: var(--font-body) !important;
+        font-size: 0.34em;
+        letter-spacing: 0.36em;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.95);
         line-height: 1.1;
       }
 
@@ -981,8 +1030,11 @@
         margin: 0 auto;
         max-width: 100%;
         width: 100%;
-        font-size: clamp(0.88rem, 3.8vw, 0.98rem);
-        line-height: 1.7;
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: clamp(0.92rem, 3.9vw, 1rem);
+        letter-spacing: 0.02em;
+        line-height: 1.75;
         color: rgba(255, 255, 255, 0.92);
         text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
         padding-top: 0;
@@ -1047,11 +1099,13 @@
       }
 
       #navbar {
-        height: 72px !important;
+        height: 100px !important;
       }
 
-      #navbar a img {
-        height: 52px !important;
+      #navbar .navbar-logo img {
+        height: 80px !important;
+        max-height: none !important;
+        width: auto !important;
       }
 
       #menuToggle {
@@ -1063,11 +1117,13 @@
 
     @media (max-width: 1023px) {
       #navbar {
-        height: 72px !important;
+        height: 100px !important;
       }
 
-      #navbar a img {
-        height: 52px !important;
+      #navbar .navbar-logo img {
+        height: 80px !important;
+        max-height: none !important;
+        width: auto !important;
       }
 
       #navbar .site-shell {
@@ -2010,9 +2066,9 @@
         <div class="hero-video-panel">
         <div class="hero-video-rotator" aria-live="polite">
           <h1 class="hero-rotator-track">
-            <span class="hero-rotator-line is-active">A New Standard</span>
-            <span class="hero-rotator-line">Of Royal Living</span>
-            <span class="hero-rotator-line">Speak Prestige</span>
+            <span class="hero-rotator-line is-active">A <span class="hero-accent">New Standard</span></span>
+            <span class="hero-rotator-line">Of <em>Royal Living</em></span>
+            <span class="hero-rotator-line"><em>Speak</em> <span class="hero-accent">Prestige</span></span>
             <span class="hero-rotator-line hero-rotator-line--brand">
               <span class="hero-rotator-brand-main">GRASP</span>
               <span class="hero-rotator-brand-sub">REALTORS</span>

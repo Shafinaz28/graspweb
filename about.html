@@ -87,7 +87,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .scroll-reveal-img,
 .about-intro-cols,
 .about-intro-cols p,
-.about-split-content,
+.about-features-copy,
 .about-feature-item p {
   max-width: 100%;
   overflow-wrap: break-word;
@@ -95,15 +95,15 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 }
 @media (max-width: 767px) {
   .site-shell { padding-inline: 1rem; }
-  #navbar { height: 72px !important; }
-  #navbar a img { height: 52px !important; }
+  #navbar { height: 100px !important; }
+  #navbar .navbar-logo img { height: 80px !important; max-height: none !important; width: auto !important; }
   #menuToggle { width: 30px !important; height: 22px !important; }
   .page-main { padding-top: 0 !important; }
   .about-split-dots { display: none; }
 }
 @media (max-width: 1023px) {
-  #navbar { height: 72px !important; }
-  #navbar a img { height: 52px !important; }
+  #navbar { height: 100px !important; }
+  #navbar .navbar-logo img { height: 80px !important; max-height: none !important; width: auto !important; }
   #navbar .site-shell { position: relative; }
   #navbar .navbar-logo {
     position: static !important;
@@ -330,7 +330,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .about-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
 @media (max-width: 767px) {
   .about-hero-banner {
-    padding-top: 72px;
+    padding-top: 100px;
     min-height: clamp(220px, 34vh, 300px);
   }
   .about-hero-inner { padding: 1.5rem 1rem; }
@@ -367,31 +367,59 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   line-height: 1.85;
 }
 
-/* Split feature blocks */
-.about-split {
+/* Feature blocks — mobile: image → text → image */
+.about-features {
   padding: clamp(3rem, 6vw, 5rem) 0;
 }
-.about-split-grid {
+.about-features-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: clamp(2rem, 5vw, 2.5rem);
   align-items: center;
 }
-@media (min-width: 992px) {
-  .about-split-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
-  .about-split--reverse .about-split-media { order: 1; }
-  .about-split--reverse .about-split-content { order: 2; }
+.about-features-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2rem);
 }
-.about-split-media {
+.about-features-media {
   position: relative;
 }
-.about-split-media img {
+.about-features-media img {
   display: block;
   width: 100%;
   border-radius: 4px;
   object-fit: cover;
-  min-height: clamp(260px, 36vw, 380px);
+  min-height: clamp(220px, 50vw, 320px);
   box-shadow: 0 12px 40px rgba(36, 45, 99, 0.12);
+}
+@media (min-width: 992px) {
+  .about-features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+  .about-features-text {
+    display: contents;
+  }
+  .about-features-media--kitchen {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .about-features-copy--a {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .about-features-media--hall {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .about-features-copy--b {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .about-features-media img {
+    min-height: clamp(260px, 36vw, 380px);
+  }
 }
 .about-split-dots {
   position: absolute;
@@ -561,70 +589,70 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       </div>
     </section>
 
-    <section class="about-split" id="about-features-a">
-      <div class="site-shell about-split-grid">
-        <div class="about-split-content scroll-reveal-text">
-          <ul class="about-feature-list">
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-house-circle-check" aria-hidden="true"></i></div>
-              <div>
-                <h3>Verified Properties</h3>
-                <p>Every listing is checked for approvals, documents, and realistic pricing before we recommend it to you.</p>
-              </div>
-            </li>
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
-              <div>
-                <h3>Expert Guidance</h3>
-                <p>From first call to key handover, one dedicated GRASP team stays with you throughout your property journey.</p>
-              </div>
-            </li>
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></div>
-              <div>
-                <h3>Clear Documentation</h3>
-                <p>We simplify legal terms, RERA compliance, and paperwork so you know exactly what you are signing.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="about-split-media scroll-reveal-img">
+    <section class="about-features" id="about-features">
+      <div class="site-shell about-features-grid">
+        <div class="about-features-media about-features-media--kitchen scroll-reveal-img">
           <img src="./image/aboutkitchen.jpg" alt="Modern kitchen interior — GRASP Realtors" />
           <span class="about-split-dots" aria-hidden="true"></span>
         </div>
-      </div>
-    </section>
 
-    <section class="about-split about-split--reverse" id="about-features-b">
-      <div class="site-shell about-split-grid">
-        <div class="about-split-media scroll-reveal-img">
+        <div class="about-features-text">
+          <div class="about-features-copy about-features-copy--a scroll-reveal-text">
+            <ul class="about-feature-list">
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-house-circle-check" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Verified Properties</h3>
+                  <p>Every listing is checked for approvals, documents, and realistic pricing before we recommend it to you.</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Expert Guidance</h3>
+                  <p>From first call to key handover, one dedicated GRASP team stays with you throughout your property journey.</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Clear Documentation</h3>
+                  <p>We simplify legal terms, RERA compliance, and paperwork so you know exactly what you are signing.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-features-copy about-features-copy--b scroll-reveal-text">
+            <ul class="about-feature-list">
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Market-Ready Insights</h3>
+                  <p>Area trends, rental yield, and growth potential shared before you invest — so decisions are data-backed, not guesswork.</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Property Buying</h3>
+                  <p>Curated shortlists, site visits, and negotiation support tailored to your budget and lifestyle across Bangalore.</p>
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Document Support</h3>
+                  <p>Title checks, loan coordination, and registration support handled with transparency at every stage.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-features-media about-features-media--hall scroll-reveal-img">
           <img src="./image/abouthall.jpg" alt="Living hall interior — GRASP Realtors" />
           <span class="about-split-dots" aria-hidden="true"></span>
-        </div>
-        <div class="about-split-content scroll-reveal-text">
-          <ul class="about-feature-list">
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-              <div>
-                <h3>Market-Ready Insights</h3>
-                <p>Area trends, rental yield, and growth potential shared before you invest — so decisions are data-backed, not guesswork.</p>
-              </div>
-            </li>
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
-              <div>
-                <h3>Property Buying</h3>
-                <p>Curated shortlists, site visits, and negotiation support tailored to your budget and lifestyle across Bangalore.</p>
-              </div>
-            </li>
-            <li class="about-feature-item">
-              <div class="about-feature-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
-              <div>
-                <h3>Document Support</h3>
-                <p>Title checks, loan coordination, and registration support handled with transparency at every stage.</p>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -861,14 +889,11 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
       fromRight("#about-intro .scroll-reveal-text", "#about-intro");
     }
 
-    if (document.querySelector("#about-features-a")) {
-      fromLeft("#about-features-a .about-split-content", "#about-features-a");
-      slideImage("#about-features-a .scroll-reveal-img", "#about-features-a");
-    }
-
-    if (document.querySelector("#about-features-b")) {
-      slideImage("#about-features-b .scroll-reveal-img", "#about-features-b");
-      fromRight("#about-features-b .about-split-content", "#about-features-b");
+    if (document.querySelector("#about-features")) {
+      fromLeft("#about-features .about-features-copy--a", "#about-features");
+      fromRight("#about-features .about-features-copy--b", "#about-features");
+      slideImage("#about-features .about-features-media--kitchen", "#about-features");
+      slideImage("#about-features .about-features-media--hall", "#about-features");
     }
 
     if (document.querySelector("#about-cta")) {
