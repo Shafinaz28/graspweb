@@ -198,28 +198,21 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   width: 100%;
   height: 100%;
   min-height: 100dvh;
+  justify-content: flex-end;
 }
 #menuOverlay .menu-media {
-  flex: 1 1 65%;
-  width: 65%;
+  flex: 1 1 auto;
+  width: auto;
   min-width: 0;
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-}
-#menuOverlay .menu-media--peek {
   background: transparent !important;
 }
-#menuOverlay .menu-media--peek .menu-media-overlay {
-  background: rgba(36, 45, 99, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
+#menuOverlay .menu-media video,
 #menuOverlay .menu-media-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  display: none !important;
 }
 #menuPanel {
   flex: 0 0 35%;
@@ -231,9 +224,16 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   background: #fff !important;
   color: #242d63;
 }
+@media (max-width: 1023px) {
+  #menuPanel {
+    flex: 0 0 min(88%, 340px);
+    width: min(88%, 340px) !important;
+    max-width: none;
+    min-width: 0;
+  }
+}
 @media (max-width: 480px) {
-  #menuOverlay .menu-media { flex: 1 1 32%; width: 32%; }
-  #menuPanel { flex: 0 0 68%; width: 68% !important; min-width: 0; }
+  #menuPanel { flex: 0 0 min(92%, 320px); width: min(92%, 320px) !important; }
 }
 #menuPanel .menu-nav-link {
   display: block;

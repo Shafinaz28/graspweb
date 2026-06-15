@@ -87,6 +87,13 @@
       color: var(--brand-navy);
     }
 
+    .hero-video-section h1 {
+      font-family: var(--font-hero) !important;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #ffffff !important;
+    }
+
   .hero-headline {
       font-family: var(--font-display) !important;
     }
@@ -353,11 +360,13 @@
       letter-spacing: 0.01em;
       text-transform: none;
       font-style: normal;
+      color: #ffffff !important;
     }
 
-    .hero-video-section .hero-rotator-line em,
-    .hero-video-section .hero-rotator-line .hero-accent {
+    .hero-video-section .hero-rotator-line em {
+      font-family: inherit !important;
       font-style: italic;
+      font-weight: 500;
       color: #cd7f2f;
     }
 
@@ -384,7 +393,7 @@
       min-height: 100dvh;
       overflow: hidden;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
     }
 
@@ -413,34 +422,89 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      margin-top: auto;
+      max-width: 720px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
+      padding: calc(110px + 0.5rem) 1.5rem 2rem;
+      box-sizing: border-box;
     }
 
     @media (min-width: 768px) {
       .hero-video-panel {
-        display: contents;
+        gap: 0.85rem;
+        padding: calc(125px + 0.25rem) 2rem 2.5rem;
+      }
+
+      .hero-video-rotator {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero-rotator-track {
+        min-height: clamp(3rem, 6vw, 4.25rem);
+      }
+
+      .hero-rotator-line {
+        font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+      }
+
+      .hero-rotator-line--brand {
+        font-size: clamp(2.1rem, 4vw, 3.25rem);
+        gap: 0.25rem;
+      }
+
+      .hero-rotator-brand-sub {
+        font-size: 0.3em;
+        letter-spacing: 0.36em;
+      }
+
+      .hero-video-copy {
+        margin-top: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      .hero-video-sub {
+        margin: 0 auto;
+        max-width: 32rem;
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .hero-video-actions {
+        margin-top: 0.5rem;
+        gap: 0.75rem;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+
+      .hero-video-cta {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.75rem;
       }
     }
 
     .hero-video-rotator {
-      position: absolute;
+      position: relative;
       z-index: 2;
-      left: 0;
-      right: 0;
-      top: 36%;
-      transform: translateY(-50%);
+      width: 100%;
       text-align: center;
-      padding: 0 clamp(1.25rem, 5vw, 4rem);
+      padding: 0;
       pointer-events: none;
     }
 
     .hero-rotator-track {
       position: relative;
       margin: 0;
-      min-height: clamp(5rem, 16vw, 8rem);
+      min-height: clamp(3.25rem, 10vw, 5rem);
       width: 100%;
     }
 
@@ -452,7 +516,7 @@
       margin: 0;
       padding: 0 0.5rem;
       font-family: var(--font-hero);
-      font-size: clamp(2.75rem, 9vw, 5.75rem);
+      font-size: clamp(2.25rem, 7vw, 4rem);
       font-weight: 500;
       line-height: 1.08;
       letter-spacing: 0.01em;
@@ -467,9 +531,11 @@
       white-space: nowrap;
     }
 
-    .hero-rotator-line .hero-accent {
-      color: #cd7f2f;
+    .hero-rotator-line em {
+      font-family: inherit !important;
       font-style: italic;
+      font-weight: 500;
+      color: #cd7f2f;
     }
 
     .hero-rotator-line.is-active {
@@ -483,9 +549,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.25rem;
       letter-spacing: 0.04em;
-      font-size: clamp(2.65rem, 8.5vw, 5.5rem);
+      font-size: clamp(2.1rem, 6.5vw, 3.5rem);
       color: #cd7f2f;
       white-space: normal;
     }
@@ -513,10 +579,9 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 1240px;
-      margin: 0 auto;
-      margin-top: auto;
-      padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(2.5rem, 6vh, 4rem);
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -547,10 +612,10 @@
 
     .hero-video-sub {
       max-width: 36rem;
-      margin: clamp(0.75rem, 2vh, 1.25rem) auto 0;
+      margin: 0 auto;
       font-family: var(--font-body);
       font-size: clamp(0.92rem, 1.6vw, 1.05rem);
-      line-height: 1.75;
+      line-height: 1.7;
       color: rgba(255, 255, 255, 0.9);
       text-align: center;
     }
@@ -569,7 +634,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.65rem;
-      margin-top: clamp(1rem, 2.5vh, 1.35rem);
+      margin-top: 0.65rem;
       width: 100%;
     }
 
@@ -1324,33 +1389,23 @@
       width: 100%;
       height: 100%;
       min-height: 100dvh;
+      justify-content: flex-end;
     }
 
     #menuOverlay .menu-media {
-      flex: 1 1 65%;
-      width: 65%;
+      flex: 1 1 auto;
+      width: auto;
       min-width: 0;
       min-height: 100dvh;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      background: #1a2340 url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80") center/cover no-repeat;
+      background: transparent !important;
     }
 
-    #menuOverlay .menu-media video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-
+    #menuOverlay .menu-media video,
     #menuOverlay .menu-media-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(36, 45, 99, 0.55);
-      pointer-events: none;
+      display: none !important;
     }
 
     #menuPanel {
@@ -1364,15 +1419,19 @@
       color: #242d63;
     }
 
-    @media (max-width: 480px) {
-      #menuOverlay .menu-media {
-        flex: 1 1 32%;
-        width: 32%;
-      }
+    @media (max-width: 1023px) {
       #menuPanel {
-        flex: 0 0 68%;
-        width: 68% !important;
+        flex: 0 0 min(88%, 340px);
+        width: min(88%, 340px) !important;
+        max-width: none;
         min-width: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #menuPanel {
+        flex: 0 0 min(92%, 320px);
+        width: min(92%, 320px) !important;
       }
     }
 
@@ -2066,9 +2125,9 @@
         <div class="hero-video-panel">
         <div class="hero-video-rotator" aria-live="polite">
           <h1 class="hero-rotator-track">
-            <span class="hero-rotator-line is-active">A <span class="hero-accent">New Standard</span></span>
+            <span class="hero-rotator-line is-active">A <em>New Standard</em></span>
             <span class="hero-rotator-line">Of <em>Royal Living</em></span>
-            <span class="hero-rotator-line"><em>Speak</em> <span class="hero-accent">Prestige</span></span>
+            <span class="hero-rotator-line"><em>Speak Prestige</em></span>
             <span class="hero-rotator-line hero-rotator-line--brand">
               <span class="hero-rotator-brand-main">GRASP</span>
               <span class="hero-rotator-brand-sub">REALTORS</span>

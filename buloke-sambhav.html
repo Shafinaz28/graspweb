@@ -104,10 +104,10 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .menu-open .line-2 { opacity: 0; }
 .menu-open .line-3 { transform: rotate(-45deg) translate(8px, -8px); }
 #menuOverlay { background: transparent !important; width: 100vw; height: 100dvh; }
-#menuOverlay .menu-overlay-inner { display: flex; min-height: 100dvh; }
-#menuOverlay .menu-media { flex: 1 1 65%; width: 65%; min-width: 0; min-height: 100dvh; position: relative; overflow: hidden; cursor: pointer; }
-#menuOverlay .menu-media--peek .menu-media-overlay { background: rgba(36,45,99,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-#menuOverlay .menu-media-overlay { position: absolute; inset: 0; pointer-events: none; }
+#menuOverlay .menu-overlay-inner { display: flex; min-height: 100dvh; justify-content: flex-end; }
+#menuOverlay .menu-media { flex: 1 1 auto; width: auto; min-width: 0; min-height: 100dvh; position: relative; overflow: hidden; cursor: pointer; background: transparent !important; }
+#menuOverlay .menu-media video,
+#menuOverlay .menu-media-overlay { display: none !important; }
 #menuPanel { flex: 0 0 35%; width: 35% !important; max-width: 420px; min-width: min(100%, 300px); min-height: 100dvh; background: #fff !important; }
 #menuPanel .menu-nav-link { display: block; padding: 0.65rem 0; border-bottom: 1px solid #e5e7eb; font-weight: 600; color: #242d63 !important; text-decoration: none; }
 #menuPanel .menu-nav-link:hover { color: #cd7f2f !important; }
@@ -118,8 +118,15 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .menu-social-links a { width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; background: #242d63; color: #fff; }
 .menu-panel-logo img { height: clamp(3rem, 8vw, 4.5rem); width: auto; object-fit: contain; }
 @media (max-width: 1023px) {
-  #menuOverlay .menu-media { flex: 1 1 32%; width: 32%; }
-  #menuPanel { flex: 0 0 68%; width: 68% !important; min-width: 0; }
+  #menuPanel {
+    flex: 0 0 min(88%, 340px);
+    width: min(88%, 340px) !important;
+    max-width: none;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  #menuPanel { flex: 0 0 min(92%, 320px); width: min(92%, 320px) !important; }
 }
 
 @media (max-width: 767px) {
