@@ -1182,8 +1182,8 @@
     }
 
     .sobha-hero .hero-video-wrap {
-      min-height: clamp(320px, 58vh, 520px);
-      max-height: 62vh;
+      min-height: clamp(360px, 68vh, 580px);
+      max-height: 72vh;
       align-items: center;
       justify-content: center;
     }
@@ -1479,12 +1479,17 @@
 
     @media (max-width: 767px) {
       .sobha-hero.hero-video-section {
-        min-height: auto;
+        min-height: 100dvh;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
       }
 
       .sobha-hero .hero-video-wrap {
-        min-height: clamp(300px, 56vh, 480px);
-        max-height: 58vh;
+        flex: 1 1 auto;
+        min-height: 0;
+        max-height: none;
+        height: auto;
         padding: 0;
         overflow: hidden;
       }
@@ -1517,7 +1522,9 @@
       }
 
       .sobha-hero .hero-spotlight {
-        padding: 1rem 1.25rem 0.9rem;
+        flex: 0 0 auto;
+        padding: 0.85rem 1.25rem max(0.75rem, env(safe-area-inset-bottom, 0px));
+        margin: 0;
       }
 
       .sobha-hero .hero-spotlight-title {
