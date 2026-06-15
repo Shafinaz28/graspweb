@@ -367,7 +367,7 @@
       font-family: inherit !important;
       font-style: italic;
       font-weight: 500;
-      color: #cd7f2f;
+      color: #ffffff !important;
     }
 
     .hero-video-section .hero-video-sub {
@@ -572,7 +572,7 @@
       font-family: inherit !important;
       font-style: italic;
       font-weight: 500;
-      color: #cd7f2f;
+      color: #ffffff;
     }
 
     .hero-rotator-line.is-active {
@@ -590,7 +590,7 @@
       gap: 0.25rem;
       letter-spacing: 0.04em;
       font-size: clamp(2.75rem, 10vw, 5.25rem);
-      color: #cd7f2f;
+      color: #ffffff;
       white-space: normal;
     }
 
@@ -600,7 +600,7 @@
       font-size: 1em;
       font-weight: 600;
       letter-spacing: 0.06em;
-      color: #cd7f2f;
+      color: #ffffff;
     }
 
     .hero-rotator-brand-sub {
@@ -610,7 +610,7 @@
       font-weight: 500;
       letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.95);
+      color: #ffffff;
     }
 
     .hero-video-copy {
@@ -1102,7 +1102,7 @@
         font-size: 0.34em;
         letter-spacing: 0.36em;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.95);
+        color: #ffffff;
         line-height: 1.1;
       }
 
@@ -1247,6 +1247,12 @@
       text-align: center;
     }
 
+    @media (min-width: 1024px) {
+      .sobha-hero .hero-spotlight {
+        background: transparent;
+      }
+    }
+
     .hero-spotlight-aside {
       display: flex;
       flex-direction: column;
@@ -1259,7 +1265,7 @@
       font-family: var(--font-body);
       font-size: clamp(0.95rem, 2.5vw, 1.05rem);
       font-weight: 500;
-      color: var(--brand-gold);
+      color: var(--brand-navy) !important;
       margin: clamp(0.85rem, 2.5vw, 1.15rem) 0 0;
     }
 
@@ -1276,7 +1282,7 @@
       font-family: var(--font-body);
       font-size: clamp(1rem, 2.8vw, 1.125rem);
       font-weight: 500;
-      color: #111111;
+      color: var(--brand-navy) !important;
       margin: 0 0 0.4rem;
       line-height: 1.45;
       letter-spacing: 0.01em;
@@ -1287,7 +1293,7 @@
       font-family: var(--font-body);
       font-size: clamp(0.95rem, 2.5vw, 1.05rem);
       font-weight: 400;
-      color: #111111;
+      color: var(--brand-navy) !important;
       margin: 0 0 0.35rem;
       line-height: 1.5;
     }
@@ -1491,13 +1497,15 @@
         color: #ffffff !important;
         margin: 0 0 0.5rem;
         line-height: 1.15;
+        text-shadow: none;
       }
 
       .sobha-hero .hero-spotlight-location,
       .sobha-hero .hero-spotlight-specs {
-        color: rgba(255, 255, 255, 0.92) !important;
+        color: rgba(255, 255, 255, 0.95) !important;
         font-size: clamp(0.9rem, 1.15vw, 1.05rem);
         margin: 0 0 0.3rem;
+        text-shadow: none;
       }
 
       .sobha-hero .hero-spotlight-specs {
@@ -1511,6 +1519,7 @@
         margin: 0;
         text-align: right;
         white-space: nowrap;
+        text-shadow: none;
       }
 
       .sobha-hero .hero-spotlight-cta {
