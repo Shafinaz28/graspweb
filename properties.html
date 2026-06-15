@@ -171,30 +171,6 @@
     }
     .properties-hero .breadcrumb a:hover { color: var(--brand-gold); }
 
-    /* Mobile tabs */
-    .page-tabs {
-      display: none;
-      align-items: stretch;
-      background: #111111;
-      border-top: 1px solid #2a2a2a;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .page-tabs::-webkit-scrollbar { display: none; }
-    .page-tabs-link {
-      flex: 1 0 auto;
-      padding: 0.95rem 1.1rem;
-      color: rgba(255,255,255,0.48);
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-align: center;
-      text-transform: uppercase;
-      border-right: 1px solid #2a2a2a;
-      white-space: nowrap;
-    }
-    .page-tabs-link.is-active, .page-tabs-link:hover { color: #fff; }
-
     /* Portfolio intro */
     .portfolio-section {
       padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
@@ -513,7 +489,6 @@
       .navbar-logo { position: static !important; transform: none !important; margin-right: auto; }
       .navbar-logo img { height: 80px; }
       .properties-hero { padding: calc(100px + 2.5rem) 0 2.5rem; }
-      .page-tabs { display: flex; }
       .portfolio-intro { grid-template-columns: 1fr; }
       .intro-stats { max-width: 420px; }
       .properties-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -577,13 +552,6 @@
         </nav>
       </div>
     </section>
-
-    <nav class="page-tabs" aria-label="Section navigation">
-      <a href="properties.html" class="page-tabs-link is-active">Properties</a>
-      <a href="#" class="page-tabs-link">Blog</a>
-      <a href="about.html" class="page-tabs-link">About</a>
-      <a href="contact.html" class="page-tabs-link">Contact</a>
-    </nav>
 
     <section class="portfolio-section" id="properties-section">
       <div class="site-shell">
