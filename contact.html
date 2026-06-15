@@ -283,33 +283,27 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 /* Hero banner */
 .page-hero-banner {
   position: relative;
-  min-height: clamp(280px, 42vh, 420px);
   margin-top: 0;
-  padding-top: 125px;
+  padding: calc(125px + 3.5rem) 0 3.5rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  background: #1a2340 url("./image/modern-apartment-complex-with-lush-green-landscaping.jpg") center/cover no-repeat;
-}
-.page-hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 35, 64, 0.58);
+  background: #1a2340;
 }
 .page-hero-inner {
   position: relative;
   z-index: 1;
-  padding: 3rem 1rem;
+  padding: 0 1rem;
 }
 .page-hero-banner h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 700;
   color: #fff !important;
   margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
 }
 .page-hero-banner .breadcrumb {
   display: flex;
@@ -326,10 +320,8 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .page-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
 @media (max-width: 767px) {
   .page-hero-banner {
-    padding-top: 100px;
-    min-height: clamp(220px, 34vh, 300px);
+    padding: calc(100px + 2.5rem) 0 2.5rem;
   }
-  .page-hero-inner { padding: 1.5rem 1rem; }
   .page-hero-banner h1 { font-size: clamp(1.75rem, 8vw, 2.25rem); }
 }
 

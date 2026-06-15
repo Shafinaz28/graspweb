@@ -33,8 +33,8 @@
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
             display: ["DM Sans", "system-ui", "sans-serif"],
-            serif: ["DM Sans", "system-ui", "sans-serif"],
-            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "Georgia", "serif"],
+            serifBrand: ["Playfair Display", "Georgia", "serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
           },
         },
@@ -46,16 +46,19 @@
     :root {
       --brand-navy: #242d63;
       --brand-gold: #cd7f2f;
-      --font-display: "DM Sans", system-ui, sans-serif;
-      --font-body: "DM Sans", system-ui, sans-serif;
-      --font-hero: "Playfair Display", Georgia, serif;
+      --muted: #5b6478;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-display: var(--font-sans);
+      --font-body: var(--font-sans);
+      --font-hero: var(--font-serif);
     }
 
     html,
     body {
       background: #ffffff;
       color: #1f2937;
-      line-height: 1.5;
+      line-height: 1.6;
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
@@ -81,16 +84,30 @@
     h5,
     h6 {
       font-family: var(--font-display) !important;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--brand-navy);
     }
 
-    .hero-video-section h1 {
-      font-family: var(--font-hero) !important;
+    h1 em,
+    h2 em,
+    h3 em,
+    h4 em,
+    .section-title em,
+    .section-title .text-accent,
+    .rh-intro h2 em,
+    .rh-projects-head h2 em {
+      font-family: var(--font-serif) !important;
+      font-style: italic;
       font-weight: 500;
-      letter-spacing: 0.01em;
+      color: var(--brand-gold);
+    }
+
+    .hero-video-section h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: #ffffff !important;
     }
 
@@ -110,6 +127,10 @@
     }
 
     .font-serif,
+    .font-serifBrand {
+      font-family: var(--font-serif) !important;
+    }
+
     .font-sansBrand,
     .font-display {
       font-family: var(--font-display) !important;
@@ -123,24 +144,19 @@
     .section-kicker {
       font-family: var(--font-body);
       color: var(--brand-gold);
-      letter-spacing: 0.35em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .section-title {
       font-family: var(--font-display);
       color: var(--brand-navy);
       font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.12;
-    }
-
-    .section-title em,
-    .section-title .text-accent {
-      font-style: italic;
-      color: var(--brand-gold);
+      letter-spacing: -0.02em;
     }
 
     .has-section-bg {
@@ -355,16 +371,16 @@
 
     .hero-video-section .hero-rotator-track,
     .hero-video-section .hero-rotator-line {
-      font-family: var(--font-hero) !important;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+      font-family: var(--font-display) !important;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       text-transform: none;
       font-style: normal;
       color: #ffffff !important;
     }
 
     .hero-video-section .hero-rotator-line em {
-      font-family: inherit !important;
+      font-family: var(--font-serif) !important;
       font-style: italic;
       font-weight: 500;
       color: #ffffff !important;
@@ -533,11 +549,11 @@
       top: 50%;
       margin: 0;
       padding: 0 0.5rem;
-      font-family: var(--font-hero);
-      font-size: clamp(3rem, 11vw, 5.75rem);
-      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      font-weight: 700;
       line-height: 1.08;
-      letter-spacing: 0.01em;
+      letter-spacing: -0.02em;
       text-transform: none;
       color: #ffffff;
       opacity: 0;
@@ -551,7 +567,7 @@
     }
 
     .hero-rotator-line em {
-      font-family: inherit !important;
+      font-family: var(--font-serif) !important;
       font-style: italic;
       font-weight: 500;
       color: #ffffff;
@@ -577,10 +593,10 @@
 
     .hero-rotator-brand-main {
       display: block;
-      font-family: var(--font-hero);
+      font-family: var(--font-display);
       font-size: 1em;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: #ffffff;
     }
 
@@ -728,18 +744,14 @@
     .rh-intro h2 {
       margin: 0;
       max-width: 14ch;
-    }
-
-    .rh-intro h2 em {
-      font-style: italic;
-      color: #cd7f2f;
+      font-weight: 700;
     }
 
     .rh-intro-copy p {
       margin: 0 0 1.25rem;
-      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-      line-height: 1.8;
-      color: #5b6478;
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--muted);
       max-width: 36rem;
     }
 
@@ -762,9 +774,32 @@
     }
 
     .rh-stats {
-      background: #f4f6f8;
+      position: relative;
+      isolation: isolate;
       padding: clamp(2.5rem, 5vw, 3.5rem) 0;
-      border-block: 1px solid #e8ecf2;
+      background-color: #242d63;
+      background-image: url("./image/modern-apartment-complex-with-lush-green-landscaping.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-block: none;
+    }
+
+    .rh-stats::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(36, 45, 99, 0.92) 0%,
+        rgba(26, 35, 64, 0.88) 100%
+      );
+    }
+
+    .rh-stats .site-shell {
+      position: relative;
+      z-index: 1;
     }
 
     .rh-stats-grid {
@@ -782,15 +817,15 @@
       display: block;
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 600;
-      color: #242d63;
+      font-weight: 800;
+      color: #ffffff;
       line-height: 1;
       margin-bottom: 0.5rem;
     }
 
     .rh-stat span {
       font-size: 0.88rem;
-      color: #5b6478;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.45;
       max-width: 14rem;
       margin-inline: auto;
@@ -810,18 +845,14 @@
 
     .rh-projects-head h2 {
       margin: 0 0 0.85rem;
-    }
-
-    .rh-projects-head h2 em {
-      font-style: italic;
-      color: #cd7f2f;
+      font-weight: 700;
     }
 
     .rh-projects-head p {
       margin: 0 auto;
-      font-size: clamp(0.92rem, 1.5vw, 1.02rem);
-      line-height: 1.75;
-      color: #5b6478;
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--muted);
       max-width: 38rem;
     }
 
@@ -1042,10 +1073,10 @@
         left: auto;
         right: auto;
         display: none;
-        font-family: var(--font-hero) !important;
+        font-family: var(--font-display) !important;
         font-size: clamp(2.1rem, 9.5vw, 3rem);
-        font-weight: 500;
-        letter-spacing: 0.01em;
+        font-weight: 700;
+        letter-spacing: -0.02em;
         text-transform: none;
         white-space: normal;
         line-height: 1.12;
@@ -1071,10 +1102,10 @@
       }
 
       .hero-rotator-brand-main {
-        font-family: var(--font-hero) !important;
+        font-family: var(--font-display) !important;
         font-size: 1em;
-        font-weight: 600;
-        letter-spacing: 0.05em;
+        font-weight: 700;
+        letter-spacing: -0.02em;
         line-height: 1.05;
       }
 
@@ -1223,7 +1254,7 @@
 
     .hero-spotlight {
       background: #ffffff;
-      padding: clamp(1.15rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2rem) clamp(1.1rem, 2.5vw, 1.35rem);
+      padding: clamp(1.15rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2rem) clamp(1.2rem, 2.8vw, 1.5rem);
       text-align: center;
     }
 
@@ -1237,8 +1268,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.65rem;
-      margin-top: clamp(0.5rem, 1.8vw, 0.75rem);
+      gap: 0.85rem;
+      margin-top: clamp(0.65rem, 2vw, 0.9rem);
     }
 
     .hero-spotlight-price {
@@ -1397,7 +1428,8 @@
         width: 100%;
         max-width: none;
         margin: 0;
-        padding: 0 clamp(2.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vh, 3.5rem);
+        padding: 0 clamp(2.5rem, 5vw, 4.5rem) clamp(3rem, 6vh, 4.5rem);
+        padding-right: clamp(5.5rem, 9vw, 7rem);
         background: transparent;
         text-align: left;
         box-sizing: border-box;
@@ -1419,15 +1451,15 @@
         flex: 0 0 auto;
         align-items: flex-end;
         margin-top: 0;
-        gap: 1rem;
+        gap: 1.25rem;
       }
 
       .sobha-hero .hero-spotlight-title {
-        font-family: var(--font-hero);
+        font-family: var(--font-display);
         font-size: clamp(1.85rem, 2.8vw, 2.75rem);
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: none;
         color: #ffffff !important;
         margin: 0 0 0.5rem;
         line-height: 1.15;
@@ -1460,6 +1492,23 @@
         margin: 0;
         padding: 0.85rem 2.25rem;
         border-radius: 0;
+      }
+    }
+
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .sobha-hero .hero-spotlight {
+        padding: 1.1rem 4.5rem 1.35rem 1.5rem;
+      }
+
+      .sobha-hero .hero-spotlight-aside {
+        margin-top: 0.75rem;
+        gap: 0.95rem;
+      }
+
+      .float-contact-btns {
+        right: 1rem;
+        bottom: 1.35rem;
+        gap: 0.9rem;
       }
     }
 
@@ -1523,22 +1572,36 @@
 
       .sobha-hero .hero-spotlight {
         flex: 0 0 auto;
-        padding: 0.85rem 1.25rem max(0.75rem, env(safe-area-inset-bottom, 0px));
+        padding: 1.15rem 4.75rem 1.5rem 1.25rem;
         margin: 0;
       }
 
       .sobha-hero .hero-spotlight-title {
-        margin: 0 0 0.25rem;
+        margin: 0 0 0.4rem;
       }
 
       .sobha-hero .hero-spotlight-location,
       .sobha-hero .hero-spotlight-specs {
-        margin: 0 0 0.2rem;
+        margin: 0 0 0.35rem;
       }
 
       .sobha-hero .hero-spotlight-aside {
-        margin-top: 0.5rem;
-        gap: 0.55rem;
+        margin-top: 0.85rem;
+        gap: 1rem;
+        width: 100%;
+        max-width: 18rem;
+      }
+
+      .sobha-hero .hero-spotlight-cta {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .float-contact-btns {
+        right: 1rem;
+        bottom: 1.35rem;
+        gap: 0.9rem;
       }
 
       .site-shell {
@@ -3269,16 +3332,17 @@
 
   .about-v2-feature-body h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: #242d63;
   }
 
   .about-v2-feature-body p {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    line-height: 1.75;
-    color: rgba(36, 45, 99, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #5b6478;
   }
 
   .about-v2-cta {
