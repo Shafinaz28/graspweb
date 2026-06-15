@@ -377,6 +377,44 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   text-decoration: none;
 }
 .wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
+
+/* Section tabs — Properties, Blog, About, Contact */
+.page-tabs {
+  display: flex;
+  align-items: stretch;
+  background: #111111;
+  border-top: 1px solid #2a2a2a;
+  border-bottom: 1px solid #2a2a2a;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.page-tabs::-webkit-scrollbar { display: none; }
+.page-tabs-link {
+  flex: 1 0 auto;
+  min-width: max-content;
+  padding: 0.9rem 1.15rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #2a2a2a;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.page-tabs-link:last-child { border-right: none; }
+.page-tabs-link:hover,
+.page-tabs-link.is-active { color: #ffffff; }
+@media (min-width: 768px) {
+  .page-tabs-link { flex: 1; font-size: 0.68rem; padding: 1rem 1.25rem; }
+}
+@media (min-width: 1024px) {
+  .page-tabs { display: none; }
+}
   </style>
 </head>
 <body class="inner-page bg-white font-sansBrand">
@@ -414,6 +452,13 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
         </nav>
       </div>
     </div>
+
+    <nav class="page-tabs" aria-label="Section navigation">
+      <a href="properties.html" class="page-tabs-link">Properties</a>
+      <a href="#" class="page-tabs-link">Blog</a>
+      <a href="about.html" class="page-tabs-link">About</a>
+      <a href="contact.html" class="page-tabs-link is-active">Contact</a>
+    </nav>
 
     <section class="page-section" id="contact-section">
       <div class="site-shell contact-grid">

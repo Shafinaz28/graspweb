@@ -306,6 +306,44 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .wa-float-btn { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 9998; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); transition: transform 0.25s ease, background 0.25s ease; text-decoration: none; }
 .wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
 
+/* Section tabs — Properties, Blog, About, Contact */
+.page-tabs {
+  display: flex;
+  align-items: stretch;
+  background: #111111;
+  border-top: 1px solid #2a2a2a;
+  border-bottom: 1px solid #2a2a2a;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.page-tabs::-webkit-scrollbar { display: none; }
+.page-tabs-link {
+  flex: 1 0 auto;
+  min-width: max-content;
+  padding: 0.9rem 1.15rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #2a2a2a;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.page-tabs-link:last-child { border-right: none; }
+.page-tabs-link:hover,
+.page-tabs-link.is-active { color: #ffffff; }
+@media (min-width: 768px) {
+  .page-tabs-link { flex: 1; font-size: 0.68rem; padding: 1rem 1.25rem; }
+}
+@media (min-width: 1024px) {
+  .page-tabs { display: none; }
+}
+
 @media (max-width: 767px) {
   .rh-hero { min-height: auto; padding-top: calc(100px + 2.5rem); }
   .rh-hero h1 { font-size: clamp(1.1rem, 4.8vw, 1.65rem); }
@@ -362,6 +400,13 @@ p, a, li, span, button, label { font-family: var(--font-body); }
         <a href="contact.html" class="rh-btn">Register Your EOI</a>
       </div>
     </section>
+
+    <nav class="page-tabs" aria-label="Section navigation">
+      <a href="properties.html" class="page-tabs-link is-active">Properties</a>
+      <a href="#" class="page-tabs-link">Blog</a>
+      <a href="about.html" class="page-tabs-link">About</a>
+      <a href="contact.html" class="page-tabs-link">Contact</a>
+    </nav>
 
     <!-- Stats -->
     <section class="rh-section" style="padding-top:0;">
