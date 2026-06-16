@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us — GRASP Realtors</title>
+  <meta name="description" content="Learn about GRASP Realtors — a Bengaluru-based real estate brand offering verified listings, pre-launch access, and end-to-end property support across North Bengaluru." />
+  <meta name="keywords" content="GRASP Realtors, about GRASP, Bengaluru real estate, property advisory, pre-launch projects" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="About Us — GRASP Realtors" />
+  <meta property="og:description" content="Bengaluru's trusted partner for verified pre-launch properties, transparent pricing, and complete real estate advisory." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/about-blue-sky.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About GRASP Realtors" />
+  <meta name="twitter:description" content="Verified listings, pre-launch access, and end-to-end property support in Bengaluru." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/about-blue-sky.jpg" />
+  <link rel="stylesheet" href="./css/grasp-site.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
@@ -18,6 +35,38 @@
       --muted: #5b6478;
       --font-sans: "DM Sans", system-ui, sans-serif;
       --font-serif: "Playfair Display", Georgia, serif;
+      --font-display: var(--font-sans);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+
+    h2 em,
+    h3 em,
+    .section-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .about-services-head .section-title,
+    .about-services-head h2 {
+      color: var(--white);
+    }
+
+    .about-cta-card .section-title,
+    .about-cta-card h2 {
+      color: var(--white);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -182,7 +231,11 @@
 
     /* Hero */
     .about-hero {
-      padding: calc(108px + 3.5rem) 0 3.5rem;
+      min-height: clamp(320px, 46vh, 460px);
+      padding: calc(108px + 5rem) 0 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       color: var(--white);
       background: #1a2340;
@@ -227,11 +280,6 @@
 
     .about-intro h2 {
       margin: 0 0 1.25rem;
-      font-size: clamp(1.65rem, 3.5vw, 2.35rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--navy);
-      letter-spacing: -0.02em;
     }
 
     .about-intro p {
@@ -295,11 +343,6 @@
 
     .about-vm-head h2 {
       margin: 0;
-      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--navy);
-      letter-spacing: -0.02em;
     }
 
     .vm-grid {
@@ -369,10 +412,7 @@
 
     .about-services-head h2 {
       margin: 0;
-      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
-      font-weight: 700;
-      line-height: 1.35;
-      color: var(--white);
+      line-height: 1.2;
     }
 
     .services-grid {
@@ -432,6 +472,10 @@
       grid-template-columns: 1fr 1fr;
       gap: clamp(2rem, 5vw, 3.5rem);
       align-items: start;
+    }
+
+    .benefits-copy h2 {
+      margin: 0 0 1.25rem;
     }
 
     .benefits-list {
@@ -527,6 +571,20 @@
       border: 1px solid #e2e2e2;
       padding: 1.75rem 1.5rem;
       background: var(--white);
+      text-align: center;
+    }
+
+    .info-card .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 0.85rem;
+      border-radius: 50%;
+      background: rgba(205, 127, 47, 0.1);
+      color: var(--gold);
+      font-size: 1rem;
     }
 
     .info-card h3 {
@@ -590,11 +648,7 @@
 
     .about-cta-card h2 {
       margin: 0 0 0.85rem;
-      max-width: 20ch;
-      font-size: clamp(1.65rem, 3.8vw, 2.75rem);
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--white);
+      max-width: 22ch;
     }
 
     .about-cta-card p {
@@ -762,7 +816,7 @@
       .nav-inner { justify-content: space-between; }
       #navbar { height: 96px; }
       .navbar-logo img { height: 76px; }
-      .about-hero { padding: calc(96px + 2.5rem) 0 2.5rem; }
+      .about-hero { min-height: clamp(260px, 40vh, 360px); padding: calc(96px + 3.25rem) 0 3.25rem; }
       .about-intro-grid,
       .benefits-grid { grid-template-columns: 1fr; }
       .vm-grid { grid-template-columns: 1fr; }
@@ -787,7 +841,15 @@
     }
   </style>
 </head>
-<body>
+<body class="is-loading page-about">
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="page-loader-inner">
+      <div class="page-loader-ring">
+        <img src="./logo/grasp-logo.png" alt="" class="page-loader-logo" width="160" height="80" />
+      </div>
+      <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
   <header id="navbar">
     <div class="site-shell nav-inner">
       <nav class="nav-links" aria-label="Main navigation">
@@ -828,10 +890,10 @@
   </div>
 
   <main>
-    <section class="about-hero">
+    <section class="about-hero" data-hero-animate>
       <div class="site-shell">
-        <h1>About</h1>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <h1 data-hero-animate-item>About</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb" data-hero-animate-item>
           <a href="index.html">Home</a>
           <span aria-hidden="true">→</span>
           <span>About</span>
@@ -841,8 +903,8 @@
 
     <section class="about-intro">
       <div class="site-shell about-intro-grid">
-        <div>
-          <h2>We will help you in every way possible to locate your next residence.</h2>
+        <div class="about-intro-copy scroll-reveal-left">
+          <h2 class="section-title">We Will Help You Find Your <em>Next Residence</em></h2>
           <p>
             GRASP Realtors guides families and investors across North Bengaluru and KIADB growth corridors with verified pre-launch projects, transparent pricing, and end-to-end property support.
           </p>
@@ -851,7 +913,7 @@
           </p>
           <a href="contact.html" class="btn-gold">Contact Me</a>
         </div>
-        <div class="about-intro-visual">
+        <div class="about-intro-visual scroll-reveal-img">
           <img src="./image/about-blue-sky.jpg" alt="Bengaluru skyline — GRASP Realtors" />
         </div>
       </div>
@@ -859,19 +921,19 @@
 
     <section class="about-vm" aria-labelledby="vm-heading">
       <div class="site-shell">
-        <div class="about-vm-head">
+        <div class="about-vm-head scroll-reveal-text">
           <p class="kicker">Who We Stand For</p>
-          <h2 id="vm-heading">Our Vision &amp; Mission</h2>
+          <h2 id="vm-heading" class="section-title">Our Vision &amp; <em>Mission</em></h2>
         </div>
-        <div class="vm-grid">
-          <article class="vm-card">
+        <div class="vm-grid scroll-reveal-stagger">
+          <article class="vm-card scroll-reveal-item">
             <i class="fa-solid fa-eye" aria-hidden="true"></i>
             <h3>Our Vision</h3>
             <p>
               To become Bengaluru's most trusted name in transparent real estate — helping families and investors discover verified homes and growth-ready corridors with complete confidence.
             </p>
           </article>
-          <article class="vm-card">
+          <article class="vm-card scroll-reveal-item">
             <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
             <h3>Our Mission</h3>
             <p>
@@ -884,30 +946,30 @@
 
     <section class="about-services">
       <div class="site-shell">
-        <div class="about-services-head">
+        <div class="about-services-head scroll-reveal-text">
           <p class="kicker">Services | Provide</p>
-          <h2>Appreciated for consistently outperforming client expectations and delivering exceptional results.</h2>
+          <h2 class="section-title">Consistently Delivering <em>Exceptional Results</em></h2>
         </div>
-        <div class="services-grid">
-          <article class="service-card">
+        <div class="services-grid scroll-reveal-stagger">
+          <article class="service-card scroll-reveal-item">
             <i class="fa-solid fa-building" aria-hidden="true"></i>
             <h3>Buy Property</h3>
             <p>Curated shortlists, site visits, and negotiation support tailored to your budget and lifestyle across Bengaluru.</p>
             <a href="properties.html">View Service &rsaquo;</a>
           </article>
-          <article class="service-card">
+          <article class="service-card scroll-reveal-item">
             <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
             <h3>Sell Property</h3>
             <p>Market-ready positioning, buyer screening, and transparent deal closure for residential and investment assets.</p>
             <a href="contact.html">View Service &rsaquo;</a>
           </article>
-          <article class="service-card">
+          <article class="service-card scroll-reveal-item">
             <i class="fa-solid fa-key" aria-hidden="true"></i>
             <h3>Pre-Launch Access</h3>
             <p>Early access to verified North Bengaluru and KIADB projects with clear EOI guidance and developer credibility checks.</p>
             <a href="properties.html">View Service &rsaquo;</a>
           </article>
-          <article class="service-card">
+          <article class="service-card scroll-reveal-item">
             <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
             <h3>Document Support</h3>
             <p>Title verification, RERA compliance, loan coordination, and registration support handled with full transparency.</p>
@@ -919,8 +981,8 @@
 
     <section class="about-benefits">
       <div class="site-shell benefits-grid">
-        <div>
-          <h2>Benefits of working with us</h2>
+        <div class="benefits-copy scroll-reveal-left">
+          <h2 class="section-title">Benefits of Working <em>With Us</em></h2>
           <p style="color:var(--muted);font-size:0.95rem;line-height:1.85;margin:0 0 0.5rem;">
             GRASP combines local market intelligence with a client-first advisory model built for smarter property decisions.
           </p>
@@ -935,33 +997,33 @@
           </ul>
           <a href="contact.html" class="btn-gold">Contact Me</a>
         </div>
-        <div class="gallery-grid">
-          <img src="./image/aboutkitchen.jpg" alt="Modern kitchen interior" />
-          <img src="./image/abouthall.jpg" alt="Luxury living space" />
-          <img src="./image/hall1.jpg" alt="Modern luxury living and dining interior" />
-          <img src="./image/hall2.jpg" alt="Elegant living room interior" />
+        <div class="gallery-grid scroll-reveal-stagger">
+          <img class="scroll-reveal-item" src="./image/aboutkitchen.jpg" alt="Modern kitchen interior" />
+          <img class="scroll-reveal-item" src="./image/abouthall.jpg" alt="Luxury living space" />
+          <img class="scroll-reveal-item" src="./image/hall1.jpg" alt="Modern luxury living and dining interior" />
+          <img class="scroll-reveal-item" src="./image/hall2.jpg" alt="Elegant living room interior" />
         </div>
       </div>
     </section>
 
     <section class="about-stats" aria-label="GRASP highlights">
-      <div class="site-shell stats-grid">
-        <div class="stat-item">
+      <div class="site-shell stats-grid scroll-reveal-stagger">
+        <div class="stat-item scroll-reveal-item">
           <i class="fa-solid fa-seedling" aria-hidden="true"></i>
           <strong>New</strong>
           <span>Real Estate Brand</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item scroll-reveal-item">
           <i class="fa-solid fa-house-circle-check" aria-hidden="true"></i>
           <strong>100%</strong>
           <span>Verified Listings</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item scroll-reveal-item">
           <i class="fa-solid fa-building" aria-hidden="true"></i>
           <strong>3+</strong>
           <span>Pre-Launch Projects</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item scroll-reveal-item">
           <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
           <strong>North</strong>
           <span>Bengaluru Focus</span>
@@ -970,16 +1032,19 @@
     </section>
 
     <section class="about-info">
-      <div class="site-shell info-grid">
-        <article class="info-card">
+      <div class="site-shell info-grid scroll-reveal-stagger">
+        <article class="info-card scroll-reveal-item">
+          <span class="info-icon"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></span>
           <h3>Full Service Agent</h3>
           <p>From property discovery and site visits to documentation and handover, GRASP offers complete real estate advisory under one trusted team.</p>
         </article>
-        <article class="info-card">
+        <article class="info-card scroll-reveal-item">
+          <span class="info-icon"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i></span>
           <h3>Our Approach</h3>
           <p>We lead with transparency — verifying every listing, explaining market value clearly, and helping you choose locations with long-term growth potential.</p>
         </article>
-        <article class="info-card">
+        <article class="info-card scroll-reveal-item">
+          <span class="info-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></span>
           <h3>Our Values</h3>
           <p>Integrity, clarity, and client commitment guide every interaction. We believe the right property decision should feel informed, safe, and rewarding.</p>
         </article>
@@ -988,10 +1053,10 @@
 
     <section class="about-cta" aria-labelledby="about-cta-heading">
       <div class="site-shell">
-        <div class="about-cta-card">
+        <div class="about-cta-card scroll-reveal-up">
           <div>
             <p class="kicker">Ready to get started?</p>
-            <h2 id="about-cta-heading">Let's find your next home together</h2>
+            <h2 id="about-cta-heading" class="section-title">Let's Find Your Next <em>Home Together</em></h2>
             <p>
               Share your budget, preferred location, and goals. Our team will shortlist verified options across North Bengaluru and guide you from enquiry to handover.
             </p>
@@ -1106,5 +1171,8 @@
       }, { passive: true });
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./js/grasp-site.js"></script>
 </body>
 </html>

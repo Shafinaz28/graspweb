@@ -4,9 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us — GRASP Realtors</title>
+  <meta name="description" content="Contact GRASP Realtors for property enquiries, site visits, and expert real estate guidance in Bengaluru. Call +91 79963 63331 or email info@grasprealtors.com." />
+  <meta name="keywords" content="contact GRASP Realtors, Bengaluru property enquiry, real estate consultation, GRASP phone number" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="Contact Us — GRASP Realtors" />
+  <meta property="og:description" content="Get in touch with GRASP Realtors for verified property guidance across Bengaluru." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/modern-apartment-complex-with-lush-green-landscaping.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact GRASP Realtors" />
+  <meta name="twitter:description" content="Property enquiries and expert real estate guidance in Bengaluru." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/modern-apartment-complex-with-lush-green-landscaping.jpg" />
+  <link rel="stylesheet" href="./css/grasp-site.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,8 +34,8 @@
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
-            serif: ["DM Sans", "system-ui", "sans-serif"],
-            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "Georgia", "serif"],
+            serifBrand: ["Playfair Display", "Georgia", "serif"],
           },
         },
       },
@@ -40,6 +57,7 @@ img, video { max-width: 100%; }
 :root {
   --font-display: "DM Sans", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
   --brand-navy: #242d63;
   --brand-gold: #cd7f2f;
 }
@@ -67,6 +85,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
   line-height: 1.12;
 }
 .section-title em {
+  font-family: var(--font-serif);
   font-style: italic;
   color: var(--brand-gold);
 }
@@ -283,8 +302,9 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 /* Hero banner */
 .page-hero-banner {
   position: relative;
+  min-height: clamp(320px, 46vh, 460px);
   margin-top: 0;
-  padding: calc(125px + 3.5rem) 0 3.5rem;
+  padding: calc(125px + 5rem) 0 5rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -320,7 +340,8 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .page-hero-banner .breadcrumb a:hover { color: #cd7f2f; }
 @media (max-width: 767px) {
   .page-hero-banner {
-    padding: calc(100px + 2.5rem) 0 2.5rem;
+    min-height: clamp(240px, 36vh, 320px);
+    padding: calc(100px + 2.75rem) 0 2.75rem;
   }
   .page-hero-banner h1 { font-size: clamp(1.75rem, 8vw, 2.25rem); }
 }
@@ -335,6 +356,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 .contact-info-card i { color: #cd7f2f; margin-top: 0.2rem; }
 .contact-form { background: #fff; padding: 2rem; border-radius: 14px; box-shadow: 0 12px 40px rgba(36, 45, 99, 0.1); }
 .contact-form input, .contact-form textarea, .contact-form select { width: 100%; border: 1px solid #e5e8f2; padding: 0.85rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.contact-form textarea { min-height: 5.5rem; max-height: 8rem; resize: vertical; }
 .contact-form label { display: block; font-size: 0.8rem; font-weight: 600; color: #3d4660; margin-bottom: 0.35rem; }
 .map-embed {
   margin-top: 2rem;
@@ -387,7 +409,16 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 
   </style>
 </head>
-<body class="inner-page bg-white font-sansBrand">
+<body class="inner-page bg-white font-sansBrand is-loading">
+
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="page-loader-inner">
+      <div class="page-loader-ring">
+        <img src="./logo/grasp-logo.png" alt="" class="page-loader-logo" width="160" height="80" />
+      </div>
+      <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
 
   <header id="navbar" class="w-full h-[125px] header-at-top transition-all duration-300">
     <div class="relative h-full flex items-center justify-between site-shell">
@@ -491,7 +522,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
             <option>Commercial property</option>
           </select>
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about your requirements..." required></textarea>
           <button type="submit" class="fusion-btn fusion-btn-primary w-full">Submit Message</button>
           <p id="formSuccess" class="hidden mt-4 text-sm text-green-700 font-semibold text-center">
             Thank you! We have received your message and will get back to you soon.
@@ -699,58 +730,7 @@ p, a, li, span, button, input, textarea, label { font-family: var(--font-body); 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-(function () {
-  function initScrollAnimations() {
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    var toggle = "play reverse play reverse";
-    var start = "top 80%";
-
-    function fromLeft(target, trigger) {
-      const mobile = window.matchMedia("(max-width: 767px)").matches;
-      gsap.fromTo(target, mobile ? { y: 28, opacity: 0 } : { x: -100, opacity: 0 }, {
-        x: 0, y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
-        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
-      });
-    }
-
-    function fromRight(target, trigger) {
-      const mobile = window.matchMedia("(max-width: 767px)").matches;
-      gsap.fromTo(target, mobile ? { y: 28, opacity: 0 } : { x: 100, opacity: 0 }, {
-        x: 0, y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
-        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
-      });
-    }
-
-    function staggerUp(target, trigger) {
-      gsap.fromTo(target, { y: 50, opacity: 0 }, {
-        y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
-        scrollTrigger: { trigger: trigger, start: start, toggleActions: toggle }
-      });
-    }
-
-    if (document.querySelector("#contact-section")) {
-      fromLeft("#contact-section .scroll-reveal-left", "#contact-section");
-      fromRight("#contact-section .scroll-reveal-right", "#contact-section");
-    }
-
-    if (document.querySelector("#contact-map")) {
-      staggerUp("#contact-map .scroll-reveal-up", "#contact-map");
-    }
-
-    ScrollTrigger.refresh();
-  }
-
-  window.addEventListener("load", initScrollAnimations);
-  window.addEventListener("resize", function () {
-    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
-  });
-})();
-  </script>
+  <script src="./js/grasp-site.js"></script>
 
   <div class="float-contact-btns">
     <a href="tel:+917996363331" class="call-float-btn" aria-label="Call GRASP Realtors">

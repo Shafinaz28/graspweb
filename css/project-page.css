@@ -1,0 +1,203 @@
+/* GRASP Realtors — shared project detail pages */
+
+:root {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --brand-navy: #242d63;
+  --brand-navy-deep: #1a2340;
+  --brand-gold: #cd7f2f;
+}
+
+.page-main {
+  padding-top: 0;
+}
+
+/* —— Project hero —— */
+.rh-hero {
+  position: relative;
+  min-height: clamp(360px, 58vh, 520px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(112px + 4rem) 0 clamp(2.5rem, 5vh, 3.5rem);
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+}
+
+.rh-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.rh-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.rh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 35, 64, 0.72) 0%,
+    rgba(36, 45, 99, 0.55) 50%,
+    rgba(26, 35, 64, 0.68) 100%
+  );
+}
+
+.rh-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 46rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rh-hero-kicker {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+
+.rh-hero h1 {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-display) !important;
+  font-size: clamp(2rem, 4.8vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #ffffff !important;
+  max-width: 18ch;
+}
+
+.rh-hero h1 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--brand-gold);
+}
+
+.rh-hero-list {
+  list-style: none;
+  margin: 0 0 1.65rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  max-width: 36rem;
+}
+
+.rh-hero-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.5vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.rh-hero-list li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  flex-shrink: 0;
+}
+
+.rh-hero .rh-btn {
+  background: var(--brand-gold);
+  color: var(--brand-navy-deep) !important;
+  font-family: var(--font-body);
+}
+
+.rh-hero .rh-btn:hover {
+  background: #e8a04e;
+  color: var(--brand-navy-deep) !important;
+}
+
+.rh-hero-breadcrumb {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.rh-hero-breadcrumb a {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.2s ease;
+}
+
+.rh-hero-breadcrumb a:hover {
+  color: var(--brand-gold);
+}
+
+.section-title,
+.rh-split-head h2,
+.rh-units-head h2,
+.rh-map-head h2,
+.rh-location-copy h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--brand-navy);
+}
+
+.rh-dark-band .rh-location-copy h2,
+.rh-dark-band h2 {
+  color: #ffffff !important;
+}
+
+.rh-dark-band h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.section-title em,
+.rh-split-head h2 em,
+.rh-units-head h2 em,
+.rh-map-head h2 em,
+.rh-location-copy h2 em,
+.rh-intro-grid h2 em,
+.rh-dark-band h2 em,
+.rh-dark-band h3 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--brand-gold);
+}
+
+@media (max-width: 767px) {
+  .rh-hero {
+    min-height: clamp(300px, 52vh, 420px);
+    padding: calc(100px + 3rem) 0 2.5rem;
+  }
+
+  .rh-hero h1 {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
+    max-width: none;
+  }
+}

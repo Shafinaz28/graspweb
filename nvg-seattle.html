@@ -4,9 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NVG Seattle · NVG Lifestyle — GRASP Realtors</title>
+  <meta name="description" content="NVG Seattle — Artistic Skyline pre-launch residences in North Bengaluru. 3 BHK from 1,285 sq.ft with ₹1L fully refundable EOI. Register with GRASP Realtors." />
+  <meta name="keywords" content="NVG Seattle, North Bengaluru apartments, pre-launch, GRASP Realtors, Artistic Skyline" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="NVG Seattle — Pre-Launch North Bengaluru" />
+  <meta property="og:description" content="Artistic Skyline residences in North Bengaluru. 3 BHK from 1,285 sq.ft · ₹1L EOI." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/nvgseatle.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NVG Seattle — GRASP Realtors" />
+  <meta name="twitter:description" content="Pre-launch Artistic Skyline residences in North Bengaluru." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/nvgseatle.jpg" />
+  <link rel="stylesheet" href="./css/grasp-site.css" />
+  <link rel="stylesheet" href="./css/project-page.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,8 +35,8 @@
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
-            serif: ["DM Sans", "system-ui", "sans-serif"],
-            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "Georgia", "serif"],
+            serifBrand: ["Playfair Display", "Georgia", "serif"],
           },
         },
       },
@@ -40,6 +58,7 @@ img { max-width: 100%; display: block; }
 :root {
   --font-display: "DM Sans", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
   --brand-navy: #242d63;
   --brand-navy-deep: #1a2340;
   --brand-gold: #cd7f2f;
@@ -62,7 +81,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   font-weight: 600;
   line-height: 1.12;
 }
-.section-title em { font-style: italic; color: var(--brand-gold); }
+.section-title em { font-family: var(--font-serif); font-style: italic; color: var(--brand-gold); }
 .section-sub {
   text-align: center;
   color: #5b6478;
@@ -145,41 +164,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 }
 
 /* —— Real Homes layout (NVG Seattle) —— */
-.page-main { padding-top: 0; }
-
-.rh-hero {
-  position: relative;
-  min-height: clamp(320px, 52vh, 480px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(110px + 3rem) 0 clamp(2rem, 5vh, 3rem);
-  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-  overflow: hidden;
-}
-.rh-hero-inner {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.rh-hero-kicker { margin: 0 0 0.75rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cd7f2f; }
-.rh-hero h1 {
-  margin: 0 0 1.25rem;
-  font-size: clamp(1.35rem, 3.2vw, 3rem);
-  font-weight: 600;
-  line-height: 1.15;
-  color: #ffffff;
-  white-space: nowrap;
-}
-.rh-hero h1 em { font-style: italic; color: #cd7f2f; }
-.rh-hero-list { list-style: none; margin: 0 0 1.75rem; padding: 0; display: grid; gap: 0.45rem; justify-items: center; }
-.rh-hero-list li { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.92rem; color: rgba(255, 255, 255, 0.88); font-weight: 500; }
-.rh-hero-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #cd7f2f; flex-shrink: 0; }
-.rh-hero .rh-btn { background: #cd7f2f; color: #1a2340 !important; }
-.rh-hero .rh-btn:hover { background: #e8a04e; color: #1a2340 !important; }
 .rh-btn {
   display: inline-flex;
   align-items: center;
@@ -218,9 +202,8 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   color: #fff;
   padding: clamp(3.5rem, 7vw, 5rem) 0;
 }
-.rh-dark-band h2 { color: #fff; margin: 0 0 1rem; font-size: clamp(1.85rem, 4vw, 2.75rem); max-width: none; }
-.rh-dark-band h3 { color: #fff; margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 600; }
-.rh-dark-band h3 em { font-style: italic; color: #cd7f2f; }
+.rh-dark-band h2 { margin: 0 0 1rem; max-width: none; }
+.rh-dark-band h3 { margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); }
 .rh-experience-intro { color: rgba(255,255,255,0.82); max-width: 40rem; line-height: 1.75; margin: 0 0 2rem; }
 .rh-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; max-width: 32rem; }
 .rh-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.5; }
@@ -233,8 +216,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .rh-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: start; }
 @media (min-width: 900px) { .rh-split { grid-template-columns: 1fr 1fr; } }
 .rh-split-head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
-.rh-split-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
-.rh-split-head h2 em { font-style: italic; color: #cd7f2f; }
 .rh-accordion { border-top: 1px solid #e5e8f2; }
 .rh-acc-item { border-bottom: 1px solid #e5e8f2; }
 .rh-acc-btn {
@@ -250,7 +231,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .rh-accordion-wrap { max-width: 42rem; margin: 0 auto; }
 .rh-units-head { display: grid; gap: 1rem; margin-bottom: 2rem; align-items: end; }
 @media (min-width: 900px) { .rh-units-head { grid-template-columns: 1fr 1fr; gap: 3rem; } }
-.rh-units-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; max-width: 14ch; }
 .rh-units-head p { margin: 0; color: #5b6478; line-height: 1.75; }
 .rh-units-grid {
   display: grid;
@@ -284,7 +264,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 }
 
 .rh-map-head { text-align: center; margin-bottom: 2rem; }
-.rh-map-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
 .rh-nearby-kicker { margin: 0 0 1rem; text-align: center; }
 .rh-map-wrap { border-radius: 2px; overflow: hidden; margin-top: 2.5rem; border: 1px solid #e8ecf2; }
 .rh-map-wrap iframe { display: block; width: 100%; height: clamp(280px, 40vw, 400px); border: 0; }
@@ -302,12 +281,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .wa-float-btn { background: #25d366; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); }
 .wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
 
-@media (max-width: 767px) {
-  .rh-hero { min-height: auto; padding-top: calc(100px + 2.5rem); }
-  .rh-hero h1 { font-size: clamp(1.1rem, 4.8vw, 1.65rem); }
-}
-
-/* Footer */
 .site-footer { background-color: #242d63 !important; color: #fff; border-top: none; }
 .site-footer .footer-logo { filter: brightness(0) invert(1); }
 .site-footer h3 { color: #fff; }
@@ -319,7 +292,16 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .site-footer .footer-social a:hover { background: #cd7f2f; }
   </style>
 </head>
-<body class="inner-page bg-white font-sansBrand">
+<body class="inner-page bg-white font-sansBrand is-loading">
+
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="page-loader-inner">
+      <div class="page-loader-ring">
+        <img src="./logo/grasp-logo.png" alt="" class="page-loader-logo" width="160" height="80" />
+      </div>
+      <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
 
   <header id="navbar" class="w-full h-[125px] header-at-top transition-all duration-300">
     <div class="relative h-full flex items-center justify-between site-shell">
@@ -346,32 +328,43 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   <main class="page-main w-full max-w-full overflow-x-hidden">
 
     <!-- Hero -->
-    <section class="rh-hero" aria-label="NVG Seattle">
+    <section class="rh-hero" aria-label="NVG Seattle" data-hero-animate>
+      <div class="rh-hero-bg" aria-hidden="true">
+        <img src="./image/nvgseatle.jpg" alt="NVG Seattle — Artistic Skyline residences, North Bengaluru" width="1600" height="900" loading="eager" fetchpriority="high" />
+      </div>
+      <div class="rh-hero-overlay" aria-hidden="true"></div>
       <div class="site-shell rh-hero-inner">
-        <p class="rh-hero-kicker">Pre-Launch · Artistic Skyline · North Bengaluru</p>
-        <h1>Elegance Through <em>Simplicity</em></h1>
-        <ul class="rh-hero-list">
+        <p class="rh-hero-kicker" data-hero-animate-item>NVG Seattle · Pre-Launch · North Bengaluru</p>
+        <h1 data-hero-animate-item>Elegance Through <em>Simplicity</em></h1>
+        <ul class="rh-hero-list" data-hero-animate-item>
           <li>Artistic Skyline Marketing Pavilion</li>
           <li>3 BHK from 1,285 sq.ft · North facing</li>
           <li>₹1L fully refundable EOI</li>
         </ul>
-        <a href="contact.html" class="rh-btn">Register Your EOI</a>
+        <a href="contact.html" class="rh-btn" data-hero-animate-item>Register Your EOI</a>
+        <nav class="rh-hero-breadcrumb" aria-label="Breadcrumb" data-hero-animate-item>
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">→</span>
+          <a href="properties.html">Properties</a>
+          <span aria-hidden="true">→</span>
+          <span>NVG Seattle</span>
+        </nav>
       </div>
     </section>
 
     <!-- Stats -->
     <section class="rh-section" style="padding-top:0;">
       <div class="site-shell">
-        <div class="rh-stats-row">
-          <div>
+        <div class="rh-stats-row scroll-reveal-stagger">
+          <div class="scroll-reveal-item">
             <strong>11,430</strong>
             <span>Sq.Ft. total site area</span>
           </div>
-          <div>
+          <div class="scroll-reveal-item">
             <strong>3,907</strong>
             <span>Sq.Ft. marketing pavilion</span>
           </div>
-          <div>
+          <div class="scroll-reveal-item">
             <strong>₹1L</strong>
             <span>Fully refundable pre-launch EOI</span>
           </div>
@@ -382,9 +375,9 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <!-- Key highlights -->
     <section class="rh-dark-band" id="location">
       <div class="site-shell">
-        <div class="rh-location-split">
+        <div class="rh-location-split scroll-reveal-text">
           <div class="rh-location-copy">
-            <h2>A New Way to Live in North Bengaluru</h2>
+            <h2 class="section-title">A New Way to Live in <em>North Bengaluru</em></h2>
             <p class="rh-experience-intro">Strategically located on a 100-ft main road in one of North Bengaluru's most established and rapidly appreciating residential hubs.</p>
             <h3>Key <em>Highlights</em></h3>
             <ul class="rh-checklist">
@@ -397,7 +390,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
             </ul>
           </div>
           <div class="rh-location-media">
-            <img src="./image/hero-interior.jpg" alt="NVG Seattle — luxury living in North Bengaluru" width="800" height="600" loading="lazy" />
+            <img src="./image/nvgseatle.jpg" alt="NVG Seattle — pre-launch apartment complex, North Bengaluru" width="1200" height="900" loading="lazy" />
           </div>
         </div>
       </div>
@@ -407,7 +400,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section" id="design">
       <div class="site-shell">
         <div class="rh-split-head">
-          <h2>Design &amp; <em>Experience</em></h2>
+          <h2 class="section-title">Design &amp; <em>Experience</em></h2>
         </div>
         <div class="rh-accordion-wrap">
           <div class="rh-accordion" id="designAccordion">
@@ -452,7 +445,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section rh-section--soft" id="scale">
       <div class="site-shell">
         <div class="rh-units-head">
-          <h2>Check NVG Seattle <em>Spaces</em></h2>
+          <h2 class="section-title">Check NVG Seattle <em>Spaces</em></h2>
           <p>From the 3,907 sq.ft Artistic Skyline Pavilion to the 1,285 sq.ft north-facing 3 BHK — every space is planned for light, ventilation, and long-term value.</p>
         </div>
         <div class="rh-units-grid">
@@ -479,41 +472,41 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section" id="map">
       <div class="site-shell">
         <div class="rh-map-head">
-          <h2>All Roads Lead To <em>NVG Seattle</em></h2>
+          <h2 class="section-title">All Roads Lead To <em>NVG Seattle</em></h2>
         </div>
         <p class="section-kicker rh-nearby-kicker">Nearby Highlights</p>
         <div class="rh-nearby">
           <div class="rh-nearby-item">
             <i class="fa-solid fa-road" aria-hidden="true"></i>
-            <div><strong>100-Ft Main Road</strong><span>Primary connectivity</span></div>
+            <div class="scroll-reveal-item"><strong>100-Ft Main Road</strong><span>Primary connectivity</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-plane" aria-hidden="true"></i>
-            <div><strong>Airport Zone</strong><span>North Bengaluru growth</span></div>
+            <div class="scroll-reveal-item"><strong>Airport Zone</strong><span>North Bengaluru growth</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-map" aria-hidden="true"></i>
-            <div><strong>BDA Layout</strong><span>3,000-acre planned zone</span></div>
+            <div class="scroll-reveal-item"><strong>BDA Layout</strong><span>3,000-acre planned zone</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-            <div><strong>High Appreciation</strong><span>Investor corridor</span></div>
+            <div class="scroll-reveal-item"><strong>High Appreciation</strong><span>Investor corridor</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-compass" aria-hidden="true"></i>
-            <div><strong>North-East Facing</strong><span>Energy-efficient homes</span></div>
+            <div class="scroll-reveal-item"><strong>North-East Facing</strong><span>Energy-efficient homes</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-sun" aria-hidden="true"></i>
-            <div><strong>Natural Light</strong><span>Cross-ventilation</span></div>
+            <div class="scroll-reveal-item"><strong>Natural Light</strong><span>Cross-ventilation</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-building" aria-hidden="true"></i>
-            <div><strong>11,430 Sq.Ft.</strong><span>Total site footprint</span></div>
+            <div class="scroll-reveal-item"><strong>11,430 Sq.Ft.</strong><span>Total site footprint</span></div>
           </div>
           <div class="rh-nearby-item">
             <i class="fa-solid fa-handshake" aria-hidden="true"></i>
-            <div><strong>₹1L EOI</strong><span>Fully refundable</span></div>
+            <div class="scroll-reveal-item"><strong>₹1L EOI</strong><span>Fully refundable</span></div>
           </div>
         </div>
         <div class="rh-map-wrap">
@@ -693,5 +686,8 @@ p, a, li, span, button, label { font-family: var(--font-body); }
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./js/grasp-site.js"></script>
 </body>
 </html>

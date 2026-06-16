@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Properties — GRASP Realtors</title>
+  <meta name="description" content="Browse curated pre-launch Bengaluru projects including NVG Seattle, NVG Nippon, and Sambhav Buloke. Verified details and guided support from GRASP Realtors." />
+  <meta name="keywords" content="GRASP properties, Bengaluru apartments, pre-launch projects, NVG Seattle, North Bengaluru real estate" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="Properties — GRASP Realtors" />
+  <meta property="og:description" content="Handpicked pre-launch and rising-soon developments across North Bengaluru and KIADB corridors." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/nvgseatle.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Properties — GRASP Realtors" />
+  <meta name="twitter:description" content="Curated pre-launch Bengaluru projects with verified details and transparent pricing." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/nvgseatle.jpg" />
+  <link rel="stylesheet" href="./css/grasp-site.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +72,35 @@
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; }
-    h1, h2, h3, h4 { color: var(--brand-navy); font-family: var(--font-display); letter-spacing: -0.025em; }
+    h1, h2, h3, h4 { color: var(--brand-navy); font-family: var(--font-display); letter-spacing: -0.02em; }
+
+    h2 em,
+    h3 em,
+    .section-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--brand-gold);
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--brand-navy);
+    }
+
+    .advice-card .section-title,
+    .advice-card h2 {
+      color: #ffffff;
+    }
+
+    .advice-card h2 em,
+    .advice-card .section-title em {
+      color: var(--brand-gold);
+    }
 
     .site-shell {
       width: 100%;
@@ -71,19 +116,6 @@
       font-weight: 800;
       letter-spacing: 0.34em;
       text-transform: uppercase;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: clamp(2rem, 4.5vw, 3.35rem);
-      font-weight: 700;
-      line-height: 1.08;
-    }
-    .section-title em {
-      color: var(--brand-gold);
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-style: italic;
     }
 
     /* Navbar */
@@ -140,7 +172,11 @@
 
     /* Hero */
     .properties-hero {
-      padding: calc(112px + 3.5rem) 0 3.5rem;
+      min-height: clamp(320px, 46vh, 460px);
+      padding: calc(112px + 5rem) 0 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       color: #fff;
       background: #1a2340;
@@ -185,11 +221,6 @@
     }
     .portfolio-intro h2 {
       margin: 0 0 1.25rem;
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--brand-navy);
-      letter-spacing: -0.02em;
     }
     .portfolio-intro p {
       margin: 0;
@@ -375,11 +406,7 @@
     }
     .advice-card h2 {
       margin: 0 0 0.85rem;
-      max-width: 18ch;
-      color: #fff;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
+      max-width: 20ch;
     }
     .advice-card p {
       margin: 0;
@@ -488,7 +515,7 @@
       #navbar { height: 100px; }
       .navbar-logo { position: static !important; transform: none !important; margin-right: auto; }
       .navbar-logo img { height: 80px; }
-      .properties-hero { padding: calc(100px + 2.5rem) 0 2.5rem; }
+      .properties-hero { min-height: clamp(260px, 40vh, 360px); padding: calc(100px + 3.25rem) 0 3.25rem; }
       .portfolio-intro { grid-template-columns: 1fr; }
       .intro-stats { max-width: 420px; }
       .properties-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -496,7 +523,7 @@
 
     @media (max-width: 767px) {
       .site-shell { padding-inline: 1rem; }
-      .properties-hero { padding: calc(100px + 2rem) 0 2rem; }
+      .properties-hero { min-height: clamp(240px, 36vh, 320px); padding: calc(100px + 2.75rem) 0 2.75rem; }
       .intro-stats { max-width: none; grid-template-columns: 1fr 1fr; }
       .properties-grid { grid-template-columns: 1fr; }
       .advice-card { grid-template-columns: 1fr; border-radius: 24px; }
@@ -516,7 +543,17 @@
   </style>
 </head>
 
-<body class="inner-page bg-white font-sansBrand">
+<body class="inner-page bg-white font-sansBrand is-loading">
+
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="page-loader-inner">
+      <div class="page-loader-ring">
+        <img src="./logo/grasp-logo.png" alt="" class="page-loader-logo" width="160" height="80" />
+      </div>
+      <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+
   <header id="navbar" class="header-at-top">
     <div class="relative h-full flex items-center justify-between site-shell">
       <nav class="site-nav-pill hidden lg:flex flex-1" aria-label="Main navigation">
@@ -557,7 +594,7 @@
       <div class="site-shell">
         <div class="portfolio-intro scroll-reveal-text">
           <div>
-            <h2>Creating Opportunities. Building Your Future.</h2>
+            <h2 class="section-title">Creating <em>Opportunities</em> — Building Your Future</h2>
             <p>
               GRASP Realtors curates verified pre-launch and rising-soon projects across North Bengaluru and KIADB corridors — with clear specs, transparent pricing, and guided support from shortlist to enquiry.
             </p>
@@ -646,7 +683,7 @@
         <div class="advice-card scroll-reveal-text">
           <div>
             <p class="section-kicker">Need Expert Help?</p>
-            <h2>Not sure which property fits you?</h2>
+            <h2 class="section-title">Not Sure Which Property <em>Fits You?</em></h2>
             <p>
               Share your budget, preferred location, and purpose. Our advisors will help shortlist relevant projects and guide you through the next step.
             </p>
@@ -809,31 +846,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    (function () {
-      function initScrollAnimations() {
-        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const start = "top 82%";
-        const toggleActions = "play reverse play reverse";
-        gsap.utils.toArray(".scroll-reveal-text").forEach(function (el) {
-          gsap.fromTo(el, { y: 34, opacity: 0 }, {
-            y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
-            scrollTrigger: { trigger: el, start, toggleActions }
-          });
-        });
-        gsap.utils.toArray(".scroll-reveal-stagger").forEach(function (wrap) {
-          gsap.fromTo(wrap.querySelectorAll(".scroll-reveal-item"), { y: 50, opacity: 0 }, {
-            y: 0, opacity: 1, duration: 0.7, stagger: 0.14, ease: "power3.out",
-            scrollTrigger: { trigger: wrap, start, toggleActions }
-          });
-        });
-        ScrollTrigger.refresh();
-      }
-      window.addEventListener("load", initScrollAnimations);
-      window.addEventListener("resize", function () { if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh(); });
-    })();
-  </script>
+  <script src="./js/grasp-site.js"></script>
 </body>
 </html>

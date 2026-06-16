@@ -4,9 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NVG Nippon · GRASP Realtors</title>
+  <meta name="description" content="NVG Nippon — pre-launch residences near KIADB opposite SAP Campus, Bengaluru. 2–3 BHK from 1,800 sq.ft. Enquire with GRASP Realtors." />
+  <meta name="keywords" content="NVG Nippon, KIADB apartments, SAP Campus Bengaluru, pre-launch, GRASP Realtors" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="NVG Nippon — Pre-Launch KIADB" />
+  <meta property="og:description" content="Pre-launch residences near KIADB opposite SAP Campus, Bengaluru." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/nvgnipon.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NVG Nippon — GRASP Realtors" />
+  <meta name="twitter:description" content="Pre-launch KIADB corridor residences near SAP Campus." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/nvgnipon.jpg" />
+  <link rel="stylesheet" href="./css/grasp-site.css" />
+  <link rel="stylesheet" href="./css/project-page.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,8 +35,8 @@
           fontFamily: {
             sans: ["DM Sans", "system-ui", "sans-serif"],
             sansBrand: ["DM Sans", "system-ui", "sans-serif"],
-            serif: ["DM Sans", "system-ui", "sans-serif"],
-            serifBrand: ["DM Sans", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "Georgia", "serif"],
+            serifBrand: ["Playfair Display", "Georgia", "serif"],
           },
         },
       },
@@ -40,6 +58,7 @@ img { max-width: 100%; display: block; }
 :root {
   --font-display: "DM Sans", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
   --brand-navy: #242d63;
   --brand-navy-deep: #1a2340;
   --brand-gold: #cd7f2f;
@@ -62,7 +81,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   font-weight: 600;
   line-height: 1.12;
 }
-.section-title em { font-style: italic; color: var(--brand-gold); }
+.section-title em { font-family: var(--font-serif); font-style: italic; color: var(--brand-gold); }
 .section-sub {
   text-align: center;
   color: #5b6478;
@@ -145,41 +164,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 }
 
 /* —— Real Homes layout (NVG Nippon) —— */
-.page-main { padding-top: 0; }
-
-.rh-hero {
-  position: relative;
-  min-height: clamp(320px, 52vh, 480px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(110px + 3rem) 0 clamp(2rem, 5vh, 3rem);
-  background: linear-gradient(135deg, #242d63 0%, #1a2340 100%);
-  overflow: hidden;
-}
-.rh-hero-inner {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.rh-hero-kicker { margin: 0 0 0.75rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cd7f2f; }
-.rh-hero h1 {
-  margin: 0 0 1.25rem;
-  font-size: clamp(1.35rem, 3.2vw, 3rem);
-  font-weight: 600;
-  line-height: 1.15;
-  color: #ffffff;
-  white-space: nowrap;
-}
-.rh-hero h1 em { font-style: italic; color: #cd7f2f; }
-.rh-hero-list { list-style: none; margin: 0 0 1.75rem; padding: 0; display: grid; gap: 0.45rem; justify-items: center; }
-.rh-hero-list li { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.92rem; color: rgba(255, 255, 255, 0.88); font-weight: 500; }
-.rh-hero-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #cd7f2f; flex-shrink: 0; }
-.rh-hero .rh-btn { background: #cd7f2f; color: #1a2340 !important; }
-.rh-hero .rh-btn:hover { background: #e8a04e; color: #1a2340 !important; }
 .rh-btn {
   display: inline-flex;
   align-items: center;
@@ -218,9 +202,8 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   color: #fff;
   padding: clamp(3.5rem, 7vw, 5rem) 0;
 }
-.rh-dark-band h2 { color: #fff; margin: 0 0 1rem; font-size: clamp(1.85rem, 4vw, 2.75rem); max-width: none; }
-.rh-dark-band h3 { color: #fff; margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 600; }
-.rh-dark-band h3 em { font-style: italic; color: #cd7f2f; }
+.rh-dark-band h2 { margin: 0 0 1rem; max-width: none; }
+.rh-dark-band h3 { margin: 0 0 1.25rem; font-size: clamp(1.35rem, 3vw, 1.75rem); }
 .rh-experience-intro { color: rgba(255,255,255,0.82); max-width: 40rem; line-height: 1.75; margin: 0 0 2rem; }
 .rh-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; max-width: 32rem; }
 .rh-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.5; }
@@ -233,8 +216,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .rh-split { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: start; }
 @media (min-width: 900px) { .rh-split { grid-template-columns: 1fr 1fr; } }
 .rh-split-head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
-.rh-split-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
-.rh-split-head h2 em { font-style: italic; color: #cd7f2f; }
 .rh-accordion { border-top: 1px solid #e5e8f2; }
 .rh-acc-item { border-bottom: 1px solid #e5e8f2; }
 .rh-acc-btn {
@@ -257,8 +238,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   margin: 0 auto 2rem;
   max-width: 40rem;
 }
-.rh-units-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; max-width: none; }
-.rh-units-head h2 em { font-style: italic; color: #cd7f2f; }
 .rh-units-head p { margin: 0; color: #5b6478; line-height: 1.75; }
 .rh-units-grid {
   display: grid;
@@ -292,7 +271,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 }
 
 .rh-map-head { text-align: center; margin-bottom: 2rem; }
-.rh-map-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #242d63; }
 .rh-nearby-kicker { margin: 0 0 1rem; text-align: center; }
 .rh-map-wrap { border-radius: 2px; overflow: hidden; margin-top: 2.5rem; border: 1px solid #e8ecf2; }
 .rh-map-wrap iframe { display: block; width: 100%; height: clamp(280px, 40vw, 400px); border: 0; }
@@ -310,12 +288,6 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .wa-float-btn { background: #25d366; font-size: 1.65rem; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); }
 .wa-float-btn:hover { background: #1ebe57; color: #fff; transform: scale(1.06); }
 
-@media (max-width: 767px) {
-  .rh-hero { min-height: auto; padding-top: calc(100px + 2.5rem); }
-  .rh-hero h1 { font-size: clamp(1.1rem, 4.8vw, 1.65rem); }
-}
-
-/* Footer */
 .site-footer { background-color: #242d63 !important; color: #fff; border-top: none; }
 .site-footer .footer-logo { filter: brightness(0) invert(1); }
 .site-footer h3 { color: #fff; }
@@ -327,7 +299,16 @@ p, a, li, span, button, label { font-family: var(--font-body); }
 .site-footer .footer-social a:hover { background: #cd7f2f; }
   </style>
 </head>
-<body class="inner-page bg-white font-sansBrand">
+<body class="inner-page bg-white font-sansBrand is-loading">
+
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="page-loader-inner">
+      <div class="page-loader-ring">
+        <img src="./logo/grasp-logo.png" alt="" class="page-loader-logo" width="160" height="80" />
+      </div>
+      <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
 
   <header id="navbar" class="w-full h-[125px] header-at-top transition-all duration-300">
     <div class="relative h-full flex items-center justify-between site-shell">
@@ -354,32 +335,43 @@ p, a, li, span, button, label { font-family: var(--font-body); }
   <main class="page-main w-full max-w-full overflow-x-hidden">
 
     <!-- Hero -->
-    <section class="rh-hero" aria-label="NVG Nippon">
+    <section class="rh-hero" aria-label="NVG Nippon" data-hero-animate>
+      <div class="rh-hero-bg" aria-hidden="true">
+        <img src="./image/nvgnipon.jpg" alt="" width="1600" height="900" loading="eager" />
+      </div>
+      <div class="rh-hero-overlay" aria-hidden="true"></div>
       <div class="site-shell rh-hero-inner">
-        <p class="rh-hero-kicker">Pre-Launch · KIADB · Opposite SAP Campus</p>
-        <h1>Thoughtfully Planned <em>Community</em></h1>
-        <ul class="rh-hero-list">
+        <p class="rh-hero-kicker" data-hero-animate-item>NVG Nippon · Pre-Launch · KIADB Corridor</p>
+        <h1 data-hero-animate-item>Thoughtfully Planned <em>Community</em></h1>
+        <ul class="rh-hero-list" data-hero-animate-item>
           <li>2 &amp; 3 BHK premium residences</li>
           <li>360+ units across 4 acres</li>
           <li>Opposite SAP Campus, KIADB</li>
         </ul>
-        <a href="contact.html" class="rh-btn">Register Your EOI</a>
+        <a href="contact.html" class="rh-btn" data-hero-animate-item>Register Your EOI</a>
+        <nav class="rh-hero-breadcrumb" aria-label="Breadcrumb" data-hero-animate-item>
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">→</span>
+          <a href="properties.html">Properties</a>
+          <span aria-hidden="true">→</span>
+          <span>NVG Nippon</span>
+        </nav>
       </div>
     </section>
 
     <!-- Stats -->
     <section class="rh-section" style="padding-top:0;">
       <div class="site-shell">
-        <div class="rh-stats-row">
-          <div>
+        <div class="rh-stats-row scroll-reveal-stagger">
+          <div class="scroll-reveal-item">
             <strong>360+</strong>
             <span>Residential units</span>
           </div>
-          <div>
+          <div class="scroll-reveal-item">
             <strong>4 Acres</strong>
             <span>Master planned layout</span>
           </div>
-          <div>
+          <div class="scroll-reveal-item">
             <strong>Opposite SAP</strong>
             <span>KIADB prime location</span>
           </div>
@@ -390,9 +382,9 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <!-- Key highlights -->
     <section class="rh-dark-band" id="location">
       <div class="site-shell">
-        <div class="rh-location-split">
+        <div class="rh-location-split scroll-reveal-text">
           <div class="rh-location-copy">
-            <h2>A New Way to Live in KIADB</h2>
+            <h2 class="section-title">A New Way to Live in <em>KIADB</em></h2>
             <p class="rh-experience-intro">Strategically positioned opposite SAP Campus in KIADB — surrounded by major employers, infrastructure, and lifestyle destinations in Bengaluru's growth corridor.</p>
             <h3>Key <em>Highlights</em></h3>
             <ul class="rh-checklist">
@@ -415,7 +407,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section" id="design">
       <div class="site-shell">
         <div class="rh-split-head">
-          <h2>Amenities &amp; <em>Experience</em></h2>
+          <h2 class="section-title">Amenities &amp; <em>Experience</em></h2>
         </div>
         <div class="rh-accordion-wrap">
           <div class="rh-accordion" id="designAccordion">
@@ -460,7 +452,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section rh-section--soft" id="scale">
       <div class="site-shell">
         <div class="rh-units-head">
-          <h2>Check NVG Nippon <em>Spaces</em></h2>
+          <h2 class="section-title">Check NVG Nippon <em>Spaces</em></h2>
           <p>2 BHK from 1,100–1,200 sq.ft and 3 BHK from 1,700–1,800 sq.ft — spacious layouts with clubhouse amenities across 4 acres.</p>
         </div>
         <div class="rh-units-grid">
@@ -487,7 +479,7 @@ p, a, li, span, button, label { font-family: var(--font-body); }
     <section class="rh-section" id="map">
       <div class="site-shell">
         <div class="rh-map-head">
-          <h2>All Roads Lead To <em>NVG Nippon</em></h2>
+          <h2 class="section-title">All Roads Lead To <em>NVG Nippon</em></h2>
         </div>
         <p class="section-kicker rh-nearby-kicker">Nearby Highlights</p>
         <div class="rh-nearby">
@@ -701,5 +693,8 @@ p, a, li, span, button, label { font-family: var(--font-body); }
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./js/grasp-site.js"></script>
 </body>
 </html>

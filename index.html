@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRASP Realtors</title>
+  <meta name="description" content="GRASP Realtors helps you discover verified pre-launch apartments and investment properties across North Bengaluru and KIADB corridors with transparent real estate guidance." />
+  <meta name="keywords" content="GRASP Realtors, Bengaluru real estate, pre-launch apartments, North Bengaluru, KIADB properties, luxury residences" />
+  <meta name="author" content="GRASP Realtors" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#242d63" />
+  <link rel="icon" href="./logo/grasp-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="./logo/grasp-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRASP Realtors" />
+  <meta property="og:title" content="GRASP Realtors — Verified Bengaluru Properties" />
+  <meta property="og:description" content="Verified pre-launch apartments and investment properties across Bengaluru with transparent guidance from enquiry to handover." />
+  <meta property="og:image" content="https://www.grasprealtors.com/image/modern-apartment-complex-with-lush-green-landscaping.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GRASP Realtors" />
+  <meta name="twitter:description" content="Verified pre-launch apartments and investment properties across Bengaluru." />
+  <meta name="twitter:image" content="https://www.grasprealtors.com/image/modern-apartment-complex-with-lush-green-landscaping.jpg" />
   <link rel="preload" href="./video/slowly_go.mp4" as="video" type="video/mp4" />
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,11 +113,17 @@
     .section-title em,
     .section-title .text-accent,
     .rh-intro h2 em,
-    .rh-projects-head h2 em {
+    .rh-projects-head h2 em,
+    .home-gallery-heading em {
       font-family: var(--font-serif) !important;
       font-style: italic;
       font-weight: 500;
       color: var(--brand-gold);
+    }
+
+    .hero-video-section .hero-rotator-track em,
+    .hero-rotator-line em {
+      color: #ffffff !important;
     }
 
     .hero-video-section h1 {
@@ -1253,89 +1275,99 @@
     }
 
     .hero-spotlight {
-      background: #ffffff;
-      padding: clamp(1.15rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2rem) clamp(1.2rem, 2.8vw, 1.5rem);
-      text-align: center;
+      background: linear-gradient(180deg, #fdfbf7 0%, #ffffff 100%);
+      padding: clamp(1.35rem, 3vw, 1.75rem) clamp(1.25rem, 4vw, 2rem) clamp(1.35rem, 2.8vw, 1.75rem);
+      text-align: left;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      border-top: 1px solid rgba(205, 127, 47, 0.18);
     }
 
     @media (min-width: 1024px) {
       .sobha-hero .hero-spotlight {
         background: transparent;
+        border-top: none;
       }
     }
 
-    .hero-spotlight-aside {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.85rem;
-      margin: clamp(0.65rem, 2vw, 0.9rem) auto 0;
-      width: 100%;
-      max-width: 18rem;
-    }
-
-    .hero-spotlight-price {
-      font-family: var(--font-body);
-      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-      font-weight: 500;
-      color: var(--brand-navy) !important;
-      margin: clamp(0.85rem, 2.5vw, 1.15rem) 0 0;
-    }
-
-    .hero-spotlight-aside .hero-spotlight-price {
-      margin: 0;
-    }
-
     .hero-spotlight-inner {
-      max-width: 28rem;
-      margin: 0 auto;
+      max-width: 32rem;
+      margin: 0;
+      padding-left: 0.85rem;
+      border-left: 2px solid var(--brand-gold);
+    }
+
+    .hero-spotlight-kicker {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
     }
 
     .hero-spotlight-title {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 2.8vw, 1.125rem);
-      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
       color: var(--brand-navy) !important;
-      margin: 0 0 0.4rem;
-      line-height: 1.45;
-      letter-spacing: 0.01em;
+      margin: 0 0 0.55rem;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
     }
 
-    .hero-spotlight-location,
+    .hero-spotlight-title em {
+      font-family: var(--font-serif) !important;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--brand-gold);
+    }
+
+    .hero-spotlight-location {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      font-weight: 500;
+      color: var(--muted) !important;
+      margin: 0 0 0.5rem;
+      line-height: 1.65;
+    }
+
     .hero-spotlight-specs {
       font-family: var(--font-body);
-      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-      font-weight: 400;
-      color: var(--brand-navy) !important;
-      margin: 0 0 0.35rem;
-      line-height: 1.5;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted) !important;
+      margin: 0 0 0.15rem;
+      line-height: 1.6;
     }
 
     .hero-spotlight-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: 16rem;
-      background: var(--brand-gold);
-      color: #111111;
-      padding: 0.9rem 2.75rem;
+      width: auto;
+      margin-top: 1.15rem;
+      background: var(--brand-navy);
+      color: #ffffff;
+      padding: 0.95rem 2.35rem;
       font-family: var(--font-body);
       font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 0;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
 
     .hero-spotlight-cta:hover {
-      background: #b06a24;
+      background: var(--brand-gold);
       color: #ffffff;
+      transform: translateY(-1px);
     }
 
     .navbar-logo-text {
@@ -1430,91 +1462,85 @@
         right: 0;
         z-index: 10;
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: clamp(1.5rem, 4vw, 3rem);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 0;
         width: 100%;
         max-width: none;
         margin: 0;
         padding: 0 clamp(2.5rem, 5vw, 4.5rem) clamp(3rem, 6vh, 4.5rem);
-        padding-right: clamp(5.5rem, 9vw, 7rem);
         background: transparent;
         text-align: left;
         box-sizing: border-box;
         pointer-events: none;
       }
 
-      .sobha-hero .hero-spotlight-inner,
-      .sobha-hero .hero-spotlight-aside {
-        pointer-events: auto;
-      }
-
       .sobha-hero .hero-spotlight-inner {
-        max-width: min(52rem, 62vw);
+        pointer-events: auto;
+        max-width: min(36rem, 48vw);
         margin: 0;
-        flex: 1 1 auto;
+        padding-left: 1rem;
+        border-left-color: var(--brand-gold);
       }
 
-      .sobha-hero .hero-spotlight-aside {
-        flex: 0 0 auto;
-        align-items: flex-end;
-        margin-top: 0;
-        gap: 1.25rem;
+      .sobha-hero .hero-spotlight-kicker {
+        color: var(--brand-gold);
+        text-shadow: none;
       }
 
       .sobha-hero .hero-spotlight-title {
         font-family: var(--font-display);
-        font-size: clamp(1.85rem, 2.8vw, 2.75rem);
+        font-size: clamp(1.5rem, 2.4vw, 2.15rem);
         font-weight: 700;
         letter-spacing: -0.02em;
-        text-transform: none;
         color: #ffffff !important;
-        margin: 0 0 0.5rem;
-        line-height: 1.15;
-        text-shadow: none;
+        margin: 0 0 0.55rem;
+        line-height: 1.2;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
       }
 
-      .sobha-hero .hero-spotlight-location,
-      .sobha-hero .hero-spotlight-specs {
-        color: rgba(255, 255, 255, 0.95) !important;
-        font-size: clamp(0.9rem, 1.15vw, 1.05rem);
-        margin: 0 0 0.3rem;
-        text-shadow: none;
+      .sobha-hero .hero-spotlight-title em {
+        color: var(--brand-gold);
       }
 
-      .sobha-hero .hero-spotlight-specs {
-        margin-bottom: 0;
-      }
-
-      .sobha-hero .hero-spotlight-price {
-        color: #ffffff !important;
-        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+      .sobha-hero .hero-spotlight-location {
+        font-family: var(--font-serif);
+        font-style: italic;
         font-weight: 500;
-        margin: 0;
-        text-align: right;
-        white-space: nowrap;
+        color: rgba(255, 255, 255, 0.94) !important;
+        font-size: clamp(1rem, 1.35vw, 1.2rem);
+        margin: 0 0 0.45rem;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .sobha-hero .hero-spotlight-specs {
+        color: rgba(255, 255, 255, 0.72) !important;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        margin-bottom: 0;
         text-shadow: none;
       }
 
       .sobha-hero .hero-spotlight-cta {
-        margin: 0;
-        padding: 0.85rem 2.25rem;
+        margin: 1.15rem 0 0;
+        padding: 0.9rem 2.35rem;
+        background: var(--brand-gold);
+        color: #ffffff;
         border-radius: 0;
+      }
+
+      .sobha-hero .hero-spotlight-cta:hover {
+        background: #ffffff;
+        color: var(--brand-navy);
       }
     }
 
     @media (max-width: 1023px) and (min-width: 768px) {
       .sobha-hero .hero-spotlight {
         padding: 1.1rem 1.5rem 1.35rem;
-        align-items: center;
-        text-align: center;
-      }
-
-      .sobha-hero .hero-spotlight-aside {
-        margin: 0.75rem auto 0;
-        gap: 0.95rem;
-        align-items: center;
+        align-items: flex-start;
+        text-align: left;
       }
 
       .float-contact-btns {
@@ -1586,14 +1612,14 @@
         flex: 0 0 auto;
         padding: 1.15rem 1.25rem 1.5rem;
         margin: 0;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
       }
 
       .sobha-hero .hero-spotlight-inner {
         width: 100%;
         max-width: 28rem;
-        margin: 0 auto;
+        margin: 0;
       }
 
       .sobha-hero .hero-spotlight-title {
@@ -1605,23 +1631,9 @@
         margin: 0 0 0.35rem;
       }
 
-      .sobha-hero .hero-spotlight-aside {
-        margin: 0.85rem auto 0;
-        gap: 1rem;
-        width: 100%;
-        max-width: 18rem;
-        align-items: center;
-      }
-
-      .sobha-hero .hero-spotlight-price {
-        text-align: center;
-        width: 100%;
-      }
-
       .sobha-hero .hero-spotlight-cta {
-        width: 100%;
-        max-width: 16rem;
-        margin: 0 auto;
+        width: auto;
+        margin: 1rem 0 0;
         text-align: center;
         box-sizing: border-box;
       }
@@ -2558,7 +2570,7 @@
   </style>
 </head>
 
-<body class="has-hero bg-white font-sansBrand is-loading">
+<body class="has-hero bg-white font-sansBrand is-loading" data-video-loader="true">
 
   <div id="pageLoader" class="page-loader" role="status" aria-live="polite" aria-label="Loading website">
     <div class="page-loader-inner">
@@ -2634,13 +2646,10 @@
         <div class="hero-video-panel hero-video-panel--sobha">
           <div class="hero-video-rotator" aria-live="polite">
             <h1 class="hero-rotator-track">
-              <span class="hero-rotator-line is-active">A <em>New Standard</em></span>
+              <span class="hero-rotator-line is-active">New <em>Standard</em></span>
               <span class="hero-rotator-line">Of <em>Royal Living</em></span>
-              <span class="hero-rotator-line"><em>Speak Prestige</em></span>
-              <span class="hero-rotator-line hero-rotator-line--brand">
-                <span class="hero-rotator-brand-main">GRASP</span>
-                <span class="hero-rotator-brand-sub">REALTORS</span>
-              </span>
+              <span class="hero-rotator-line">Speak <em>Prestige</em></span>
+              <span class="hero-rotator-line">GRASP <em>Realtors</em></span>
             </h1>
           </div>
         </div>
@@ -2648,13 +2657,11 @@
 
       <div class="hero-spotlight">
         <div class="hero-spotlight-inner">
-          <h2 class="hero-spotlight-title">GRASP REALTORS</h2>
-          <p class="hero-spotlight-location">Luxury Residences Across Bengaluru</p>
-          <p class="hero-spotlight-specs">North Bengaluru · KIADB · 3 Pre-Launch Projects</p>
-        </div>
-        <div class="hero-spotlight-aside">
-          <p class="hero-spotlight-price">Starting From ₹1L EOI*</p>
-          <a href="contact.html" class="hero-spotlight-cta">Enquire Now</a>
+          <p class="hero-spotlight-kicker">Premium Real Estate Advisory</p>
+          <h2 class="hero-spotlight-title">GRASP <em>Realtors</em></h2>
+          <p class="hero-spotlight-location">Curated luxury apartments &amp; pre-launch estates across Bengaluru</p>
+          <p class="hero-spotlight-specs">North Bengaluru · KIADB Corridor · Verified Projects</p>
+          <a href="contact.html" class="hero-spotlight-cta">Private Enquiry</a>
         </div>
       </div>
     </section>
@@ -2708,20 +2715,6 @@
             <p>Area trends, rental yield, and growth potential before you invest.</p>
           </article>
 
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="rh-intro">
-    <div class="site-shell">
-      <div class="rh-intro-grid scroll-reveal-text">
-        <h2 class="section-title">Where Life Becomes <em>Magical</em></h2>
-        <div class="rh-intro-copy">
-          <p>
-            We break the usual real-estate experience with curated projects, clear documentation, and expert support — from first visit through handover — so every decision feels confident and every space feels truly yours.
-          </p>
-          <a href="about.html" class="rh-text-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2850,7 +2843,7 @@
   .why-choose-strip {
     position: relative;
     border-radius: 999px;
-    padding: 0.18rem;
+    padding: 0.14rem;
     background: linear-gradient(90deg, #cd7f2f, #242d63);
     overflow: hidden;
   }
@@ -2870,15 +2863,17 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
     border-radius: 999px;
-    background: linear-gradient(135deg, #ffffff, #eef1f8);
-    padding: 2rem 2.2rem;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    background: #f6f8fc;
+    padding: 1.9rem 2rem;
+    box-shadow: 0 14px 32px rgba(36, 45, 99, 0.12);
   }
 
   .why-choose-card {
     position: relative;
-    padding: 0 1.25rem;
+    padding: 0.35rem 1.1rem;
     text-align: center;
+    border-radius: 0.35rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   }
 
   .why-choose-card:nth-child(2),
@@ -2898,17 +2893,17 @@
   }
 
   .why-choose-icon {
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
     border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.9rem;
     background: linear-gradient(135deg, #242d63, #3f57a6);
     color: #ffffff;
     box-shadow: 0 10px 22px rgba(15, 23, 42, 0.3);
-    font-size: 1.65rem;
+    font-size: 1.5rem;
   }
 
   .why-choose-card:nth-child(2) .why-choose-icon {
@@ -2924,27 +2919,33 @@
   }
 
   .why-choose-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-weight: 600;
+    margin: 0 0 0.45rem;
+    font-size: clamp(1rem, 1.6vw, 1.08rem);
+    font-weight: 700;
     font-family: var(--font-display);
     color: #242d63;
   }
 
   .why-choose-card p {
     margin: 0;
-    font-size: clamp(0.88rem, 1.5vw, 0.98rem);
-    line-height: 1.65;
+    font-size: clamp(0.84rem, 1.25vw, 0.93rem);
+    line-height: 1.55;
     color: #4b5563;
   }
 
-  .why-choose-card {
-    transition: transform 0.28s ease, box-shadow 0.28s ease;
+  .why-choose-card:hover {
+    transform: translateY(-2px);
   }
 
-  .why-choose-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.25);
+  .why-choose-card:nth-child(3) {
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    transform: translateY(-8px);
+    z-index: 2;
+  }
+
+  .why-choose-card:nth-child(3):hover {
+    transform: translateY(-8px);
   }
 
   @media (max-width: 1024px) {
@@ -2963,6 +2964,9 @@
       padding: 0 0.9rem;
       border-right: none;
       border-left: none;
+      transform: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
     }
   }
 
@@ -3272,6 +3276,8 @@
     max-width: 520px;
     margin: 0 auto;
     width: 100%;
+    padding: 1.75rem;
+    isolation: isolate;
   }
 
   @media (min-width: 992px) {
@@ -3281,10 +3287,41 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .about-v2-media {
+      padding: 1rem;
+    }
+  }
+
   .about-v2-image {
-    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 24px 56px rgba(36, 45, 99, 0.15);
+    box-shadow: 0 20px 46px rgba(36, 45, 99, 0.14);
+  }
+
+  .about-v2-media::before,
+  .about-v2-media::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    background: #cd7f2f;
+  }
+
+  .about-v2-media::before {
+    top: 0;
+    left: 0;
+    width: 34%;
+    height: 48%;
+  }
+
+  .about-v2-media::after {
+    right: 0;
+    bottom: 0;
+    width: 46%;
+    height: 22%;
+    background: #cd7f2f;
   }
 
   .about-v2-photo {
@@ -3410,6 +3447,137 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 />
 
+<!-- INTERIOR GALLERY -->
+<section id="home-gallery" class="home-gallery font-sans" aria-label="Interior gallery">
+  <div class="site-shell">
+    <header class="home-gallery-head scroll-reveal-text">
+      <h2 class="section-title home-gallery-heading">Luxury living, redefined by <em>design</em></h2>
+      <p class="home-gallery-lead">
+        Our apartments offer curated interiors and premium finishes — creating sanctuaries where elegance meets everyday comfort across Bengaluru.
+      </p>
+    </header>
+  </div>
+
+  <div class="home-gallery-strip scroll-reveal-stagger" role="list">
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/modern-wooden-bedroom-design.jpg"
+        alt="Modern wooden bedroom with gold accents and built-in wardrobes"
+        loading="lazy"
+      />
+    </figure>
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/kitchen2.jpg"
+        alt="Modern kitchen with wood cabinetry and central island"
+        loading="lazy"
+      />
+    </figure>
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/modernbedroom.jpg"
+        alt="Contemporary luxury bedroom with warm lighting"
+        loading="lazy"
+      />
+    </figure>
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/hall1.jpg"
+        alt="Modern luxury living and dining interior"
+        loading="lazy"
+      />
+    </figure>
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/abouthall.jpg"
+        alt="Spacious luxury living room interior"
+        loading="lazy"
+      />
+    </figure>
+    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+      <img
+        src="./image/modern-kitchen.jpg"
+        alt="Contemporary kitchen with premium finishes"
+        loading="lazy"
+      />
+    </figure>
+    
+  </div>
+</section>
+
+<style>
+  .home-gallery {
+    background: #f8f6f2;
+    padding: clamp(2.5rem, 6vw, 4rem) 0 0;
+  }
+
+  .home-gallery-head {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+
+  .home-gallery-heading {
+    margin: 0 0 1.25rem;
+  }
+
+  .home-gallery-lead {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    line-height: 1.75;
+    color: rgba(36, 45, 99, 0.72);
+  }
+
+  .home-gallery-strip {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-gallery-item {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    height: clamp(200px, 22vw, 280px);
+    background: #e8e4dc;
+  }
+
+  .home-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+  }
+
+  .home-gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 767px) {
+    .home-gallery {
+      padding-bottom: 0;
+    }
+
+    .home-gallery-strip {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .home-gallery-item {
+      flex: 0 0 58vw;
+      height: clamp(180px, 42vw, 220px);
+      scroll-snap-align: start;
+    }
+  }
+</style>
+
 <!-- PROJECTS — listing cards -->
 <section id="projects" class="rh-projects font-sans">
   <div class="site-shell">
@@ -3506,43 +3674,33 @@
 <!-- EXPERT AGENTS -->
 <section id="founders" class="home-experts-section font-sans">
   <div class="site-shell">
-    <header class="home-experts-head scroll-reveal-text">
-      <h2 class="section-title home-experts-title">Meet Our Expert Agents</h2>
-      <p class="home-experts-sub">Dedicated professionals ready to help you find your perfect property.</p>
-    </header>
-
     <div class="home-experts-viewport">
       <div class="home-experts-track" id="foundersTrack">
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Sridhar</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Gokul Raj</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Prashanth Jain</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Akshay Gangadhar</h3>
           </div>
         </article>
         <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <a href="contact.html" class="home-experts-contact">Contact</a>
           <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
           <div class="home-experts-info">
             <h3>Mr Rakshith</h3>
@@ -3899,7 +4057,7 @@
   }
 
   .home-experts-section {
-    padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    padding: clamp(2rem, 4vw, 3rem) 0;
     background: #ffffff;
   }
 
@@ -3946,9 +4104,10 @@
     scroll-snap-align: center;
     border-radius: 14px;
     overflow: hidden;
-    background: linear-gradient(180deg, #c8ccd4 0%, #8e96a8 28%, #3d4a63 62%, #1a2340 100%);
+    border: 1px solid #dbe7f6;
+    background: #f7fbff;
     cursor: default;
-    transition: box-shadow 0.35s ease;
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   }
 
   @media (max-width: 767px) {
@@ -4028,7 +4187,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(15, 20, 40, 0.1) 0%, rgba(15, 20, 40, 0.72) 100%);
+    background: linear-gradient(180deg, rgba(36, 45, 99, 0.02) 0%, rgba(36, 45, 99, 0.1) 100%);
     pointer-events: none;
   }
 
@@ -4046,7 +4205,9 @@
   .home-experts-card.is-active,
   .home-experts-card:hover,
   .home-experts-card:focus-within {
+    background: linear-gradient(160deg, #242d63 0%, #1a2340 75%);
     box-shadow: 0 16px 40px rgba(26, 35, 64, 0.22);
+    transform: translateY(-4px);
   }
 
   .home-experts-contact {
@@ -4086,9 +4247,10 @@
     font-size: clamp(3.5rem, 12vw, 5.5rem);
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(36, 45, 99, 0.08);
     pointer-events: none;
     user-select: none;
+    transition: color 0.35s ease;
   }
 
   .home-experts-info {
@@ -4115,6 +4277,19 @@
     font-family: var(--font-body) !important;
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     font-weight: 600;
+    color: #242d63;
+    transition: color 0.35s ease;
+  }
+
+  .home-experts-card.is-active .home-experts-watermark,
+  .home-experts-card:hover .home-experts-watermark,
+  .home-experts-card:focus-within .home-experts-watermark {
+    color: rgba(255, 255, 255, 0.14);
+  }
+
+  .home-experts-card.is-active .home-experts-info h3,
+  .home-experts-card:hover .home-experts-info h3,
+  .home-experts-card:focus-within .home-experts-info h3 {
     color: #ffffff;
   }
 
@@ -4632,6 +4807,11 @@
       if (document.querySelector("#cinematicHandoff")) {
         fromRight("#cinematicHandoff .scroll-reveal-text", "#cinematicHandoff");
         staggerUp("#cinematicHandoff .scroll-reveal-item", "#cinematicHandoff .scroll-reveal-stagger");
+      }
+
+      if (document.querySelector("#home-gallery")) {
+        fromRight("#home-gallery .home-gallery-head", "#home-gallery");
+        staggerUp("#home-gallery .scroll-reveal-item", "#home-gallery .home-gallery-strip");
       }
 
       // Projects — header, cards, CTA
