@@ -3458,50 +3458,51 @@
     </header>
   </div>
 
-  <div class="home-gallery-strip scroll-reveal-stagger" role="list">
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/modern-wooden-bedroom-design.jpg"
-        alt="Modern wooden bedroom with gold accents and built-in wardrobes"
-        loading="lazy"
-      />
-    </figure>
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/kitchen2.jpg"
-        alt="Modern kitchen with wood cabinetry and central island"
-        loading="lazy"
-      />
-    </figure>
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/modernbedroom.jpg"
-        alt="Contemporary luxury bedroom with warm lighting"
-        loading="lazy"
-      />
-    </figure>
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/hall1.jpg"
-        alt="Modern luxury living and dining interior"
-        loading="lazy"
-      />
-    </figure>
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/abouthall.jpg"
-        alt="Spacious luxury living room interior"
-        loading="lazy"
-      />
-    </figure>
-    <figure class="home-gallery-item scroll-reveal-item" role="listitem">
-      <img
-        src="./image/modern-kitchen.jpg"
-        alt="Contemporary kitchen with premium finishes"
-        loading="lazy"
-      />
-    </figure>
-    
+  <div class="home-gallery-viewport">
+    <div class="home-gallery-strip home-gallery-strip--auto scroll-reveal-stagger" role="list">
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/modern-wooden-bedroom-design.jpg"
+          alt="Modern wooden bedroom with gold accents and built-in wardrobes"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/kitchen2.jpg"
+          alt="Modern kitchen with wood cabinetry and central island"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/modernbedroom.jpg"
+          alt="Contemporary luxury bedroom with warm lighting"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/hall1.jpg"
+          alt="Modern luxury living and dining interior"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/abouthall.jpg"
+          alt="Spacious luxury living room interior"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="home-gallery-item scroll-reveal-item" role="listitem">
+        <img
+          src="./image/modern-kitchen.jpg"
+          alt="Contemporary kitchen with premium finishes"
+          loading="lazy"
+        />
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -3528,18 +3529,37 @@
     color: rgba(36, 45, 99, 0.72);
   }
 
+  .home-gallery-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
   .home-gallery-strip {
     display: flex;
-    width: 100%;
+    width: max-content;
     gap: 0;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  .home-gallery-strip--auto.is-animating {
+    animation: homeGalleryMarquee 42s linear infinite;
+    will-change: transform;
+  }
+
+  .home-gallery-viewport:hover .home-gallery-strip--auto.is-animating {
+    animation-play-state: paused;
+  }
+
+  @keyframes homeGalleryMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   .home-gallery-item {
-    flex: 1 1 0;
-    min-width: 0;
+    flex: 0 0 auto;
+    width: clamp(220px, 16.666vw, 320px);
     margin: 0;
     overflow: hidden;
     height: clamp(200px, 22vw, 280px);
@@ -3553,10 +3573,33 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.6s ease;
+    pointer-events: none;
   }
 
   .home-gallery-item:hover img {
     transform: scale(1.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-gallery-viewport {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .home-gallery-strip--auto {
+      animation: none !important;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+    .home-gallery-strip--auto .home-gallery-item[aria-hidden="true"] {
+      display: none;
+    }
+
+    .home-gallery-item {
+      flex: 0 0 58vw;
+      width: auto;
+    }
   }
 
   @media (max-width: 767px) {
@@ -3564,16 +3607,9 @@
       padding-bottom: 0;
     }
 
-    .home-gallery-strip {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
     .home-gallery-item {
-      flex: 0 0 58vw;
+      width: clamp(200px, 58vw, 280px);
       height: clamp(180px, 42vw, 220px);
-      scroll-snap-align: start;
     }
   }
 </style>
@@ -4910,6 +4946,24 @@
       }
 
       startSync();
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var strip = document.querySelector(".home-gallery-strip--auto");
+      if (!strip) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      var items = strip.querySelectorAll(".home-gallery-item:not([aria-hidden])");
+      items.forEach(function (item) {
+        var clone = item.cloneNode(true);
+        clone.classList.remove("scroll-reveal-item");
+        clone.setAttribute("aria-hidden", "true");
+        strip.appendChild(clone);
+      });
+
+      strip.classList.add("is-animating");
     })();
   </script>
 
