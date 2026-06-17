@@ -1033,6 +1033,16 @@
     }
 
     @media (max-width: 767px) {
+      .rh-projects {
+        padding: clamp(2.5rem, 6vw, 3.5rem) 0 clamp(1.25rem, 3vw, 1.75rem);
+      }
+
+      .rh-projects-cta {
+        margin-top: 1.25rem;
+      }
+    }
+
+    @media (max-width: 767px) {
       .hero-video-section:not(.sobha-hero) {
         min-height: 100svh;
         min-height: 100dvh;
@@ -3707,45 +3717,54 @@
   </div>
 </section>
 
-<!-- EXPERT AGENTS -->
-<section id="founders" class="home-experts-section font-sans">
+<!-- FOUNDERS -->
+<section id="founders" class="founders-section font-sans">
   <div class="site-shell">
-    <header class="home-experts-head scroll-reveal-text">
-      <h2 class="section-title home-experts-title">Meet Our <em>Founders</em></h2>
+    <header class="founders-head scroll-reveal-text">
+      <h2 class="section-title founders-title">Meet Our <em>Founders</em></h2>
     </header>
-    <div class="home-experts-viewport">
-      <div class="home-experts-track" id="foundersTrack">
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Sridhar</h3>
-          </div>
-        </article>
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Gokul Raj</h3>
-          </div>
-        </article>
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Prashanth Jain</h3>
-          </div>
-        </article>
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Akshay Gangadhar</h3>
-          </div>
-        </article>
-        <article class="home-experts-card home-founders-member scroll-reveal-item" tabindex="0">
-          <span class="home-experts-watermark" aria-hidden="true">GRASP</span>
-          <div class="home-experts-info">
-            <h3>Mr Rakshith</h3>
-          </div>
-        </article>
-      </div>
+    <div class="founders-grid" id="foundersTrack">
+      <article class="founders-card home-founders-member scroll-reveal-item">
+        <button type="button" class="founders-photo-wrap founders-photo-trigger" data-founder-img="./image/gokul.jpg" data-founder-name="Mr Gokul Raj" aria-label="View photo of Mr Gokul Raj">
+          <img src="./image/gokul.jpg" alt="Mr Gokul Raj" loading="lazy" />
+        </button>
+        <h3 class="founders-name">Mr Gokul Raj</h3>
+      </article>
+      <article class="founders-card home-founders-member scroll-reveal-item">
+        <button type="button" class="founders-photo-wrap founders-photo-trigger" data-founder-img="./image/raksitha.jpg" data-founder-name="Mr Rakshith" aria-label="View photo of Mr Rakshith">
+          <img src="./image/raksitha.jpg" alt="Mr Rakshith" loading="lazy" />
+        </button>
+        <h3 class="founders-name">Mr Rakshith</h3>
+      </article>
+      <article class="founders-card home-founders-member scroll-reveal-item">
+        <button type="button" class="founders-photo-wrap founders-photo-trigger" data-founder-img="./image/akshya.jpg" data-founder-name="Mr Akshay Gangadhar" aria-label="View photo of Mr Akshay Gangadhar">
+          <img src="./image/akshya.jpg" alt="Mr Akshay Gangadhar" loading="lazy" />
+        </button>
+        <h3 class="founders-name">Mr Akshay Gangadhar</h3>
+      </article>
+      <article class="founders-card home-founders-member scroll-reveal-item">
+        <button type="button" class="founders-photo-wrap founders-photo-trigger" data-founder-img="./image/sridhar.jpg" data-founder-name="Mr GR Sridhar" aria-label="View photo of Mr GR Sridhar">
+          <img src="./image/sridhar.jpg" alt="Mr GR Sridhar" loading="lazy" />
+        </button>
+        <h3 class="founders-name">Mr GR Sridhar</h3>
+      </article>
+      <article class="founders-card home-founders-member scroll-reveal-item">
+        <button type="button" class="founders-photo-wrap founders-photo-trigger" data-founder-img="./image/prashanth.jpg" data-founder-name="Mr Prashanth Jain" aria-label="View photo of Mr Prashanth Jain">
+          <img src="./image/prashanth.jpg" alt="Mr Prashanth Jain" loading="lazy" />
+        </button>
+        <h3 class="founders-name">Mr Prashanth Jain</h3>
+      </article>
+    </div>
+  </div>
+
+  <div id="foundersLightbox" class="founders-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="foundersLightboxName">
+    <button type="button" class="founders-lightbox-backdrop" aria-label="Close photo"></button>
+    <div class="founders-lightbox-panel">
+      <button type="button" class="founders-lightbox-close" aria-label="Close">&times;</button>
+      <figure class="founders-lightbox-figure">
+        <img id="foundersLightboxImg" src="" alt="" />
+        <figcaption id="foundersLightboxName"></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -4095,255 +4114,226 @@
     box-shadow: 0 12px 32px rgba(205, 127, 47, 0.35);
   }
 
-  .home-experts-section {
-    padding: clamp(2rem, 4vw, 3rem) 0;
-    background: #ffffff;
+  .founders-section {
+    padding: clamp(3rem, 6vw, 4.5rem) 0;
+    background: #f3f4f6;
   }
 
-  .home-experts-head {
-    text-align: center;
-    max-width: 36rem;
-    margin: 0 auto clamp(2rem, 4vw, 2.75rem);
-  }
-
-  .home-experts-title {
-    margin: 0 0 0.65rem;
-  }
-
-  .home-experts-sub {
-    margin: 0;
-    font-size: clamp(0.92rem, 1.5vw, 1.02rem);
-    line-height: 1.65;
-    color: #6b7280;
-  }
-
-  .home-experts-viewport {
-    overflow: hidden;
-    max-width: min(100%, 380px);
-    margin: 0 auto;
-  }
-
-  .home-experts-track {
+  .founders-section .site-shell {
     display: flex;
-    gap: clamp(1rem, 2vw, 1.5rem);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .home-experts-track::-webkit-scrollbar { display: none; }
+  .founders-head {
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+  }
 
-  .home-experts-card {
-    position: relative;
-    flex: 0 0 100%;
-    min-width: 100%;
-    min-height: clamp(380px, 62vw, 460px);
-    scroll-snap-align: center;
-    border-radius: 14px;
+  .founders-title {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .founders-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    align-items: start;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+
+  .founders-card {
+    margin: 0;
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founders-photo-wrap {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    min-height: clamp(220px, 26vw, 290px);
+    box-sizing: border-box;
+    background: #ffffff;
     overflow: hidden;
-    border: 1px solid #dbe7f6;
-    background: #f7fbff;
-    cursor: default;
-    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    display: block;
+    border: 3px solid #cd7f2f;
+    box-shadow: 0 8px 24px rgba(36, 45, 99, 0.12);
+    cursor: zoom-in;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   }
 
-  @media (max-width: 767px) {
-    .home-experts-viewport {
-      max-width: 100%;
-      overflow: visible;
-    }
-
-    .home-experts-track {
-      flex-direction: column;
-      overflow-x: visible;
-      overflow-y: visible;
-      scroll-snap-type: none;
-      gap: 1.25rem;
-    }
-
-    .home-experts-card {
-      flex: none;
-      width: 100%;
-      min-width: 0;
-      min-height: 360px;
-      scroll-snap-align: none;
-    }
-
-    .home-experts-card .home-experts-info,
-    .home-experts-card .home-experts-contact {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
+  .founders-photo-wrap:hover,
+  .founders-photo-wrap:focus-visible {
+    transform: translateY(-6px) scale(1.03);
+    border-color: #242d63;
+    box-shadow: 0 16px 36px rgba(36, 45, 99, 0.22);
+    outline: none;
   }
 
-  @media (min-width: 768px) {
-    .home-experts-viewport {
-      max-width: 100%;
-      overflow: visible;
-    }
-
-    .home-experts-track {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: clamp(0.75rem, 1.5vw, 1.25rem);
-      overflow: visible;
-      scroll-snap-type: none;
-    }
-
-    .home-experts-card {
-      flex: none;
-      min-width: 0;
-      width: auto;
-      min-height: clamp(220px, 28vw, 320px);
-      scroll-snap-align: none;
-    }
-
-    .home-experts-watermark {
-      font-size: clamp(1.75rem, 3vw, 2.75rem);
-    }
-
-    .home-experts-info h3 {
-      font-size: clamp(0.82rem, 1.1vw, 0.95rem);
-    }
-
-    .home-experts-card .home-experts-info,
-    .home-experts-card .home-experts-contact {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-
-    .home-experts-dots {
-      display: none;
-    }
-  }
-
-  .home-experts-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(36, 45, 99, 0.02) 0%, rgba(36, 45, 99, 0.1) 100%);
-    pointer-events: none;
-  }
-
-  .home-experts-photo {
-    position: absolute;
-    inset: 0;
+  .founders-photo-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
-    max-width: none;
-    z-index: 0;
+    object-position: center 18%;
+    display: block;
   }
 
-  .home-experts-card.is-active,
-  .home-experts-card:hover,
-  .home-experts-card:focus-within {
-    background: linear-gradient(160deg, #242d63 0%, #1a2340 75%);
-    box-shadow: 0 16px 40px rgba(26, 35, 64, 0.22);
-    transform: translateY(-4px);
-  }
-
-  .home-experts-contact {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 4;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.45rem 1.1rem;
-    border-radius: 999px;
-    background: #ffffff;
-    color: #242d63;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-decoration: none;
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
-  }
-
-  .home-experts-contact:hover {
-    background: #cd7f2f;
-    color: #ffffff;
-  }
-
-  .home-experts-watermark {
-    position: absolute;
+  .founders-lightbox {
+    position: fixed;
     inset: 0;
-    z-index: 2;
+    z-index: 12000;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-body);
-    font-size: clamp(3.5rem, 12vw, 5.5rem);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: rgba(36, 45, 99, 0.08);
-    pointer-events: none;
-    user-select: none;
-    transition: color 0.35s ease;
-  }
-
-  .home-experts-info {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    padding: clamp(1.25rem, 3vw, 1.75rem);
+    padding: 1.25rem;
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  .home-experts-card.is-active .home-experts-info,
-  .home-experts-card:hover .home-experts-info,
-  .home-experts-card:focus-within .home-experts-info {
+  .founders-lightbox.is-open {
     opacity: 1;
-    transform: translateY(0);
-  }
-
-  .home-experts-info h3 {
-    margin: 0;
-    font-family: var(--font-body) !important;
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    font-weight: 600;
-    color: #242d63;
-    transition: color 0.35s ease;
-  }
-
-  .home-experts-card.is-active .home-experts-watermark,
-  .home-experts-card:hover .home-experts-watermark,
-  .home-experts-card:focus-within .home-experts-watermark {
-    color: rgba(255, 255, 255, 0.14);
-  }
-
-  .home-experts-card.is-active .home-experts-info h3,
-  .home-experts-card:hover .home-experts-info h3,
-  .home-experts-card:focus-within .home-experts-info h3 {
-    color: #ffffff;
-  }
-
-  .home-experts-card.is-active .home-experts-contact {
-    opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
     pointer-events: auto;
   }
 
-  @media (hover: hover) {
-    .home-experts-card:hover .home-experts-contact,
-    .home-experts-card:focus-within .home-experts-contact {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+  .founders-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(17, 24, 39, 0.82);
+    cursor: pointer;
+  }
+
+  .founders-lightbox-panel {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 420px);
+    transform: scale(0.92);
+    transition: transform 0.3s ease;
+  }
+
+  .founders-lightbox.is-open .founders-lightbox-panel {
+    transform: scale(1);
+  }
+
+  .founders-lightbox-close {
+    position: absolute;
+    top: -0.35rem;
+    right: -0.35rem;
+    z-index: 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #242d63;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .founders-lightbox-figure {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    border: 4px solid #cd7f2f;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .founders-lightbox-figure img {
+    display: block;
+    width: 100%;
+    max-height: min(70vh, 420px);
+    object-fit: contain;
+    object-position: center center;
+    background: #f3f4f6;
+  }
+
+  .founders-lightbox-figure figcaption {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #242d63;
+    background: #ffffff;
+  }
+
+  .founders-name {
+    margin: 0.85rem 0 0;
+    width: 100%;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.88rem, 1.1vw, 1rem);
+    font-weight: 700;
+    line-height: 1.35;
+    color: #111827;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    .founders-section {
+      padding-top: clamp(1.25rem, 3vw, 1.75rem);
+      padding-bottom: clamp(2rem, 5vw, 2.75rem);
+    }
+
+    .founders-head {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .founders-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 720px;
+    }
+
+    .founders-card {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .founders-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: min(100%, 280px);
+    }
+
+    .founders-card {
+      max-width: 100%;
+    }
+
+    .founders-photo-wrap {
+      min-height: clamp(260px, 72vw, 320px);
+    }
+
+    .founders-name {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .founders-grid {
+      gap: 2rem;
     }
   }
 
@@ -4558,8 +4548,8 @@
 
           <li class="flex gap-3">
             <i class="fa-solid fa-phone text-brandGold mt-1"></i>
-            <a href="tel:+917996363331" class="hover:text-brandGold transition">
-              +91 79963 63331
+            <a href="tel:+917996355033" class="hover:text-brandGold transition">
+              +91 79963 55033
             </a>
           </li>
 
@@ -4861,8 +4851,8 @@
       }
 
       if (document.querySelector("#founders")) {
-        fromRight("#founders .home-experts-head", "#founders");
-        staggerUp("#founders .home-founders-member", "#founders .home-experts-track");
+        fromRight("#founders .founders-head", "#founders");
+        staggerUp("#founders .home-founders-member", "#founders .founders-grid");
       }
 
       // Price calculator — text left, form right
@@ -4954,6 +4944,54 @@
 
   <script>
     (function () {
+      var lightbox = document.getElementById("foundersLightbox");
+      var lightboxImg = document.getElementById("foundersLightboxImg");
+      var lightboxName = document.getElementById("foundersLightboxName");
+      var triggers = document.querySelectorAll(".founders-photo-trigger");
+      if (!lightbox || !lightboxImg || !lightboxName || !triggers.length) return;
+
+      var closeBtn = lightbox.querySelector(".founders-lightbox-close");
+      var backdrop = lightbox.querySelector(".founders-lightbox-backdrop");
+      var lastFocus = null;
+
+      function openLightbox(imgSrc, name) {
+        lastFocus = document.activeElement;
+        lightboxImg.src = imgSrc;
+        lightboxImg.alt = name;
+        lightboxName.textContent = name;
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      triggers.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          openLightbox(btn.getAttribute("data-founder-img"), btn.getAttribute("data-founder-name"));
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+      if (backdrop) backdrop.addEventListener("click", closeLightbox);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
       var strip = document.querySelector(".home-gallery-strip--auto");
       if (!strip) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -5019,10 +5057,10 @@
   </script>
 
   <div class="float-contact-btns">
-    <a href="tel:+917996363331" class="call-float-btn" aria-label="Call GRASP Realtors">
+    <a href="tel:+917996355033" class="call-float-btn" aria-label="Call GRASP Realtors">
       <i class="fa-solid fa-phone"></i>
     </a>
-    <a href="https://wa.me/917996363331" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/917996355033" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chat on WhatsApp">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
