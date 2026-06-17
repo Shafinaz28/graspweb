@@ -546,22 +546,41 @@
       width: 100%;
     }
 
-    @keyframes heroRotatorZoomInOut {
-      0%, 100% {
-        transform: translateY(-50%) scale(1);
+    @keyframes heroLetterZoomInOut {
+      0% {
+        transform: scale(0.35);
+        opacity: 0;
       }
-      50% {
-        transform: translateY(-50%) scale(1.1);
+      40% {
+        transform: scale(1.32);
+        opacity: 1;
+      }
+      65% {
+        transform: scale(0.88);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
 
-    @keyframes heroRotatorZoomInOutMobile {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
+    .hero-rotator-char {
+      display: inline-block;
+      transform: scale(0.35);
+      transform-origin: 50% 100%;
+      opacity: 0;
+    }
+
+    .hero-rotator-line.is-active .hero-rotator-char {
+      animation: heroLetterZoomInOut 0.72s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+      animation-delay: calc(var(--char-i, 0) * 0.07s);
+    }
+
+    .hero-rotator-line.is-settled .hero-rotator-char {
+      animation: none !important;
+      transform: scale(1);
+      opacity: 1;
     }
 
     .hero-rotator-line {
@@ -599,7 +618,6 @@
       opacity: 1;
       visibility: visible;
       z-index: 2;
-      animation: heroRotatorZoomInOut 2.8s ease-in-out infinite;
     }
 
     .hero-rotator-line--brand {
@@ -1226,6 +1244,12 @@
       .hero-rotator-line.is-active {
         transform: translateY(-50%) scale(1) !important;
       }
+      .hero-rotator-line.is-active .hero-rotator-char,
+      .hero-rotator-char {
+        animation: none !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+      }
       .sobha-hero .hero-rotator-line.is-active {
         transform: scale(1) !important;
       }
@@ -1611,7 +1635,6 @@
         display: block;
         opacity: 1;
         visibility: visible;
-        animation: heroRotatorZoomInOutMobile 2.8s ease-in-out infinite;
       }
 
       .sobha-hero .hero-rotator-line--brand {
@@ -2734,15 +2757,15 @@
     <div class="site-shell">
       <div class="rh-stats-grid scroll-reveal-stagger">
         <div class="rh-stat">
-          <strong>3</strong>
+          <strong class="rh-stat-value" data-count-to="3">0</strong>
           <span>Featured pre-launch projects across Bengaluru</span>
         </div>
         <div class="rh-stat">
-          <strong>500+</strong>
+          <strong class="rh-stat-value" data-count-to="500" data-suffix="+">0</strong>
           <span>Residences in our current project pipeline</span>
         </div>
         <div class="rh-stat">
-          <strong>15+</strong>
+          <strong class="rh-stat-value" data-count-to="15" data-suffix="+">0</strong>
           <span>Years guiding buyers &amp; investors with GRASP</span>
         </div>
       </div>
@@ -4744,6 +4767,83 @@
       return lenis;
     }
 
+    // Animated stat counters (3, 500+, 15+)
+    function initStatCounters() {
+      var statsSection = document.querySelector(".rh-stats");
+      if (!statsSection) return;
+
+      var counters = statsSection.querySelectorAll(".rh-stat-value");
+      if (!counters.length) return;
+
+      function setFinalValues() {
+        counters.forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count-to"), 10);
+          var suffix = el.getAttribute("data-suffix") || "";
+          el.textContent = target + suffix;
+        });
+      }
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setFinalValues();
+        return;
+      }
+
+      if (typeof gsap === "undefined") {
+        setFinalValues();
+        return;
+      }
+
+      var animated = false;
+
+      function runCounters() {
+        if (animated) return;
+        animated = true;
+
+        counters.forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count-to"), 10);
+          var suffix = el.getAttribute("data-suffix") || "";
+          var state = { val: 0 };
+
+          gsap.to(state, {
+            val: target,
+            duration: 2,
+            ease: "power2.out",
+            onUpdate: function () {
+              el.textContent = Math.round(state.val) + suffix;
+            }
+          });
+        });
+      }
+
+      if (typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.create({
+          trigger: statsSection,
+          start: "top 85%",
+          once: true,
+          onEnter: runCounters
+        });
+
+        ScrollTrigger.refresh();
+        var rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+          runCounters();
+        }
+      } else if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              runCounters();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.25 });
+        observer.observe(statsSection);
+      } else {
+        runCounters();
+      }
+    }
+
     // Scroll animations — play on scroll down, reverse on scroll up
     function initScrollAnimations() {
       if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
@@ -4867,6 +4967,7 @@
     function initPageMotion() {
       initLenis();
       initScrollAnimations();
+      initStatCounters();
       if (typeof ScrollTrigger !== "undefined") {
         ScrollTrigger.refresh();
       }
@@ -4884,17 +4985,82 @@
       var lines = document.querySelectorAll(".hero-rotator-line");
       var video = document.getElementById("heroVideo");
       if (!lines.length) return;
+
+      function wrapRotatorLetters(line) {
+        if (line.dataset.charsReady === "1") return;
+
+        var charIndex = 0;
+
+        function processNodes(source, target) {
+          Array.prototype.forEach.call(source.childNodes, function (node) {
+            if (node.nodeType === Node.TEXT_NODE) {
+              var text = node.textContent || "";
+              for (var i = 0; i < text.length; i++) {
+                var ch = text.charAt(i);
+                if (ch === " ") {
+                  target.appendChild(document.createTextNode(" "));
+                } else {
+                  var span = document.createElement("span");
+                  span.className = "hero-rotator-char";
+                  span.textContent = ch;
+                  span.style.setProperty("--char-i", String(charIndex));
+                  charIndex += 1;
+                  target.appendChild(span);
+                }
+              }
+            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "EM") {
+              var em = document.createElement("em");
+              processNodes(node, em);
+              target.appendChild(em);
+            }
+          });
+        }
+
+        var fragment = document.createDocumentFragment();
+        processNodes(line, fragment);
+        line.textContent = "";
+        line.appendChild(fragment);
+        line.dataset.charsReady = "1";
+      }
+
+      for (var w = 0; w < lines.length; w++) {
+        wrapRotatorLetters(lines[w]);
+      }
+
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       var stepSeconds = 3;
       var videoDuration = 18;
       var activeIndex = -1;
 
+      function restartLineAnimation(line) {
+        var chars = line.querySelectorAll(".hero-rotator-char");
+        line.classList.remove("is-settled");
+        for (var c = 0; c < chars.length; c++) {
+          chars[c].style.animation = "none";
+        }
+        void line.offsetWidth;
+        for (var c2 = 0; c2 < chars.length; c2++) {
+          chars[c2].style.animation = "";
+        }
+        var settleMs = chars.length * 70 + 820;
+        window.setTimeout(function () {
+          if (line.classList.contains("is-active")) {
+            line.classList.add("is-settled");
+          }
+        }, settleMs);
+      }
+
       function setActiveLine(index) {
         if (index === activeIndex) return;
         activeIndex = index;
         for (var i = 0; i < lines.length; i++) {
-          lines[i].classList.toggle("is-active", i === index);
+          var isActive = i === index;
+          lines[i].classList.toggle("is-active", isActive);
+          lines[i].classList.remove("is-settled");
+          if (isActive) {
+            restartLineAnimation(lines[i]);
+          }
         }
       }
 
