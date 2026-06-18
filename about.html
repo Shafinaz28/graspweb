@@ -750,7 +750,15 @@
     }
 
     .footer-contact li { display: flex; gap: 0.65rem; }
-    .footer-contact i { color: var(--gold); margin-top: 0.2rem; }
+    .footer-contact i { color: var(--gold); margin-top: 0.2rem; flex-shrink: 0; }
+    .footer-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .footer-phones a {
+      white-space: nowrap;
+    }
 
     .footer-social {
       display: flex;
@@ -1063,7 +1071,8 @@
           </div>
           <div class="about-cta-actions">
             <a href="contact.html" class="about-cta-btn">Get A Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            <a href="tel:+917996355033" class="about-cta-btn about-cta-btn--outline"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call Now</a>
+            <a href="tel:+917996355033" class="about-cta-btn about-cta-btn--outline"><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 79963 55033</a>
+            <a href="tel:+917996355933" class="about-cta-btn about-cta-btn--outline"><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 79963 55933</a>
           </div>
         </div>
       </div>
@@ -1101,7 +1110,7 @@
           <h3>Contact Us</h3>
           <ul class="footer-contact">
             <li><i class="fa-solid fa-location-dot"></i><span>#15, 4th B Main Road, Nagarbhavi Main Road<br />Kalyan Nagar, Bangalore, Karnataka 560040<br />India</span></li>
-            <li><i class="fa-solid fa-phone"></i><a href="tel:+917996355033">+91 79963 55033</a></li>
+            <li><i class="fa-solid fa-phone"></i><span class="footer-phones"><a href="tel:+917996355033">+91 79963 55033</a><a href="tel:+917996355933">+91 79963 55933</a></span></li>
             <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@grasprealtors.com">info@grasprealtors.com</a></li>
           </ul>
           <div class="footer-social">
