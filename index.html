@@ -32,6 +32,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
+  <link rel="stylesheet" href="./css/grasp-popup.css" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -2558,6 +2559,109 @@
       color: #ffffff;
     }
 
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .footer-main-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-main-grid > .footer-col--contact {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .footer-col {
+      min-width: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .footer-main-grid {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 2fr);
+        column-gap: clamp(3rem, 5vw, 4.5rem);
+        row-gap: 2rem;
+      }
+
+      .footer-main-grid > .footer-col--contact {
+        grid-column: auto;
+      }
+    }
+
+    .site-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-footer .footer-col h3 {
+      margin: 0 0 1.5rem;
+      line-height: 1.2;
+    }
+
+    .site-footer .footer-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-col--links {
+      text-align: left;
+    }
+
+    .footer-col--links .footer-links-list {
+      align-items: flex-start;
+    }
+
+    .site-footer .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .site-footer .footer-contact-list > li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .site-footer .footer-contact-list i {
+      width: 1rem;
+      flex-shrink: 0;
+      text-align: center;
+      margin-top: 0.25rem;
+      color: #cd7f2f;
+    }
+
+    .site-footer .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .site-footer .footer-social a {
+      border-radius: 9999px;
+    }
+
+    .site-footer .footer-logo {
+      display: block;
+      object-position: left top;
+    }
+
+    .site-footer > .site-shell {
+      padding-top: clamp(3rem, 5vw, 4rem);
+      padding-bottom: clamp(3rem, 5vw, 4rem);
+    }
+
+    .site-footer .footer-divider {
+      align-items: center;
+    }
+
     .fusion-copyright {
       border-top: 1px solid #dde2ef;
       margin-top: 2rem;
@@ -2585,6 +2689,13 @@
     .menu-open .line-3 {
       transform: rotate(-45deg) translate(8px, -8px);
       background: #242d63 !important;
+    }
+
+    @media (min-width: 1024px) {
+      #menuToggle,
+      .navbar-menu-btn {
+        display: none !important;
+      }
     }
 
     /* Scroll reveal — initial state set by GSAP */
@@ -2648,15 +2759,6 @@
 
       <div class="navbar-actions flex items-center justify-end gap-3 md:gap-4 flex-1">
         <a href="contact.html" class="nav-cta-btn hidden md:inline-flex">Get A Quote</a>
-        <button
-          id="menuToggleDesktop"
-          class="navbar-menu-desktop relative w-9 h-7 hidden lg:flex flex-col items-center justify-center gap-1.5 z-[10001]"
-          aria-label="Open menu"
-        >
-          <span class="menu-line line-1 block w-full h-[2px]"></span>
-          <span class="menu-line line-2 block w-full h-[2px]"></span>
-          <span class="menu-line line-3 block w-full h-[2px]"></span>
-        </button>
       </div>
     </div>
   </header>
@@ -2694,7 +2796,6 @@
           <h2 class="hero-spotlight-title">GRASP <em>Realtors</em></h2>
           <p class="hero-spotlight-location">Luxury apartments &amp; pre-launch estates across Bengaluru</p>
           <p class="hero-spotlight-specs">North Bengaluru · KIADB Corridor · Verified Projects</p>
-          <a href="contact.html" class="hero-spotlight-cta">Private Enquiry</a>
         </div>
       </div>
     </section>
@@ -4510,82 +4611,60 @@
 
 <!-- FOOTER -->
 <footer class="site-footer bg-[#242d63] font-sans">
-  <div class="site-shell py-16">
+  <div class="site-shell">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="footer-main-grid">
 
-      <!-- Brand -->
-      <div>
+      <div class="footer-col footer-col--brand">
         <img
           src="./logo/grasp-logo.png"
           alt="GRASP Realtors Logo"
           class="footer-logo h-20 w-auto mb-5 object-contain"
         />
 
-        <p class="leading-7 mb-6">
-          GRASP Realtors helps you find verified properties with transparent guidance, smart location insights, and professional real estate support.
+        <p class="leading-7 mb-0">
+          GRASP Realtors helps you find<br />
+          verified properties with transparent guidance,<br />
+          smart location insights, and professional real estate support.
         </p>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
-          Quick Links
-        </h3>
+      <div class="footer-col footer-col--links">
+        <h3 class="text-xl font-sansBrand font-semibold">Quick Links</h3>
 
-        <ul class="space-y-4">
-            <li><a href="index.html" class="hover:text-brandGold transition">Home</a></li>
-            <li><a href="about.html" class="hover:text-brandGold transition">About</a></li>
-            <li><a href="properties.html" class="hover:text-brandGold transition">Properties</a></li>
-            <li><a href="#" class="hover:text-brandGold transition">Blog</a></li>
-            <li><a href="contact.html" class="hover:text-brandGold transition">Contact</a></li>
+        <ul class="footer-links-list">
+          <li><a href="index.html" class="hover:text-brandGold transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-brandGold transition">About</a></li>
+          <li><a href="properties.html" class="hover:text-brandGold transition">Properties</a></li>
+          <li><a href="#" class="hover:text-brandGold transition">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-brandGold transition">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Services -->
-      <div>
-        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
-          Our Services
-        </h3>
+      <div class="footer-col footer-col--contact">
+        <h3 class="text-xl font-sansBrand font-semibold">Contact Us</h3>
 
-        <ul class="space-y-4">
-          <li><a href="#" class="hover:text-brandGold transition">Property Buying</a></li>
-          <li><a href="#" class="hover:text-brandGold transition">Property Selling</a></li>
-          <li><a href="#" class="hover:text-brandGold transition">Investment Guidance</a></li>
-          <li><a href="#" class="hover:text-brandGold transition">Commercial Properties</a></li>
-          <li><a href="#" class="hover:text-brandGold transition">Document Support</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h3 class="text-xl font-sansBrand mb-6 font-semibold">
-          Contact Us
-        </h3>
-
-        <ul class="space-y-5">
-          <li class="flex gap-3">
-            <i class="fa-solid fa-location-dot text-brandGold mt-1"></i>
+        <ul class="footer-contact-list">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
             <span>#15, 4th B Main Road, Nagarbhavi Main Road<br />Kalyan Nagar, Bangalore, Karnataka 560040<br />India</span>
           </li>
 
-          <li class="flex gap-3">
-            <i class="fa-solid fa-phone text-brandGold mt-1 shrink-0"></i>
+          <li>
+            <i class="fa-solid fa-phone"></i>
             <div class="flex flex-col gap-1">
               <a href="tel:+917996355033" class="hover:text-brandGold transition whitespace-nowrap">+91 79963 55033</a>
               <a href="tel:+917996355933" class="hover:text-brandGold transition whitespace-nowrap">+91 79963 55933</a>
             </div>
           </li>
 
-          <li class="flex gap-3">
-            <i class="fa-solid fa-envelope text-brandGold mt-1"></i>
-            <a href="mailto:info@grasprealtors.com" class="hover:text-brandGold transition">
-              info@grasprealtors.com
-            </a>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@grasprealtors.com" class="hover:text-brandGold transition">info@grasprealtors.com</a>
           </li>
         </ul>
 
-        <div class="footer-social flex gap-4 mt-6">
+        <div class="footer-social">
           <a href="https://www.instagram.com/grasprealtors/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center transition" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
@@ -4603,9 +4682,8 @@
 
     </div>
 
-    <div class="footer-divider border-t mt-12 pt-6 flex flex-col md:flex-row justify-between gap-4 footer-copy text-sm">
+    <div class="footer-divider border-t mt-12 pt-6 flex justify-center footer-copy text-sm text-center">
       <p>© 2026 GRASP Realtors. All Rights Reserved.</p>
-      <p>Designed for premium real estate experiences.</p>
     </div>
 
   </div>
@@ -4633,7 +4711,7 @@
   <!-- JAVASCRIPT -->
   <script>
     const navbar = document.getElementById("navbar");
-    const menuToggles = document.querySelectorAll("#menuToggle, #menuToggleDesktop");
+    const menuToggles = document.querySelectorAll("#menuToggle");
     const menuClose = document.getElementById("menuClose");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuPanel = document.getElementById("menuPanel");
@@ -5231,6 +5309,8 @@
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
+
+  <script src="./js/grasp-popup.js"></script>
 
 </body>
 </html>

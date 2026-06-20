@@ -50,9 +50,10 @@
     var items = hero.querySelectorAll("[data-hero-animate-item]");
     if (!items.length) return;
 
-    gsap.set(items, { y: 40, opacity: 0 });
-
+    var played = false;
     function run() {
+      if (played) return;
+      played = true;
       gsap.fromTo(
         items,
         { y: 40, opacity: 0 },
@@ -69,6 +70,7 @@
 
     if (document.body.classList.contains("is-loading")) {
       document.addEventListener("grasp:loader-hidden", run, { once: true });
+      setTimeout(run, 5500);
     } else {
       run();
     }

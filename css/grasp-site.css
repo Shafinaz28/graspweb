@@ -125,6 +125,32 @@ body.is-loading {
   transform: none;
 }
 
+/* Inner-page hero — white text on dark band */
+.about-hero {
+  color: #ffffff;
+}
+
+.about-hero h1 {
+  color: #ffffff !important;
+}
+
+.about-hero .breadcrumb,
+.about-hero .breadcrumb a,
+.about-hero .breadcrumb span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.about-hero .breadcrumb a:hover {
+  color: #cd7f2f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero [data-hero-animate-item] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-fallback {
     opacity: 1;
