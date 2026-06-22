@@ -1,7 +1,7 @@
 .grasp-popup-overlay {
   position: fixed;
   inset: 0;
-  z-index: 100000;
+  z-index: 2147483000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,8 +21,8 @@
 
 .grasp-popup-panel {
   width: min(100%, 440px);
-  max-height: min(92vh, 640px);
-  overflow: auto;
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 24px 60px rgba(36, 45, 99, 0.28);
@@ -49,6 +49,14 @@
   font-weight: 700;
   line-height: 1.2;
   color: #242d63;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grasp-popup-head h2 i {
+  color: #cd7f2f;
+  font-size: 1.1rem;
 }
 
 .grasp-popup-head p {
@@ -56,6 +64,15 @@
   font-size: 0.88rem;
   line-height: 1.5;
   color: #5b6478;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.grasp-popup-head p i {
+  color: #cd7f2f;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
 .grasp-popup-close {
@@ -89,13 +106,37 @@
   color: #242d63;
 }
 
+.grasp-form-field {
+  margin-bottom: 0.65rem;
+}
+
+.grasp-input-wrap {
+  position: relative;
+}
+
+.grasp-input-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #cd7f2f;
+  font-size: 0.88rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grasp-input-wrap--textarea .grasp-input-icon {
+  top: 0.85rem;
+  transform: none;
+}
+
 .grasp-popup-form input,
 .grasp-popup-form select,
 .grasp-popup-form textarea {
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 0.85rem;
-  padding: 0.72rem 0.85rem;
+  margin-bottom: 0;
+  padding: 0.72rem 0.85rem 0.72rem 2.45rem;
   border: 1px solid #dde2ef;
   border-radius: 10px;
   font-family: "DM Sans", system-ui, sans-serif;
@@ -114,8 +155,9 @@
 }
 
 .grasp-popup-form textarea {
-  min-height: 88px;
-  resize: vertical;
+  min-height: 72px;
+  max-height: 72px;
+  resize: none;
 }
 
 .grasp-popup-submit {
@@ -131,6 +173,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .grasp-popup-submit:hover:not(:disabled) {
@@ -148,6 +194,15 @@
   line-height: 1.45;
   text-align: center;
   color: #687189;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.grasp-popup-note i {
+  color: #cd7f2f;
+  flex-shrink: 0;
 }
 
 .grasp-popup-success {
@@ -186,5 +241,48 @@ body.grasp-popup-open {
   .grasp-popup-head,
   .grasp-popup-form {
     padding-inline: 1rem;
+  }
+}
+
+@media (max-height: 720px) {
+  .grasp-popup-head {
+    padding: 1rem 1.25rem 0.55rem;
+  }
+
+  .grasp-popup-head h2 {
+    font-size: 1.15rem;
+  }
+
+  .grasp-popup-head p {
+    font-size: 0.82rem;
+  }
+
+  .grasp-popup-form {
+    padding: 0.75rem 1.25rem 1rem;
+  }
+
+  .grasp-form-field {
+    margin-bottom: 0.5rem;
+  }
+
+  .grasp-popup-form input,
+  .grasp-popup-form select,
+  .grasp-popup-form textarea {
+    padding-top: 0.62rem;
+    padding-bottom: 0.62rem;
+  }
+
+  .grasp-popup-form textarea {
+    min-height: 60px;
+    max-height: 60px;
+  }
+
+  .grasp-popup-submit {
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+  }
+
+  .grasp-popup-note {
+    margin-top: 0.5rem;
   }
 }

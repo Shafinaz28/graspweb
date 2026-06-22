@@ -369,10 +369,34 @@
     .contact-form select {
       width: 100%;
       border: 1px solid #e5e8f2;
-      padding: 0.85rem 1rem;
+      padding: 0.85rem 1rem 0.85rem 2.55rem;
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
       outline: none;
+    }
+
+    .contact-form .form-field {
+      margin-bottom: 1rem;
+    }
+
+    .contact-form .form-input-wrap {
+      position: relative;
+    }
+
+    .contact-form .form-input-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #cd7f2f;
+      font-size: 0.9rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .contact-form .form-input-wrap--textarea .form-input-icon {
+      top: 0.9rem;
+      transform: none;
     }
 
     .contact-form input:focus,
@@ -821,38 +845,59 @@
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4">
-            <div>
+            <div class="form-field">
               <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <div class="form-input-wrap">
+                <i class="fa-solid fa-user form-input-icon" aria-hidden="true"></i>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
             </div>
 
-            <div>
+            <div class="form-field">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+91 " autocomplete="tel" required />
+              <div class="form-input-wrap">
+                <i class="fa-solid fa-phone form-input-icon" aria-hidden="true"></i>
+                <input type="tel" id="phone" name="phone" placeholder="+91 " autocomplete="tel" required />
+              </div>
             </div>
           </div>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+          <div class="form-field">
+            <label for="email">Email</label>
+            <div class="form-input-wrap">
+              <i class="fa-solid fa-envelope form-input-icon" aria-hidden="true"></i>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
 
-          <label for="interest">I am interested in</label>
-          <select id="interest" name="interest">
-            <option value="">Select an option</option>
-            <option value="Buying a property">Buying a property</option>
-            <option value="Renting a property">Renting a property</option>
-            <option value="Selling my property">Selling my property</option>
-            <option value="Investment advisory">Investment advisory</option>
-            <option value="Commercial property">Commercial property</option>
-          </select>
+          <div class="form-field">
+            <label for="interest">I am interested in</label>
+            <div class="form-input-wrap">
+              <i class="fa-solid fa-building form-input-icon" aria-hidden="true"></i>
+              <select id="interest" name="interest">
+                <option value="">Select an option</option>
+                <option value="Buying a property">Buying a property</option>
+                <option value="Renting a property">Renting a property</option>
+                <option value="Selling my property">Selling my property</option>
+                <option value="Investment advisory">Investment advisory</option>
+                <option value="Commercial property">Commercial property</option>
+              </select>
+            </div>
+          </div>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="3" placeholder="Tell us about your requirements..." required></textarea>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <div class="form-input-wrap form-input-wrap--textarea">
+              <i class="fa-solid fa-comment-dots form-input-icon" aria-hidden="true"></i>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us about your requirements..." required></textarea>
+            </div>
+          </div>
 
           <input type="hidden" id="sourceField" name="sourcePage" value="contact.html" />
 
           <div class="form-actions">
             <button type="submit" class="fusion-btn fusion-btn-primary w-full submit-btn" id="contactSubmitBtn">
-              <span class="btn-idle">Submit Message</span>
+              <span class="btn-idle"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Submit Message</span>
               <span class="btn-loading">
                 <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
                 Sending...
