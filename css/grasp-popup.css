@@ -1,288 +1,84 @@
+/* OVERLAY */
 .grasp-popup-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 2147483000;
-  display: flex;
-  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
-  padding: 1rem;
-  background: rgba(8, 12, 26, 0.62);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  align-items: center;
+  z-index: 9999;
 }
 
-.grasp-popup-overlay.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.grasp-popup-panel {
-  width: min(100%, 440px);
-  max-height: calc(100dvh - 2rem);
+/* POPUP BOX */
+.grasp-popup {
+  width: 90%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(36, 45, 99, 0.28);
-  transform: translateY(16px) scale(0.98);
-  transition: transform 0.3s ease;
+  animation: popupFade 0.4s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-.grasp-popup-overlay.is-open .grasp-popup-panel {
-  transform: translateY(0) scale(1);
-}
-
+/* HEADER */
 .grasp-popup-head {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.35rem 1.35rem 0.75rem;
-  border-bottom: 1px solid #eef1f8;
+  align-items: center;
+  padding: 15px 20px;
+  background: #e63946;
+  color: #fff;
 }
 
 .grasp-popup-head h2 {
   margin: 0;
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #242d63;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 18px;
 }
 
-.grasp-popup-head h2 i {
-  color: #cd7f2f;
-  font-size: 1.1rem;
-}
-
-.grasp-popup-head p {
-  margin: 0.35rem 0 0;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #5b6478;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-}
-
-.grasp-popup-head p i {
-  color: #cd7f2f;
-  margin-top: 0.15rem;
-  flex-shrink: 0;
-}
-
+/* CLOSE BUTTON */
 .grasp-popup-close {
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  background: none;
   border: none;
-  border-radius: 999px;
-  background: #f4f6fc;
-  color: #242d63;
-  font-size: 1.35rem;
-  line-height: 1;
+  font-size: 22px;
+  color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.grasp-popup-close:hover {
-  background: #242d63;
-  color: #ffffff;
-}
-
-.grasp-popup-form {
-  padding: 1.1rem 1.35rem 1.35rem;
-}
-
-.grasp-popup-form label {
-  display: block;
-  margin: 0 0 0.35rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #242d63;
-}
-
-.grasp-form-field {
-  margin-bottom: 0.65rem;
-}
-
-.grasp-input-wrap {
-  position: relative;
-}
-
-.grasp-input-icon {
-  position: absolute;
-  left: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #cd7f2f;
-  font-size: 0.88rem;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.grasp-input-wrap--textarea .grasp-input-icon {
-  top: 0.85rem;
-  transform: none;
-}
-
-.grasp-popup-form input,
-.grasp-popup-form select,
-.grasp-popup-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 0;
-  padding: 0.72rem 0.85rem 0.72rem 2.45rem;
-  border: 1px solid #dde2ef;
-  border-radius: 10px;
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 0.92rem;
-  color: #1f2937;
-  background: #ffffff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.grasp-popup-form input:focus,
-.grasp-popup-form select:focus,
-.grasp-popup-form textarea:focus {
-  outline: none;
-  border-color: #242d63;
-  box-shadow: 0 0 0 3px rgba(36, 45, 99, 0.12);
-}
-
-.grasp-popup-form textarea {
-  min-height: 72px;
-  max-height: 72px;
-  resize: none;
-}
-
-.grasp-popup-submit {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.85rem 1rem;
-  border: none;
-  border-radius: 999px;
-  background: #242d63;
-  color: #ffffff;
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.grasp-popup-submit:hover:not(:disabled) {
-  background: #cd7f2f;
-}
-
-.grasp-popup-submit:disabled {
-  opacity: 0.7;
-  cursor: wait;
-}
-
-.grasp-popup-note {
-  margin: 0.75rem 0 0;
-  font-size: 0.75rem;
-  line-height: 1.45;
-  text-align: center;
-  color: #687189;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-}
-
-.grasp-popup-note i {
-  color: #cd7f2f;
-  flex-shrink: 0;
-}
-
-.grasp-popup-success {
-  padding: 2rem 1.35rem;
+/* BODY */
+.grasp-popup-body {
+  padding: 20px;
   text-align: center;
 }
 
-.grasp-popup-success i {
-  font-size: 2.5rem;
-  color: #cd7f2f;
-  margin-bottom: 0.75rem;
+.grasp-popup-body p {
+  margin-bottom: 15px;
 }
 
-.grasp-popup-success h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-  color: #242d63;
+/* BUTTON */
+.grasp-open-btn {
+  padding: 12px 20px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.grasp-popup-success p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #5b6478;
-  line-height: 1.55;
+.grasp-open-btn:hover {
+  background: #c71f2d;
 }
 
-body.grasp-popup-open {
-  overflow: hidden;
-}
-
-@media (max-width: 480px) {
-  .grasp-popup-panel {
-    border-radius: 14px;
+/* ANIMATION */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
-
-  .grasp-popup-head,
-  .grasp-popup-form {
-    padding-inline: 1rem;
-  }
-}
-
-@media (max-height: 720px) {
-  .grasp-popup-head {
-    padding: 1rem 1.25rem 0.55rem;
-  }
-
-  .grasp-popup-head h2 {
-    font-size: 1.15rem;
-  }
-
-  .grasp-popup-head p {
-    font-size: 0.82rem;
-  }
-
-  .grasp-popup-form {
-    padding: 0.75rem 1.25rem 1rem;
-  }
-
-  .grasp-form-field {
-    margin-bottom: 0.5rem;
-  }
-
-  .grasp-popup-form input,
-  .grasp-popup-form select,
-  .grasp-popup-form textarea {
-    padding-top: 0.62rem;
-    padding-bottom: 0.62rem;
-  }
-
-  .grasp-popup-form textarea {
-    min-height: 60px;
-    max-height: 60px;
-  }
-
-  .grasp-popup-submit {
-    padding-top: 0.72rem;
-    padding-bottom: 0.72rem;
-  }
-
-  .grasp-popup-note {
-    margin-top: 0.5rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
